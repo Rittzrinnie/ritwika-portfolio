@@ -1,2 +1,15 @@
-# ritwika-portfolio
-# Ritwika Mondal Portfolio  Product/UX portfolio featuring automotive, enterprise, eCommerce, and AI automation work.  ## Featured Projects - Volkswagen R - Cadence Design Systems - EvoDrive - AI Incident Briefing Automation
+# Ritwika Mondal Portfolio
+
+Personal portfolio showcasing my work in Product Design, UX/UI, automotive experiences, and AI automation.
+
+## Portfolio
+This repository hosts my portfolio website.
+
+## Featured Work
+- Volkswagen R
+- Cadence Design Systems
+- EvoDrive
+- AI Incident Briefing Automation
+
+## Tech
+HTML · CSS · JavaScript
