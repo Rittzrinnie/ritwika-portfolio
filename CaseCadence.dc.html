@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script src="./support.js"></script>
+</head>
+<body>
+
+<div id="rm-boot" style="position:fixed;inset:0;z-index:2147483001;background:#F7F4EF;display:flex;align-items:center;justify-content:center"></div><script>(function(){var b=document.getElementById('rm-boot');var f=true;try{f=!sessionStorage.getItem('rm-nav');}catch(e){}var d=false;try{d=localStorage.getItem('rm-theme')==='dark';}catch(e){}if(f){b.style.background='#0E0D0C';b.innerHTML='<div style="width:132px;height:132px;border:2px solid #F2EEE7;transform:rotate(45deg);display:flex;align-items:center;justify-content:center"><span style="transform:rotate(-45deg);font:700 40px Space Grotesk,system-ui,sans-serif;color:#F2EEE7">RM</span></div>';}else if(d){b.style.background='#121110';}setTimeout(function(){if(b.parentNode)b.remove();},5000);})();</script>
+<x-dc>
+<helmet>
+<script src="theme.js"></script>
+<script src="lightbox.js"></script>
+<script src="thinking.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<style>/* cyrillic-ext */
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/2f52020a.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/2f467719.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/a1376a56.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/1f21c6ea.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/2f52020a.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/2f467719.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/a1376a56.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/1f21c6ea.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("fonts/2f52020a.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("fonts/2f467719.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("fonts/a1376a56.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("fonts/1f21c6ea.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("fonts/2f52020a.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("fonts/2f467719.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("fonts/a1376a56.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("fonts/1f21c6ea.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/9343de2c.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/4995a9a4.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/49c3da6c.woff2") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/d44eb193.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/9c38cb2d.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/2c32b9b3.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/9343de2c.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/4995a9a4.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/49c3da6c.woff2") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/d44eb193.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/9c38cb2d.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/2c32b9b3.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("fonts/9343de2c.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("fonts/4995a9a4.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("fonts/49c3da6c.woff2") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("fonts/d44eb193.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("fonts/9c38cb2d.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("fonts/2c32b9b3.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/d699664b.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/054c266f.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/a0d054c4.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/d699664b.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/054c266f.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/a0d054c4.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("fonts/d699664b.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("fonts/054c266f.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("fonts/a0d054c4.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("fonts/d699664b.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("fonts/054c266f.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("fonts/a0d054c4.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:#F7F4EF}
+::selection{background:#1A1814;color:#F7F4EF}
+html.reduce-motion *{animation:none!important}
+::-webkit-scrollbar{width:11px;height:11px}
+::-webkit-scrollbar-thumb{background:#DBD6CC;border:3px solid #F7F4EF;border-radius:10px}
+::-webkit-scrollbar-thumb:hover{background:#C9C3B6}
+
+@media (max-width:960px){[data-r~="navlinks"]{display:none!important}[data-r~="menubtn"]{display:flex!important}[data-r~="stackmd"]{grid-template-columns:minmax(0,1fr)!important;gap:24px!important}[data-r~="grid2"]{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+@media (max-width:640px){[data-r~="pad"]{padding-left:20px!important;padding-right:20px!important}[data-r~="padr"]{padding-right:20px!important}[data-r~="stack"]{grid-template-columns:minmax(0,1fr)!important;gap:20px!important}[data-r~="fitmin"]{grid-template-columns:minmax(0,1fr)!important}[data-clock]{display:none!important}h1,h2{overflow-wrap:break-word}}
+@media (pointer:coarse){[data-theme-toggle]{width:44px!important;height:44px!important}[data-rail-filter]{min-height:40px}[data-rail-btn]{width:44px!important;height:44px!important}}
+</style>
+</helmet>
+<div ref="{{ setRoot }}" style="background:#F7F4EF;color:#1A1814;font-family:'Hanken Grotesk',system-ui,sans-serif;--accent:#1F5FE0;min-height:100vh;overflow-x:hidden;position:relative">
+
+  <div data-progress="" style="position:fixed;top:0;left:0;height:2px;width:0%;background:var(--accent,#1F5FE0);z-index:1000;transition:width .08s linear"></div>
+
+  <nav style="position:sticky;top:0;z-index:900;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);background:rgba(247,244,239,.82);border-bottom:1px solid #DBD6CC">
+    <div data-r="pad" style="max-width:1100px;margin:0 auto;padding:13px 40px;display:flex;align-items:center;justify-content:space-between;gap:24px">
+      <a href="Portfolio.dc.html" style="flex:none;display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit">
+        <div style="width:34px;height:34px;border:1.5px solid #1A1814;display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk';font-weight:700;font-size:15px;letter-spacing:-.02em">RM</div>
+        <div style="display:flex;flex-direction:column;line-height:1.12">
+          <span style="font-family:'Space Grotesk';font-weight:600;font-size:14px;white-space:nowrap">Ritwika Mondal</span>
+          <span style="font-family:'JetBrains Mono';font-size:10px;color:#6B665C;letter-spacing:.05em;white-space:nowrap">CASE STUDY 05 / 06</span>
+        </div>
+      </a>
+      <div data-r="navlinks" style="display:flex;align-items:center;gap:16px;font-family:'JetBrains Mono';font-size:12px;letter-spacing:.04em">
+        <a href="CaseIncidentBriefing.dc.html" style="text-decoration:none;color:#1A1814;white-space:nowrap;transition:color .2s" style-hover="color:var(--accent,#1F5FE0)">01 · AI BRIEFING</a>
+        <a href="CaseVWR.dc.html" style="text-decoration:none;color:#1A1814;white-space:nowrap;transition:color .2s" style-hover="color:var(--accent,#1F5FE0)">02 · VW R</a>
+        <a href="CasePosterStudio.dc.html" style="text-decoration:none;color:#1A1814;white-space:nowrap;transition:color .2s" style-hover="color:var(--accent,#1F5FE0)">03 · POSTERS</a>
+        <a href="CaseWeb3.dc.html" style="text-decoration:none;color:#1A1814;white-space:nowrap;transition:color .2s" style-hover="color:var(--accent,#1F5FE0)">04 · SHOP</a>
+        <a href="CaseCadence.dc.html" style="text-decoration:none;color:var(--accent,#1F5FE0);white-space:nowrap">05 · CUBOIDS</a>
+        <a href="CaseEvoDrive.dc.html" style="text-decoration:none;color:#1A1814;white-space:nowrap;transition:color .2s" style-hover="color:var(--accent,#1F5FE0)">06 · EVO</a>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;flex:none"><button data-theme-toggle="" aria-label="Toggle dark mode" style="flex:none;width:32px;height:32px;border:1px solid #DBD6CC;border-radius:50%;background:transparent;color:#1A1814;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:14px;line-height:1;transition:border-color .2s" style-hover="border-color:#1A1814"><span data-theme-icon="">☾</span></button><a href="Portfolio.dc.html#work" style="flex:none;white-space:nowrap;display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:inherit;font-family:'JetBrains Mono';font-size:11px;border:1px solid #DBD6CC;padding:8px 13px;transition:border-color .2s" style-hover="border-color:#1A1814">← ALL WORK</a></div>
+    </div>
+  </nav>
+
+  <section data-r="pad" data-screen-label="Cuboids Header" style="max-width:1100px;margin:0 auto;padding:72px 40px 44px">
+    <div data-reveal="" style="font-family:'JetBrains Mono';font-size:12px;color:var(--accent,#1F5FE0);letter-spacing:.08em;display:flex;align-items:center;gap:10px;margin-bottom:24px">
+      <span style="width:24px;height:1px;background:var(--accent,#1F5FE0);display:inline-block"></span>CASE STUDY 05 · DESIGN SYSTEM · 0 → 1
+    </div>
+    <div data-r="stack" style="display:grid;grid-template-columns:1.5fr 1fr;gap:48px;align-items:end">
+      <div>
+        <h1 data-reveal="" style="font-family:'Space Grotesk';font-weight:600;font-size:clamp(38px,5.6vw,68px);line-height:1.0;letter-spacing:-.03em;max-width:900px;text-wrap:balance">Cuboids Design System</h1>
+        <p data-reveal="" style="margin-top:22px;font-size:18px;line-height:1.55;color:#46423A;max-width:600px">A single source of truth for building Cadence products and the company website with consistency, efficiency, and accessibility.</p>
+        <div data-reveal="" style="display:flex;flex-wrap:wrap;gap:8px;margin-top:26px">
+          <span style="font-family:'JetBrains Mono';font-size:10.5px;color:#6B665C;border:1px solid #DBD6CC;padding:7px 11px;border-radius:100px">DESIGN SYSTEM</span>
+          <span style="font-family:'JetBrains Mono';font-size:10.5px;color:#6B665C;border:1px solid #DBD6CC;padding:7px 11px;border-radius:100px">COMPONENT LIBRARY</span>
+          <span style="font-family:'JetBrains Mono';font-size:10.5px;color:#6B665C;border:1px solid #DBD6CC;padding:7px 11px;border-radius:100px">ACCESSIBILITY</span>
+          <span style="font-family:'JetBrains Mono';font-size:10.5px;color:#6B665C;border:1px solid #DBD6CC;padding:7px 11px;border-radius:100px">ENTERPRISE UX</span>
+        </div>
+      </div>
+      <div data-reveal="" style="border:1px solid #DBD6CC;background:#FBF9F5;padding:22px">
+        <div style="display:flex;flex-direction:column;gap:16px">
+          <div><div style="font-family:'JetBrains Mono';font-size:10px;color:#9A958A;letter-spacing:.06em;margin-bottom:4px">ROLE</div><div style="font-size:14px;font-weight:600;line-height:1.45">Product / UI Designer, Cuboids design system</div></div>
+          <div style="height:1px;background:#E4DFD5"></div>
+          <div><div style="font-family:'JetBrains Mono';font-size:10px;color:#9A958A;letter-spacing:.06em;margin-bottom:4px">TIMELINE</div><div style="font-size:14px;font-weight:600;line-height:1.45">2022 – 2023</div></div>
+          <div style="height:1px;background:#E4DFD5"></div>
+          <div><div style="font-family:'JetBrains Mono';font-size:10px;color:#9A958A;letter-spacing:.06em;margin-bottom:4px">LIVE PROJECT</div><a href="https://shop.cadence.com/Ecom/all-products" target="_blank" rel="noopener" style="font-size:14px;font-weight:600;color:var(--accent,#1F5FE0);text-decoration:none">shop.cadence.com ↗</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-r="pad" style="max-width:1100px;margin:0 auto;padding:0 40px 64px">
+    <figure data-reveal="" style="margin:0;position:relative;border:1px solid #DBD6CC;background:#ECE7DE;overflow:hidden;aspect-ratio:21/9">
+      <img src="assets/6f757304.png" alt="Cuboids design system and Cadence SaaS shop hero" loading="lazy" style="display:block;width:100%;height:100%;object-fit:cover">
+      <span style="position:absolute;top:14px;left:14px;font-family:'JetBrains Mono';font-size:10px;color:#46423A;background:rgba(247,244,239,.85);padding:3px 8px">CUBOIDS · CADENCE SAAS SHOP</span>
+    </figure>
+  </section>
+
+  <section data-r="pad" style="max-width:1100px;margin:0 auto;padding:0 40px 80px">
+    <div data-r="stack stackmd" style="display:grid;grid-template-columns:240px 1fr;gap:56px;align-items:start">
+      <div data-reveal="" style="position:sticky;top:96px;display:flex;flex-direction:column;gap:20px;border-top:1px solid #DBD6CC;padding-top:24px">
+        <div><div style="font-family:'JetBrains Mono';font-size:11px;color:#9A958A;letter-spacing:.06em;margin-bottom:6px">ROLE</div><div style="font-size:15px;font-weight:500">Product / UI Designer, Cuboids design system</div></div>
+        <div><div style="font-family:'JetBrains Mono';font-size:11px;color:#9A958A;letter-spacing:.06em;margin-bottom:6px">YEAR</div><div style="font-size:15px;font-weight:500">2022 – 2023</div></div>
+        <div><div style="font-family:'JetBrains Mono';font-size:11px;color:#9A958A;letter-spacing:.06em;margin-bottom:6px">TYPE</div><div style="font-size:15px;font-weight:500">Ecommerce solution · SaaS · Enterprise</div></div>
+        <div><div style="font-family:'JetBrains Mono';font-size:11px;color:#9A958A;letter-spacing:.06em;margin-bottom:6px">PROCESS</div><div style="font-size:15px;font-weight:500">Agile</div></div>
+        <div><div style="font-family:'JetBrains Mono';font-size:11px;color:#9A958A;letter-spacing:.06em;margin-bottom:6px">TOOLS</div><div style="font-size:15px;font-weight:500;line-height:1.5">Figma · Adobe AEM · Adobe Analytics + staging</div></div>
+        <div><div style="font-family:'JetBrains Mono';font-size:11px;color:#9A958A;letter-spacing:.06em;margin-bottom:6px">COLLABORATION</div><div style="font-size:15px;font-weight:500;line-height:1.5">ClickUp · Jira</div></div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:48px;border-top:1px solid #DBD6CC;padding-top:24px">
+        <div data-reveal="">
+          <div data-toc="Overview" style="font-family:'JetBrains Mono';font-size:11px;color:#9A958A;letter-spacing:.08em;margin-bottom:12px">OVERVIEW</div>
+          <p style="font-size:19px;line-height:1.55;color:#2C2A24;max-width:680px">A scalable, consistent, and accessible design system for the Elevate digital platform, enabling faster product development, consistent branding, and an improved user experience across web and mobile applications.</p>
+        </div>
+
+        <div data-reveal="">
+          <div data-toc="The Problem" style="font-family:'JetBrains Mono';font-size:11px;color:var(--accent,#1F5FE0);letter-spacing:.08em;margin-bottom:14px">THE PROBLEM</div>
+          <p style="font-family:'Space Grotesk';font-weight:500;font-size:clamp(20px,2.2vw,24px);line-height:1.35;letter-spacing:-.015em;color:#1A1814;max-width:720px;text-wrap:pretty;margin-bottom:18px">How might Elevate build and ship products faster, with consistent, accessible UI across web and mobile?</p>
+          <div style="font-family:'JetBrains Mono';font-size:10.5px;color:#6B665C;letter-spacing:.08em;margin-bottom:8px">CONTEXT</div>
+          <p style="font-size:15px;line-height:1.6;color:#56524A;max-width:680px;margin-bottom:18px">Before the design system, Elevate faced multiple challenges:</p>
+          <div style="display:flex;flex-direction:column;gap:0;border-top:1px solid #E4DFD5">
+            <div style="display:grid;grid-template-columns:34px 1fr;gap:14px;padding:16px 0;border-bottom:1px solid #E4DFD5"><span style="font-family:'JetBrains Mono';font-size:12px;color:var(--accent,#1F5FE0)">01</span><div><div style="font-weight:600;font-size:15.5px;margin-bottom:3px">Inconsistent UI components</div><div style="font-size:14px;color:#6B665C;line-height:1.5">Buttons, forms, and cards varied across pages and products.</div></div></div>
+            <div style="display:grid;grid-template-columns:34px 1fr;gap:14px;padding:16px 0;border-bottom:1px solid #E4DFD5"><span style="font-family:'JetBrains Mono';font-size:12px;color:var(--accent,#1F5FE0)">02</span><div><div style="font-weight:600;font-size:15.5px;margin-bottom:3px">Inefficient design-to-dev handoff</div><div style="font-size:14px;color:#6B665C;line-height:1.5">Developers spent time interpreting design files instead of building.</div></div></div>
+            <div style="display:grid;grid-template-columns:34px 1fr;gap:14px;padding:16px 0;border-bottom:1px solid #E4DFD5"><span style="font-family:'JetBrains Mono';font-size:12px;color:var(--accent,#1F5FE0)">03</span><div><div style="font-weight:600;font-size:15.5px;margin-bottom:3px">Accessibility gaps</div><div style="font-size:14px;color:#6B665C;line-height:1.5">Many components did not follow WCAG 2.1, creating barriers for users with disabilities.</div></div></div>
+            <div style="display:grid;grid-template-columns:34px 1fr;gap:14px;padding:16px 0;border-bottom:1px solid #E4DFD5"><span style="font-family:'JetBrains Mono';font-size:12px;color:var(--accent,#1F5FE0)">04</span><div><div style="font-weight:600;font-size:15.5px;margin-bottom:3px">Brand inconsistency</div><div style="font-size:14px;color:#6B665C;line-height:1.5">Visual identity was fragmented across the platform.</div></div></div>
+          </div>
+        </div>
+
+        <div data-reveal="">
+          <div data-toc="Impact" style="font-family:'JetBrains Mono';font-size:11px;color:var(--accent,#1F5FE0);letter-spacing:.08em;margin-bottom:16px">IMPACT</div>
+          <div data-r="stack" style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px">
+            <div style="border:1px solid #DBD6CC;padding:22px;background:#FBF9F5"><div style="font-family:'Space Grotesk';font-weight:600;font-size:40px;letter-spacing:-.03em;line-height:1"><span data-count="95" style="color:var(--accent,#1F5FE0)">0</span>%</div><div style="font-family:'JetBrains Mono';font-size:11px;color:#6B665C;margin-top:8px;line-height:1.5">UI consistency across products &amp; cadence.com</div></div>
+            <div style="border:1px solid #DBD6CC;padding:22px;background:#FBF9F5"><div style="font-family:'Space Grotesk';font-weight:600;font-size:40px;letter-spacing:-.03em;line-height:1">−<span data-count="50" style="color:var(--accent,#1F5FE0)">0</span>%</div><div style="font-family:'JetBrains Mono';font-size:11px;color:#6B665C;margin-top:8px;line-height:1.5">Repetitive design/dev effort via reusable parts</div></div>
+            <div style="border:1px solid #DBD6CC;padding:22px;background:#FBF9F5"><div style="font-family:'Space Grotesk';font-weight:600;font-size:40px;letter-spacing:-.03em;line-height:1"><span data-count="3" style="color:var(--accent,#1F5FE0)">0</span>×</div><div style="font-family:'JetBrains Mono';font-size:11px;color:#6B665C;margin-top:8px;line-height:1.5">Faster feature delivery, supporting quicker releases</div></div>
+            <div style="border:1px solid #DBD6CC;padding:22px;background:#FBF9F5"><div style="font-family:'Space Grotesk';font-weight:600;font-size:40px;letter-spacing:-.03em;line-height:1"><span data-count="4" style="color:var(--accent,#1F5FE0)">0</span>×</div><div style="font-family:'JetBrains Mono';font-size:11px;color:#6B665C;margin-top:8px;line-height:1.5">Cross-team collaboration &amp; handoff efficiency</div></div>
+            <div style="border:1px solid #DBD6CC;padding:22px;background:#FBF9F5"><div style="font-family:'Space Grotesk';font-weight:600;font-size:40px;letter-spacing:-.03em;line-height:1"><span data-count="15" style="color:var(--accent,#1F5FE0)">0</span>+</div><div style="font-family:'JetBrains Mono';font-size:11px;color:#6B665C;margin-top:8px;line-height:1.5">Core components used company-wide</div></div>
+            <div style="border:1px solid #DBD6CC;padding:22px;background:#1A1814;color:#F7F4EF;display:flex;flex-direction:column;justify-content:center"><div style="font-family:'Space Grotesk';font-weight:600;font-size:22px;letter-spacing:-.02em;line-height:1.1">Scalable &amp; evolving</div><div style="font-family:'JetBrains Mono';font-size:11px;color:#A8A294;margin-top:8px;line-height:1.5">A living system that keeps growing with Cadence</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="border-top:1px solid #DBD6CC;background:#FBF9F5">
+    <div data-r="pad stack" style="max-width:1100px;margin:0 auto;padding:80px 40px;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center">
+      <div data-reveal="">
+        <div data-toc="Objective" style="font-family:'JetBrains Mono';font-size:11px;color:var(--accent,#1F5FE0);letter-spacing:.08em;margin-bottom:14px">OBJECTIVE</div>
+        <h2 style="font-family:'Space Grotesk';font-weight:600;font-size:clamp(24px,3vw,34px);letter-spacing:-.02em;line-height:1.12;margin-bottom:18px;text-wrap:balance">Build a centralized, reusable design system aligned with the brand.</h2>
+        <p style="font-size:15px;line-height:1.6;color:#56524A;max-width:520px">One system that addresses fragmentation at the root, so every team builds from the same accessible, on-brand foundation.</p>
+      </div>
+      <figure data-reveal="" style="margin:0;position:relative;border:1px solid #DBD6CC;background:#ECE7DE;overflow:hidden;aspect-ratio:4/3">
+        <img src="assets/c4ebb271.png" alt="Cuboids component foundations" loading="lazy" style="display:block;width:100%;height:100%;object-fit:cover">
+        <span style="position:absolute;top:14px;left:14px;font-family:'JetBrains Mono';font-size:10px;color:#46423A;background:rgba(247,244,239,.85);padding:3px 8px">COMPONENT FOUNDATIONS</span>
+      </figure>
+    </div>
+  </section>
+
+  <section data-r="pad" style="max-width:1100px;margin:0 auto;padding:80px 40px 0">
+    <div data-r="stack stackmd" data-reveal="" style="display:grid;grid-template-columns:240px 1fr;gap:56px;align-items:start">
+      <div style="font-family:'JetBrains Mono';font-size:11px;color:#9A958A;letter-spacing:.08em;padding-top:6px">THE GOAL</div>
+      <div>
+        <p style="font-size:18px;line-height:1.55;color:#2C2A24;max-width:640px;margin-bottom:24px">Create and evolve an internal design system that:</p>
+        <div data-r="stack" style="display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:680px">
+          <div style="border:1px solid #DBD6CC;padding:20px;background:#FBF9F5"><div style="font-weight:600;font-size:15.5px;line-height:1.35">Ensures visual &amp; interaction consistency across products and websites.</div></div>
+          <div style="border:1px solid #DBD6CC;padding:20px;background:#FBF9F5"><div style="font-weight:600;font-size:15.5px;line-height:1.35">Improves design-to-development efficiency.</div></div>
+          <div style="border:1px solid #DBD6CC;padding:20px;background:#FBF9F5"><div style="font-weight:600;font-size:15.5px;line-height:1.35">Scales across teams, platforms, and use cases.</div></div>
+          <div style="border:1px solid #DBD6CC;padding:20px;background:#FBF9F5"><div style="font-weight:600;font-size:15.5px;line-height:1.35">Supports accessibility &amp; usability in complex enterprise workflows.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-r="pad" style="max-width:1100px;margin:0 auto;padding:64px 40px 0">
+    <div data-r="stack stackmd" data-reveal="" style="display:grid;grid-template-columns:240px 1fr;gap:56px;align-items:start">
+      <div style="font-family:'JetBrains Mono';font-size:11px;color:#9A958A;letter-spacing:.08em;padding-top:6px">MY ROLE</div>
+      <div style="display:flex;flex-direction:column;gap:0;border-top:1px solid #E4DFD5;max-width:680px">
+        <div style="display:grid;grid-template-columns:34px 1fr;gap:14px;padding:16px 0;border-bottom:1px solid #E4DFD5"><span style="font-family:'JetBrains Mono';font-size:12px;color:#9A958A">01</span><div style="font-size:15.5px;color:#2C2A24;line-height:1.5">Designed and refined UI components within <strong>Cuboids</strong>.</div></div>
+        <div style="display:grid;grid-template-columns:34px 1fr;gap:14px;padding:16px 0;border-bottom:1px solid #E4DFD5"><span style="font-family:'JetBrains Mono';font-size:12px;color:#9A958A">02</span><div style="font-size:15.5px;color:#2C2A24;line-height:1.5">Defined component behaviors, responsive states, and usage guidelines.</div></div>
+        <div style="display:grid;grid-template-columns:34px 1fr;gap:14px;padding:16px 0;border-bottom:1px solid #E4DFD5"><span style="font-family:'JetBrains Mono';font-size:12px;color:#9A958A">03</span><div style="font-size:15.5px;color:#2C2A24;line-height:1.5">Collaborated with developers to align design specs with implementation.</div></div>
+        <div style="display:grid;grid-template-columns:34px 1fr;gap:14px;padding:16px 0;border-bottom:1px solid #E4DFD5"><span style="font-family:'JetBrains Mono';font-size:12px;color:#9A958A">04</span><div style="font-size:15.5px;color:#2C2A24;line-height:1.5">Drove adoption of the design system across product teams.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section data-r="pad" style="max-width:1100px;margin:0 auto;padding:80px 40px 0">
+    <h2 data-toc="Process" data-reveal="" style="font-family:'Space Grotesk';font-weight:600;font-size:clamp(26px,3.4vw,40px);letter-spacing:-.025em;margin-bottom:8px">Process</h2>
+    <p data-reveal="" style="font-family:'JetBrains Mono';font-size:12px;color:#9A958A;letter-spacing:.04em;margin-bottom:40px">AUDIT → COMPONENT DESIGN → RESEARCH → DOCUMENTATION → ACCESSIBILITY</p>
+
+    <div data-r="stack stackmd" data-reveal="" style="border-top:1px solid #DBD6CC;padding-top:28px;margin-bottom:48px;display:grid;grid-template-columns:240px 1fr;gap:56px;align-items:start">
+      <div><div style="font-family:'JetBrains Mono';font-size:12px;color:var(--accent,#1F5FE0)">01</div><div style="font-family:'Space Grotesk';font-weight:600;font-size:20px;margin-top:6px;letter-spacing:-.01em">UI Audit &amp; Analysis</div></div>
+      <div style="max-width:680px">
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;color:#46423A;font-size:15.5px;line-height:1.55">
+          <li style="display:flex;gap:12px"><span style="color:var(--accent,#1F5FE0)">→</span>Reviewed existing product and website interfaces.</li>
+          <li style="display:flex;gap:12px"><span style="color:var(--accent,#1F5FE0)">→</span>Identified inconsistencies across buttons, inputs, tables, and navigation.</li>
+          <li style="display:flex;gap:12px"><span style="color:var(--accent,#1F5FE0)">→</span>Mapped commonly used patterns that needed standardization.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div data-r="stack stackmd" data-reveal="" style="border-top:1px solid #DBD6CC;padding-top:28px;margin-bottom:48px;display:grid;grid-template-columns:240px 1fr;gap:56px;align-items:start">
+      <div><div style="font-family:'JetBrains Mono';font-size:12px;color:var(--accent,#1F5FE0)">02</div><div style="font-family:'Space Grotesk';font-weight:600;font-size:20px;margin-top:6px;letter-spacing:-.01em">Component Design</div></div>
+      <div style="max-width:680px">
+        <p style="font-size:15.5px;line-height:1.6;color:#46423A;margin-bottom:18px">Designed reusable, flexible components that adapt across products: buttons, inputs, dropdowns and form elements; data-heavy layouts; navigation and layout components; and feedback states (loading, error, empty).</p>
+        <div style="font-family:'JetBrains Mono';font-size:11px;color:#9A958A;letter-spacing:.06em;margin-bottom:12px">EACH COMPONENT INCLUDED</div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <span style="font-family:'JetBrains Mono';font-size:11.5px;color:#56524A;border:1px solid #DBD6CC;padding:7px 12px;background:#FBF9F5">Default · Hover · Active · Disabled</span>
+          <span style="font-family:'JetBrains Mono';font-size:11.5px;color:#56524A;border:1px solid #DBD6CC;padding:7px 12px;background:#FBF9F5">Responsive behavior</span>
+          <span style="font-family:'JetBrains Mono';font-size:11.5px;color:#56524A;border:1px solid #DBD6CC;padding:7px 12px;background:#FBF9F5">Accessibility built-in</span>
+        </div>
+      </div>
+    </div>
+
+    <div data-r="stack stackmd" data-reveal="" style="border-top:1px solid #DBD6CC;padding-top:28px;margin-bottom:48px;display:grid;grid-template-columns:240px 1fr;gap:56px;align-items:start">
+      <div><div style="font-family:'JetBrains Mono';font-size:12px;color:var(--accent,#1F5FE0)">03</div><div style="font-family:'Space Grotesk';font-weight:600;font-size:20px;margin-top:6px;letter-spacing:-.01em">Research &amp; Discovery</div></div>
+      <div style="max-width:680px">
+        <p style="font-size:17px;line-height:1.55;color:#2C2A24;font-weight:500;margin-bottom:22px">How might we let users discover, understand, and trial Cadence products in a way that is fast, intuitive, and reliable, without oversimplifying the technical detail?</p>
+        <figure style="margin:0;position:relative;border:1px solid #DBD6CC;background:#ECE7DE;overflow:hidden">
+          <img src="assets/0e51c63d.png" alt="Research and discovery flows" loading="lazy" style="display:block;width:100%;height:auto">
+          <span style="position:absolute;top:14px;left:14px;font-family:'JetBrains Mono';font-size:10px;color:#46423A;background:rgba(247,244,239,.85);padding:3px 8px">DISCOVERY FLOWS</span>
+        </figure>
+      </div>
+    </div>
+
+    <div data-r="stack stackmd" data-reveal="" style="border-top:1px solid #DBD6CC;padding-top:28px;margin-bottom:48px;display:grid;grid-template-columns:240px 1fr;gap:56px;align-items:start">
+      <div><div style="font-family:'JetBrains Mono';font-size:12px;color:var(--accent,#1F5FE0)">04</div><div style="font-family:'Space Grotesk';font-weight:600;font-size:20px;margin-top:6px;letter-spacing:-.01em">Documentation</div></div>
+      <div style="max-width:680px">
+        <p style="font-size:15.5px;line-height:1.6;color:#46423A;margin-bottom:18px">Cuboids was documented as a shared system for designers and developers, reducing ambiguity and improving adoption across teams.</p>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;color:#46423A;font-size:15.5px;line-height:1.55">
+          <li style="display:flex;gap:12px"><span style="color:var(--accent,#1F5FE0)">→</span>Component usage guidelines.</li>
+          <li style="display:flex;gap:12px"><span style="color:var(--accent,#1F5FE0)">→</span>Do's, don'ts, and interaction rules.</li>
+          <li style="display:flex;gap:12px"><span style="color:var(--accent,#1F5FE0)">→</span>Accessibility notes embedded per component.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div data-r="stack stackmd" data-reveal="" style="border-top:1px solid #DBD6CC;padding-top:28px;display:grid;grid-template-columns:240px 1fr;gap:56px;align-items:start">
+      <div><div style="font-family:'JetBrains Mono';font-size:12px;color:var(--accent,#1F5FE0)">05</div><div style="font-family:'Space Grotesk';font-weight:600;font-size:20px;margin-top:6px;letter-spacing:-.01em">Accessibility</div></div>
+      <div style="max-width:680px">
+        <p style="font-size:15.5px;line-height:1.6;color:#46423A;margin-bottom:18px">Accessibility was integrated at the component level rather than treated as an afterthought. Core components shipped with sufficient color contrast, clear focus states, and predictable keyboard interactions, establishing a consistent baseline that every new feature inherits automatically.</p>
+        <figure style="margin:0;position:relative;border:1px solid #DBD6CC;background:#ECE7DE;overflow:hidden;aspect-ratio:4/3">
+          <img src="assets/c250a90d.png" alt="Accessible component states" loading="lazy" style="display:block;width:100%;height:100%;object-fit:cover">
+          <span style="position:absolute;top:14px;left:14px;font-family:'JetBrains Mono';font-size:10px;color:#46423A;background:rgba(247,244,239,.85);padding:3px 8px">ACCESSIBLE STATES</span>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section style="border-top:1px solid #DBD6CC;background:#FBF9F5;margin-top:80px">
+    <div data-r="pad" style="max-width:1100px;margin:0 auto;padding:80px 40px">
+      <div data-reveal="" style="font-family:'JetBrains Mono';font-size:11px;color:var(--accent,#1F5FE0);letter-spacing:.08em;margin-bottom:24px">KEY LEARNINGS</div>
+      <div data-r="stack" style="display:grid;grid-template-columns:repeat(2,1fr);gap:16px;max-width:900px">
+        <div data-reveal="" style="display:grid;grid-template-columns:34px 1fr;gap:14px;padding:22px;border:1px solid #DBD6CC;background:#F7F4EF"><span style="font-family:'Space Grotesk';font-weight:600;font-size:22px;color:var(--accent,#1F5FE0);line-height:1">01</span><div style="font-size:15.5px;color:#2C2A24;line-height:1.5">Enterprise design systems must balance flexibility and control.</div></div>
+        <div data-reveal="" style="display:grid;grid-template-columns:34px 1fr;gap:14px;padding:22px;border:1px solid #DBD6CC;background:#F7F4EF"><span style="font-family:'Space Grotesk';font-weight:600;font-size:22px;color:var(--accent,#1F5FE0);line-height:1">02</span><div style="font-size:15.5px;color:#2C2A24;line-height:1.5">Early, continuous developer collaboration is critical.</div></div>
+        <div data-reveal="" style="display:grid;grid-template-columns:34px 1fr;gap:14px;padding:22px;border:1px solid #DBD6CC;background:#F7F4EF"><span style="font-family:'Space Grotesk';font-weight:600;font-size:22px;color:var(--accent,#1F5FE0);line-height:1">03</span><div style="font-size:15.5px;color:#2C2A24;line-height:1.5">Clear documentation matters as much as well-designed components.</div></div>
+        <div data-reveal="" style="display:grid;grid-template-columns:34px 1fr;gap:14px;padding:22px;border:1px solid #DBD6CC;background:#F7F4EF"><span style="font-family:'Space Grotesk';font-weight:600;font-size:22px;color:var(--accent,#1F5FE0);line-height:1">04</span><div style="font-size:15.5px;color:#2C2A24;line-height:1.5">Small, well-defined components scale better than overly complex ones.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section data-r="pad" style="max-width:1100px;margin:0 auto;padding:80px 40px">
+    <div data-r="stack stackmd" data-reveal="" style="display:grid;grid-template-columns:240px 1fr;gap:56px;align-items:start">
+      <div style="font-family:'JetBrains Mono';font-size:11px;color:#9A958A;letter-spacing:.08em;padding-top:6px">CONCLUSION</div>
+      <div style="max-width:680px">
+        <p style="font-size:19px;line-height:1.55;color:#2C2A24;margin-bottom:28px;text-wrap:pretty">Cuboids is the foundation for Cadence's digital experiences, enabling teams to design and build complex products faster while maintaining consistency and quality. The system keeps evolving as Cadence grows, supporting both product innovation and brand coherence.</p>
+        <div style="font-family:'JetBrains Mono';font-size:11px;color:#9A958A;letter-spacing:.06em;margin-bottom:12px">KEYWORDS</div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <span style="font-family:'JetBrains Mono';font-size:11px;color:#56524A;border:1px solid #DBD6CC;padding:7px 12px;border-radius:100px">Design System</span>
+          <span style="font-family:'JetBrains Mono';font-size:11px;color:#56524A;border:1px solid #DBD6CC;padding:7px 12px;border-radius:100px">Enterprise UX</span>
+          <span style="font-family:'JetBrains Mono';font-size:11px;color:#56524A;border:1px solid #DBD6CC;padding:7px 12px;border-radius:100px">Internal Tools</span>
+          <span style="font-family:'JetBrains Mono';font-size:11px;color:#56524A;border:1px solid #DBD6CC;padding:7px 12px;border-radius:100px">Component Library</span>
+          <span style="font-family:'JetBrains Mono';font-size:11px;color:#56524A;border:1px solid #DBD6CC;padding:7px 12px;border-radius:100px">Cross-team Collaboration</span>
+          <span style="font-family:'JetBrains Mono';font-size:11px;color:#56524A;border:1px solid #DBD6CC;padding:7px 12px;border-radius:100px">Accessibility</span>
+          <span style="font-family:'JetBrains Mono';font-size:11px;color:#56524A;border:1px solid #DBD6CC;padding:7px 12px;border-radius:100px">Scalable UI</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="border-top:1px solid #DBD6CC;background:#FBF9F5">
+    <div data-r="pad stack" style="max-width:1100px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:1fr 1fr">
+      <div style="padding:34px 0;font-family:'JetBrains Mono';font-size:12px;color:#9A958A">PREV<div style="margin-top:6px"><a href="CaseWeb3.dc.html" style="font-family:'Space Grotesk';font-weight:600;font-size:20px;color:#1A1814;text-decoration:none">← Cadence Shop</a></div></div>
+      <div style="padding:34px 0;text-align:right;font-family:'JetBrains Mono';font-size:12px;color:#9A958A;border-left:1px solid #DBD6CC;padding-left:34px">NEXT<div style="margin-top:6px"><a href="CaseEvoDrive.dc.html" style="font-family:'Space Grotesk';font-weight:600;font-size:20px;color:#1A1814;text-decoration:none">Evo Drive →</a></div></div>
+    </div>
+  </section>
+
+  <section data-screen-label="Cuboids CTA" style="background:#1A1814;color:#F7F4EF">
+    <div data-r="pad" style="max-width:1100px;margin:0 auto;padding:80px 40px 52px">
+      <div data-reveal="" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:30px">
+        <h2 style="font-family:'Space Grotesk';font-weight:600;font-size:clamp(26px,4vw,44px);letter-spacing:-.02em;line-height:1.05;max-width:560px;text-wrap:balance">Want the full walkthrough? Let's talk.</h2>
+        <div style="display:flex;flex-wrap:wrap;gap:14px">
+          <a href="Portfolio.dc.html#contact" style="text-decoration:none;background:#F7F4EF;color:#1A1814;font-family:'JetBrains Mono';font-size:13px;padding:15px 22px;transition:transform .25s,background .25s" style-hover="transform:translateY(-2px);background:var(--accent,#1F5FE0)">GET IN TOUCH ↗</a>
+          <a href="Portfolio.dc.html#work" style="text-decoration:none;color:#F7F4EF;font-family:'JetBrains Mono';font-size:13px;border:1px solid #44403A;padding:15px 22px;transition:border-color .25s" style-hover="border-color:#F7F4EF">← ALL WORK</a>
+        </div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px;margin-top:56px;padding-top:26px;border-top:1px solid #36322B">
+        <div style="display:flex;align-items:center;gap:12px">
+          <div style="width:30px;height:30px;border:1.5px solid #F7F4EF;display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk';font-weight:700;font-size:13px">RM</div>
+          <span style="font-family:'JetBrains Mono';font-size:11px;color:#8A857B">© 2026 RITWIKA MONDAL · CASE STUDY 05</span>
+        </div>
+        <span style="font-family:'JetBrains Mono';font-size:11px;color:#8A857B">Overview → problem → process → impact</span>
+      </div>
+    </div>
+  </section>
+
+  <dc-import name="Birdie" page="cadence" hint-size="0px,0px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script="" data-props="{&quot;$preview&quot;:{&quot;width&quot;:1200,&quot;height&quot;:900},&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#1F5FE0&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#1F5FE0&quot;,&quot;#0E0E0E&quot;,&quot;#C2410C&quot;,&quot;#3F7A34&quot;]},&quot;reduceMotion&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  initSideNav(){
+    var self=this, root=this._root||document;
+    var targets=Array.prototype.slice.call(root.querySelectorAll('[data-toc]'));
+    if(!targets.length||document.getElementById('side-ctx-nav')) return;
+    var nav=document.createElement('nav'); nav.id='side-ctx-nav';
+    nav.style.cssText='position:fixed;left:24px;top:50%;transform:translateY(-50%);z-index:40;display:flex;flex-direction:column;gap:4px;font-family:JetBrains Mono,monospace;font-size:10px;letter-spacing:.08em;opacity:0;transition:opacity .4s;pointer-events:none';
+    var items=targets.map(function(t,i){
+      var a=document.createElement('a'); a.href='#';
+      a.style.cssText='display:flex;align-items:center;gap:10px;padding:5px 0;color:#9A958A;text-decoration:none;transition:color .25s';
+      var tick=document.createElement('span'); tick.style.cssText='display:block;width:12px;height:1.5px;background:currentColor;transition:width .3s';
+      var lab=document.createElement('span'); lab.textContent=String(i+1).padStart(2,'0')+'  '+t.getAttribute('data-toc'); lab.style.cssText='white-space:nowrap;transition:opacity .25s';
+      a.appendChild(tick); a.appendChild(lab);
+      a.addEventListener('click',function(e){ e.preventDefault(); window.scrollTo({top:t.getBoundingClientRect().top+window.scrollY-96,behavior:'smooth'}); });
+      a.addEventListener('mouseenter',function(){ if(!self._wide) lab.style.opacity='1'; });
+      a.addEventListener('mouseleave',function(){ if(!self._wide) lab.style.opacity='0'; });
+      nav.appendChild(a); return {a:a,tick:tick,lab:lab,t:t};
+    });
+    document.body.appendChild(nav);
+    var update=function(){
+      self._wide=window.innerWidth>=1440;
+      var first=targets[0].getBoundingClientRect().top, show=first<window.innerHeight*0.8 && window.innerWidth>=900;
+      var cta=root.querySelector('[data-screen-label$="CTA"]'); if(cta&&cta.getBoundingClientRect().top<window.innerHeight*0.5) show=false;
+      nav.style.opacity=show?'1':'0'; nav.style.pointerEvents=show?'auto':'none';
+      var active=0; items.forEach(function(it,i){ if(it.t.getBoundingClientRect().top<window.innerHeight*0.4) active=i; });
+      var acc=getComputedStyle(root.style?root:document.documentElement).getPropertyValue('--accent')||'#1F5FE0';
+      items.forEach(function(it,i){ var on=i===active; it.a.style.color=on?acc:'#9A958A'; it.tick.style.width=on?'28px':'12px'; it.lab.style.opacity=(self._wide||on)?'1':'0'; it.lab.style.background=self._wide?'transparent':'rgba(247,244,239,.92)'; });
+    };
+    window.addEventListener('scroll',update,{passive:true}); window.addEventListener('resize',update); update();
+    this._navCleanup=function(){ window.removeEventListener('scroll',update); window.removeEventListener('resize',update); nav.remove(); };
+  }
+  componentWillUnmount(){ if(this._navCleanup) this._navCleanup(); }
+  componentDidMount(){ this.applyAccent(); this.applyMotion(); this.initReveal(); this.initCounters(); this.initProgress(); this.initSideNav(); }
+  componentDidUpdate(){ this.applyAccent(); this.applyMotion(); }
+  q(sel){ var r = this._root || document; return Array.prototype.slice.call(r.querySelectorAll(sel)); }
+  applyAccent(){ var a = this.props.accent || '#1F5FE0'; if(this._root && this._root.style){ this._root.style.setProperty('--accent', a); } }
+  applyMotion(){ document.documentElement.classList.toggle('reduce-motion', !!this.props.reduceMotion); }
+  initReveal(){
+    var els = this.q('[data-reveal]');
+    if(this.props.reduceMotion){ return; }
+    els.forEach(function(el){ el.style.opacity='0'; el.style.transform='translateY(26px)'; el.style.transition='opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1)'; });
+    var reveal = function(el){ el.style.opacity='1'; el.style.transform='none'; };
+    if(!('IntersectionObserver' in window)){ els.forEach(reveal); return; }
+    var io = new IntersectionObserver(function(entries){ entries.forEach(function(e){ if(e.isIntersecting){ reveal(e.target); io.unobserve(e.target); } }); }, { threshold: 0.1, rootMargin: '0px 0px -6% 0px' });
+    els.forEach(function(el){ io.observe(el); });
+    setTimeout(function(){ els.forEach(function(el){ el.style.transition='none'; el.style.opacity='1'; el.style.transform='none'; }); }, 1200);
+  }
+  initCounters(){
+    var self = this;
+    var els = this.q('[data-count]');
+    if(!('IntersectionObserver' in window)){ els.forEach(function(el){ self.animateCount(el); }); return; }
+    var io = new IntersectionObserver(function(entries){ entries.forEach(function(e){ if(e.isIntersecting){ self.animateCount(e.target); io.unobserve(e.target); } }); }, { threshold: 0.5 });
+    els.forEach(function(el){ io.observe(el); });
+    setTimeout(function(){ els.forEach(function(el){ if(el.textContent==='0') self.animateCount(el); }); }, 1300);
+  }
+  animateCount(el){
+    var target = parseFloat(el.getAttribute('data-count')) || 0;
+    if(this.props.reduceMotion){ el.textContent = String(target); return; }
+    var dur = 1000, start = performance.now();
+    function tick(now){ var p = Math.min((now - start) / dur, 1); var ease = 1 - Math.pow(1 - p, 3); el.textContent = String(Math.round(target * ease)); if(p < 1){ requestAnimationFrame(tick); } }
+    requestAnimationFrame(tick);
+  }
+  initProgress(){
+    var bar = this.q('[data-progress]')[0];
+    if(!bar) return;
+    function upd(){ var h = document.documentElement.scrollHeight - window.innerHeight; bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%'; }
+    window.addEventListener('scroll', upd, { passive: true });
+    window.addEventListener('resize', upd);
+    upd();
+  }
+  renderVals(){ var self = this; return { setRoot: function(el){ if(el) self._root = el; } }; }
+}
+</script>
+
+
+</body></html>
