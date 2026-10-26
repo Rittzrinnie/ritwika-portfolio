@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<style>/* cyrillic-ext */
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/2f52020a.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/2f467719.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/a1376a56.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/1f21c6ea.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/2f52020a.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/2f467719.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/a1376a56.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/1f21c6ea.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("fonts/2f52020a.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("fonts/2f467719.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("fonts/a1376a56.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("fonts/1f21c6ea.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("fonts/2f52020a.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("fonts/2f467719.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("fonts/a1376a56.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("fonts/1f21c6ea.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/9343de2c.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/4995a9a4.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/49c3da6c.woff2") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/d44eb193.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/9c38cb2d.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/2c32b9b3.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/9343de2c.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/4995a9a4.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/49c3da6c.woff2") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/d44eb193.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/9c38cb2d.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/2c32b9b3.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("fonts/9343de2c.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("fonts/4995a9a4.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("fonts/49c3da6c.woff2") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("fonts/d44eb193.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("fonts/9c38cb2d.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("fonts/2c32b9b3.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/d699664b.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/054c266f.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/a0d054c4.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/d699664b.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/054c266f.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/a0d054c4.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("fonts/d699664b.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("fonts/054c266f.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("fonts/a0d054c4.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("fonts/d699664b.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("fonts/054c266f.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("fonts/a0d054c4.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#121110}
+a{color:#1F5FE0;text-decoration:none}
+a:hover{color:#1A1814}
+</style>
+<script src="image-slot.js"></script>
+<script src="assets/61afa69b.js"></script>
+</helmet>
+<x-import component-from-global-scope="deck-stage" from="deck-stage.js" width="1920" height="1080" hint-size="100%,100%">
+
+<section data-label="Title" data-screen-label="01 Title" data-speaker-notes="Open: this deck covers how I plan, coordinate and deliver projects. Every example comes from a real role." style="background:#1A1814;color:#F7F4EF;font-family:'Hanken Grotesk',sans-serif;padding:110px 140px;display:flex;flex-direction:column;justify-content:space-between">
+  <div style="display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono';font-size:24px;letter-spacing:.06em;color:#A8A294">
+    <div style="display:flex;align-items:center;gap:20px"><div style="width:64px;height:64px;border:2px solid #F7F4EF;display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk';font-weight:700;font-size:28px;color:#F7F4EF">RM</div>RITWIKA MONDAL</div>
+    <a href="Portfolio.dc.html" style="color:#F7F4EF;border:1px solid #4A463F;padding:14px 22px">← BACK TO PORTFOLIO</a>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:40px">
+    <div style="font-family:'JetBrains Mono';font-size:26px;letter-spacing:.1em;color:#F0A21C">PROJECT COORDINATION · 2026</div>
+    <h1 style="font-family:'Space Grotesk';font-weight:600;font-size:150px;line-height:.98;letter-spacing:-.035em;max-width:1500px;text-wrap:balance">From kickoff to release, kept on track.</h1>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px;border-top:1px solid #3A3731;padding-top:40px;font-size:28px;line-height:1.4;color:#D9D4C9">
+    <div><div style="font-family:'JetBrains Mono';font-size:22px;color:#A8A294;margin-bottom:10px">ROLE</div>Project Coordination · Facility &amp; Operations</div>
+    <div><div style="font-family:'JetBrains Mono';font-size:22px;color:#A8A294;margin-bottom:10px">EXPERIENCE</div>3+ years · automotive, SaaS, Web3</div>
+    <div><div style="font-family:'JetBrains Mono';font-size:22px;color:#A8A294;margin-bottom:10px">BASED IN</div>Berlin, Germany</div>
+  </div>
+</section>
+
+<section data-label="Role match" data-screen-label="02 Role match" data-speaker-notes="Every line on the left comes from the job description. The right column is what I have already done, with the slide that shows it." style="background:#F7F4EF;color:#1A1814;font-family:'Hanken Grotesk',sans-serif;padding:90px 140px 80px;display:flex;flex-direction:column;gap:40px">
+  <div style="display:flex;flex-direction:column;gap:20px"><div style="font-family:'JetBrains Mono';font-size:24px;letter-spacing:.08em;color:#6B665C">02 · ROLE MATCH</div><h2 style="font-family:'Space Grotesk';font-weight:600;font-size:72px;line-height:1.05;letter-spacing:-.025em">What the role asks for, and where I've done it.</h2></div>
+  <div style="flex:1;display:flex;flex-direction:column;border-top:2px solid #1A1814">
+    <div style="display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.5fr) 130px;gap:40px;padding:16px 0;border-bottom:1px solid #DBD6CC;font-family:'JetBrains Mono';font-size:20px;letter-spacing:.08em;color:#6B665C"><span>THE ROLE ASKS FOR</span><span>WHAT I'VE DONE</span><span style="text-align:right">SLIDE</span></div>
+    <div style="flex:1;display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.5fr) 130px;gap:40px;align-items:center;border-bottom:1px solid #DBD6CC"><span style="font-family:'Space Grotesk';font-weight:600;font-size:28px;line-height:1.2">Track timelines, risks and deliverables</span><span style="font-size:25px;line-height:1.35;color:#4A463F;text-wrap:pretty">Broke Cadence Shop work into milestones, epics and stories in Jira. Staging bugs went back to build before release.</span><span style="font-family:'JetBrains Mono';font-size:22px;color:#A86A00;text-align:right">05</span></div>
+    <div style="flex:1;display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.5fr) 130px;gap:40px;align-items:center;border-bottom:1px solid #DBD6CC"><span style="font-family:'Space Grotesk';font-weight:600;font-size:28px;line-height:1.2">Coordinate across teams</span><span style="font-size:25px;line-height:1.35;color:#4A463F;text-wrap:pretty">Aligned design, engineering, product and business at Cadence. Presented to VW R stakeholders and the product owner.</span><span style="font-family:'JetBrains Mono';font-size:22px;color:#A86A00;text-align:right">08 · 09</span></div>
+    <div style="flex:1;display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.5fr) 130px;gap:40px;align-items:center;border-bottom:1px solid #DBD6CC"><span style="font-family:'Space Grotesk';font-weight:600;font-size:28px;line-height:1.2">Meetings, agendas and documentation</span><span style="font-size:25px;line-height:1.35;color:#4A463F;text-wrap:pretty">Led client meetings at House of Web3. Owned product documentation and UX writing at Cadence.</span><span style="font-family:'JetBrains Mono';font-size:22px;color:#A86A00;text-align:right">06 · 09</span></div>
+    <div style="flex:1;display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.5fr) 130px;gap:40px;align-items:center;border-bottom:1px solid #DBD6CC"><span style="font-family:'Space Grotesk';font-weight:600;font-size:28px;line-height:1.2">Use AI tools to improve workflows</span><span style="font-size:25px;line-height:1.35;color:#4A463F;text-wrap:pretty">Built a local n8n + Ollama workflow that turns Excel incident records into a briefing.</span><span style="font-family:'JetBrains Mono';font-size:22px;color:#A86A00;text-align:right">07</span></div>
+    <div style="flex:1;display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.5fr) 130px;gap:40px;align-items:center;border-bottom:1px solid #DBD6CC"><span style="font-family:'Space Grotesk';font-weight:600;font-size:28px;line-height:1.2">Research and data for leadership briefs</span><span style="font-size:25px;line-height:1.35;color:#4A463F;text-wrap:pretty">Baymard audits, heat maps and A/B tests at Cadence. Thesis research with 20 participants.</span><span style="font-family:'JetBrains Mono';font-size:22px;color:#A86A00;text-align:right">07 · 08</span></div>
+    <div style="flex:1;display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.5fr) 130px;gap:40px;align-items:center;border-bottom:1px solid #DBD6CC"><span style="font-family:'Space Grotesk';font-weight:600;font-size:28px;line-height:1.2">Agile, Scrum, Jira and roadmaps</span><span style="font-size:25px;line-height:1.35;color:#4A463F;text-wrap:pretty">Owned roadmaps and the backlog in Jira and ClickUp. Agile / Scrum delivery.</span><span style="font-family:'JetBrains Mono';font-size:22px;color:#A86A00;text-align:right">05</span></div>
+    <div style="flex:1;display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.5fr) 130px;gap:40px;align-items:center;border-bottom:1px solid #DBD6CC"><span style="font-family:'Space Grotesk';font-weight:600;font-size:28px;line-height:1.2">Technical or industrial environment</span><span style="font-size:25px;line-height:1.35;color:#4A463F;text-wrap:pretty">Volkswagen Group (VW R), projects with Porsche, a collaboration with McLaren.</span><span style="font-family:'JetBrains Mono';font-size:22px;color:#A86A00;text-align:right">09</span></div>
+    <div style="flex:1;display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.5fr) 130px;gap:40px;align-items:center;border-bottom:1px solid #DBD6CC"><span style="font-family:'Space Grotesk';font-weight:600;font-size:28px;line-height:1.2">Degree and languages</span><span style="font-size:25px;line-height:1.35;color:#4A463F;text-wrap:pretty">B.Tech Computer Science, M.A. Visual &amp; Experience Design. English C2, German A2 and learning.</span><span style="font-family:'JetBrains Mono';font-size:22px;color:#A86A00;text-align:right">—</span></div>
+  </div>
+</section>
+
+<section data-label="How I coordinate" data-screen-label="03 How I coordinate" data-speaker-notes="Three things I keep moving on every project: the plan, the people and the documentation." style="background:#F7F4EF;color:#1A1814;font-family:'Hanken Grotesk',sans-serif;padding:110px 140px;display:flex;flex-direction:column;gap:70px">
+  <div style="font-family:'JetBrains Mono';font-size:24px;letter-spacing:.08em;color:#6B665C">03 · HOW I COORDINATE</div>
+  <h2 style="font-family:'Space Grotesk';font-weight:600;font-size:84px;line-height:1.05;letter-spacing:-.025em;max-width:1500px;text-wrap:balance">The plan, the people and the paperwork.</h2>
+  <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:48px;flex:1">
+    <div style="border-top:2px solid #1A1814;padding-top:32px;display:flex;flex-direction:column;gap:22px">
+      <div style="font-family:'JetBrains Mono';font-size:24px;color:#A86A00">PLAN</div>
+      <div style="font-size:32px;line-height:1.45">Roadmaps and sprints in Jira and ClickUp</div>
+      <div style="font-size:32px;line-height:1.45">Agile / Scrum delivery</div>
+    </div>
+    <div style="border-top:2px solid #1A1814;padding-top:32px;display:flex;flex-direction:column;gap:22px">
+      <div style="font-family:'JetBrains Mono';font-size:24px;color:#A86A00">PEOPLE</div>
+      <div style="font-size:32px;line-height:1.45">Client meetings and stakeholder workshops</div>
+      <div style="font-size:32px;line-height:1.45">Design, engineering, product and business in one room</div>
+    </div>
+    <div style="border-top:2px solid #1A1814;padding-top:32px;display:flex;flex-direction:column;gap:22px">
+      <div style="font-family:'JetBrains Mono';font-size:24px;color:#A86A00">DOCUMENTATION</div>
+      <div style="font-size:32px;line-height:1.45">Requirements discovery and product documentation</div>
+      <div style="font-size:32px;line-height:1.45">GDPR and WCAG requirements tracked from the start</div>
+    </div>
+  </div>
+</section>
+
+<section data-label="Delivery cycle" data-screen-label="04 Delivery cycle" data-speaker-notes="Walk the cycle left to right. If testing finds a problem, I loop back to the build step." style="background:#F7F4EF;color:#1A1814;font-family:'Hanken Grotesk',sans-serif;padding:110px 140px;display:flex;flex-direction:column;gap:64px">
+  <div style="font-family:'JetBrains Mono';font-size:24px;letter-spacing:.08em;color:#6B665C">04 · DELIVERY CYCLE</div>
+  <h2 style="font-family:'Space Grotesk';font-weight:600;font-size:84px;line-height:1.05;letter-spacing:-.025em">Six steps, with a way back.</h2>
+  <div style="display:grid;grid-template-columns:repeat(6,minmax(0,1fr));border-top:1.5px solid #1A1814;flex:1">
+    <div style="padding:34px 26px 0 0;display:flex;flex-direction:column;gap:16px;border-right:1px solid #DBD6CC"><div style="font-family:'JetBrains Mono';font-size:24px;color:#A86A00">01</div><div style="font-family:'Space Grotesk';font-weight:600;font-size:38px">Kickoff</div><div style="font-size:26px;line-height:1.45;color:#4A463F">Goals, owners, timeline</div></div>
+    <div style="padding:34px 26px 0;display:flex;flex-direction:column;gap:16px;border-right:1px solid #DBD6CC"><div style="font-family:'JetBrains Mono';font-size:24px;color:#A86A00">02</div><div style="font-family:'Space Grotesk';font-weight:600;font-size:38px">Requirements</div><div style="font-size:26px;line-height:1.45;color:#4A463F">Discovery with business and users</div></div>
+    <div style="padding:34px 26px 0;display:flex;flex-direction:column;gap:16px;border-right:1px solid #DBD6CC"><div style="font-family:'JetBrains Mono';font-size:24px;color:#A86A00">03</div><div style="font-family:'Space Grotesk';font-weight:600;font-size:38px">Plan</div><div style="font-size:26px;line-height:1.45;color:#4A463F">Milestones and tickets in Jira</div></div>
+    <div style="padding:34px 26px 0;display:flex;flex-direction:column;gap:16px;border-right:1px solid #DBD6CC"><div style="font-family:'JetBrains Mono';font-size:24px;color:#A86A00">04</div><div style="font-family:'Space Grotesk';font-weight:600;font-size:38px">Build</div><div style="font-size:26px;line-height:1.45;color:#4A463F">Alongside the developers</div></div>
+    <div style="padding:34px 26px 0;display:flex;flex-direction:column;gap:16px;border-right:1px solid #DBD6CC;background:#FFF6E6"><div style="font-family:'JetBrains Mono';font-size:24px;color:#A86A00">05 ↩ 04</div><div style="font-family:'Space Grotesk';font-weight:600;font-size:38px">Test</div><div style="font-size:26px;line-height:1.45;color:#4A463F">On staging. Issues go back to build.</div></div>
+    <div style="padding:34px 0 0 26px;display:flex;flex-direction:column;gap:16px"><div style="font-family:'JetBrains Mono';font-size:24px;color:#A86A00">06</div><div style="font-family:'Space Grotesk';font-weight:600;font-size:38px">Release</div><div style="font-size:26px;line-height:1.45;color:#4A463F">Production, then report results</div></div>
+  </div>
+</section>
+
+<section data-label="Breakdown" data-screen-label="05 Breakdown" data-speaker-notes="This is how I broke the Cadence Shop checkout redesign into milestones, epics, stories, tasks and bugs in Jira. The bug on staging went back to the AEM story before release." style="background:#F7F4EF;color:#1A1814;font-family:'Hanken Grotesk',sans-serif;padding:80px 140px 70px;display:flex;flex-direction:column;gap:36px">
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:40px">
+    <div style="display:flex;flex-direction:column;gap:20px"><div style="font-family:'JetBrains Mono';font-size:24px;letter-spacing:.08em;color:#6B665C">05 · BREAKING IT DOWN</div><h2 style="font-family:'Space Grotesk';font-weight:600;font-size:72px;line-height:1.05;letter-spacing:-.025em">Milestone → epic → story → task.</h2></div>
+    <div style="display:flex;gap:18px;flex-wrap:wrap;justify-content:flex-end;max-width:620px"><span style="display:flex;align-items:center;gap:8px;font-family:'JetBrains Mono';font-size:18px;color:#56524A"><span style="width:18px;height:18px;background:#1A1814;border-radius:3px"></span>MILESTONE</span><span style="display:flex;align-items:center;gap:8px;font-family:'JetBrains Mono';font-size:18px;color:#56524A"><span style="width:18px;height:18px;background:#7A4FD6;border-radius:3px"></span>EPIC</span><span style="display:flex;align-items:center;gap:8px;font-family:'JetBrains Mono';font-size:18px;color:#56524A"><span style="width:18px;height:18px;background:#2FA84F;border-radius:3px"></span>STORY</span><span style="display:flex;align-items:center;gap:8px;font-family:'JetBrains Mono';font-size:18px;color:#56524A"><span style="width:18px;height:18px;background:#1F5FE0;border-radius:3px"></span>TASK</span><span style="display:flex;align-items:center;gap:8px;font-family:'JetBrains Mono';font-size:18px;color:#56524A"><span style="width:18px;height:18px;background:#E0533D;border-radius:50%"></span>BUG</span></div>
+  </div>
+  <div style="flex:1;min-height:0;background:#FFFFFF;border:1px solid #DBD6CC;box-shadow:0 30px 60px -30px rgba(26,24,20,.35);display:flex;flex-direction:column;overflow:hidden">
+    <div style="flex:none;height:46px;background:#E9E4DA;border-bottom:1px solid #DBD6CC;display:flex;align-items:center;gap:10px;padding:0 18px"><span style="width:13px;height:13px;border-radius:50%;background:#C9C2B6"></span><span style="width:13px;height:13px;border-radius:50%;background:#C9C2B6"></span><span style="width:13px;height:13px;border-radius:50%;background:#C9C2B6"></span><span style="margin-left:16px;font-family:'JetBrains Mono';font-size:18px;color:#6B665C">Cadence Shop · Checkout redesign · Backlog</span><span style="margin-left:auto;font-family:'JetBrains Mono';font-size:18px;color:#6B665C">SPRINT 5 OF 6</span></div>
+    <div style="flex:none;display:grid;grid-template-columns:minmax(0,1fr) 220px 90px 110px;padding:0 24px;height:44px;align-items:center;border-bottom:1px solid #DBD6CC;font-family:'JetBrains Mono';font-size:18px;letter-spacing:.06em;color:#6B665C"><span>ISSUE</span><span>STATUS</span><span>OWNER</span><span style="text-align:right">SPRINT</span></div>
+    <div style="display:grid;grid-template-columns:minmax(0,1fr) 220px 90px 110px;align-items:center;height:50px;padding:0 24px;border-bottom:1px solid #EEEAE2;background:#F4F1EB">
+<div style="display:flex;align-items:center;gap:14px;padding-left:0px;min-width:0"><span style="flex:none;width:26px;height:26px;background:#1A1814;color:#FFFFFF;display:flex;align-items:center;justify-content:center;font-size:14px;border-radius:4px">◆</span><span style="font-family:'Space Grotesk';font-weight:600;font-size:26px;color:#1A1814;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">M1 · Discover</span></div>
+<div><span style="font-family:'JetBrains Mono';font-size:18px;letter-spacing:.06em;color:#6B665C">MILESTONE</span></div>
+<div></div>
+<div style="font-family:'JetBrains Mono';font-size:20px;color:#6B665C;text-align:right">S1–S2</div></div>
+    <div style="display:grid;grid-template-columns:minmax(0,1fr) 220px 90px 110px;align-items:center;height:48px;padding:0 24px;border-bottom:1px solid #EEEAE2;background:#FFFFFF">
+<div style="display:flex;align-items:center;gap:14px;padding-left:34px;min-width:0"><span style="flex:none;width:26px;height:26px;background:#7A4FD6;color:#FFFFFF;display:flex;align-items:center;justify-content:center;font-size:14px;border-radius:4px">⚡</span><span style="flex:none;font-family:'JetBrains Mono';font-size:22px;color:#6B665C">CS-100</span><span style="font-size:25px;color:#1A1814;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Checkout audit</span></div>
+<div><span style="font-family:'JetBrains Mono';font-size:18px;letter-spacing:.06em;padding:6px 12px;background:#E7F5EA;color:#1E7A38;white-space:nowrap">DONE</span></div>
+<div><span style="width:36px;height:36px;border-radius:50%;background:#1A1814;color:#FFFFFF;font-family:'JetBrains Mono';font-size:15px;display:flex;align-items:center;justify-content:center">RM</span></div>
+<div style="font-family:'JetBrains Mono';font-size:20px;color:#6B665C;text-align:right">S1–S2</div></div>
+    <div style="display:grid;grid-template-columns:minmax(0,1fr) 220px 90px 110px;align-items:center;height:48px;padding:0 24px;border-bottom:1px solid #EEEAE2;background:#FFFFFF">
+<div style="display:flex;align-items:center;gap:14px;padding-left:68px;min-width:0"><span style="flex:none;width:26px;height:26px;background:#2FA84F;color:#FFFFFF;display:flex;align-items:center;justify-content:center;font-size:14px;border-radius:4px">▮</span><span style="flex:none;font-family:'JetBrains Mono';font-size:22px;color:#6B665C">CS-101</span><span style="font-size:25px;color:#1A1814;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Baymard audit of checkout flow</span></div>
+<div><span style="font-family:'JetBrains Mono';font-size:18px;letter-spacing:.06em;padding:6px 12px;background:#E7F5EA;color:#1E7A38;white-space:nowrap">DONE</span></div>
+<div><span style="width:36px;height:36px;border-radius:50%;background:#1A1814;color:#FFFFFF;font-family:'JetBrains Mono';font-size:15px;display:flex;align-items:center;justify-content:center">RM</span></div>
+<div style="font-family:'JetBrains Mono';font-size:20px;color:#6B665C;text-align:right">S1</div></div>
+    <div style="display:grid;grid-template-columns:minmax(0,1fr) 220px 90px 110px;align-items:center;height:48px;padding:0 24px;border-bottom:1px solid #EEEAE2;background:#FFFFFF">
+<div style="display:flex;align-items:center;gap:14px;padding-left:68px;min-width:0"><span style="flex:none;width:26px;height:26px;background:#1F5FE0;color:#FFFFFF;display:flex;align-items:center;justify-content:center;font-size:14px;border-radius:4px">✓</span><span style="flex:none;font-family:'JetBrains Mono';font-size:22px;color:#6B665C">CS-102</span><span style="font-size:25px;color:#1A1814;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Review heat maps and drop-off data</span></div>
+<div><span style="font-family:'JetBrains Mono';font-size:18px;letter-spacing:.06em;padding:6px 12px;background:#E7F5EA;color:#1E7A38;white-space:nowrap">DONE</span></div>
+<div><span style="width:36px;height:36px;border-radius:50%;background:#1A1814;color:#FFFFFF;font-family:'JetBrains Mono';font-size:15px;display:flex;align-items:center;justify-content:center">RM</span></div>
+<div style="font-family:'JetBrains Mono';font-size:20px;color:#6B665C;text-align:right">S1</div></div>
+    <div style="display:grid;grid-template-columns:minmax(0,1fr) 220px 90px 110px;align-items:center;height:48px;padding:0 24px;border-bottom:1px solid #EEEAE2;background:#FFFFFF">
+<div style="display:flex;align-items:center;gap:14px;padding-left:68px;min-width:0"><span style="flex:none;width:26px;height:26px;background:#2FA84F;color:#FFFFFF;display:flex;align-items:center;justify-content:center;font-size:14px;border-radius:4px">▮</span><span style="flex:none;font-family:'JetBrains Mono';font-size:22px;color:#6B665C">CS-103</span><span style="font-size:25px;color:#1A1814;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Usability test with 5 buyers</span></div>
+<div><span style="font-family:'JetBrains Mono';font-size:18px;letter-spacing:.06em;padding:6px 12px;background:#E7F5EA;color:#1E7A38;white-space:nowrap">DONE</span></div>
+<div><span style="width:36px;height:36px;border-radius:50%;background:#1A1814;color:#FFFFFF;font-family:'JetBrains Mono';font-size:15px;display:flex;align-items:center;justify-content:center">RM</span></div>
+<div style="font-family:'JetBrains Mono';font-size:20px;color:#6B665C;text-align:right">S2</div></div>
+    <div style="display:grid;grid-template-columns:minmax(0,1fr) 220px 90px 110px;align-items:center;height:50px;padding:0 24px;border-bottom:1px solid #EEEAE2;background:#F4F1EB">
+<div style="display:flex;align-items:center;gap:14px;padding-left:0px;min-width:0"><span style="flex:none;width:26px;height:26px;background:#1A1814;color:#FFFFFF;display:flex;align-items:center;justify-content:center;font-size:14px;border-radius:4px">◆</span><span style="font-family:'Space Grotesk';font-weight:600;font-size:26px;color:#1A1814;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">M2 · Design and build</span></div>
+<div><span style="font-family:'JetBrains Mono';font-size:18px;letter-spacing:.06em;color:#6B665C">MILESTONE</span></div>
+<div></div>
+<div style="font-family:'JetBrains Mono';font-size:20px;color:#6B665C;text-align:right">S3–S5</div></div>
+    <div style="display:grid;grid-template-columns:minmax(0,1fr) 220px 90px 110px;align-items:center;height:48px;padding:0 24px;border-bottom:1px solid #EEEAE2;background:#FFFFFF">
+<div style="display:flex;align-items:center;gap:14px;padding-left:34px;min-width:0"><span style="flex:none;width:26px;height:26px;background:#7A4FD6;color:#FFFFFF;display:flex;align-items:center;justify-content:center;font-size:14px;border-radius:4px">⚡</span><span style="flex:none;font-family:'JetBrains Mono';font-size:22px;color:#6B665C">CS-110</span><span style="font-size:25px;color:#1A1814;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Checkout redesign</span></div>
+<div><span style="font-family:'JetBrains Mono';font-size:18px;letter-spacing:.06em;padding:6px 12px;background:#FFF1D6;color:#A86A00;white-space:nowrap">IN PROGRESS</span></div>
+<div><span style="width:36px;height:36px;border-radius:50%;background:#1A1814;color:#FFFFFF;font-family:'JetBrains Mono';font-size:15px;display:flex;align-items:center;justify-content:center">RM</span></div>
+<div style="font-family:'JetBrains Mono';font-size:20px;color:#6B665C;text-align:right">S3–S5</div></div>
+    <div style="display:grid;grid-template-columns:minmax(0,1fr) 220px 90px 110px;align-items:center;height:48px;padding:0 24px;border-bottom:1px solid #EEEAE2;background:#FFFFFF">
+<div style="display:flex;align-items:center;gap:14px;padding-left:68px;min-width:0"><span style="flex:none;width:26px;height:26px;background:#2FA84F;color:#FFFFFF;display:flex;align-items:center;justify-content:center;font-size:14px;border-radius:4px">▮</span><span style="flex:none;font-family:'JetBrains Mono';font-size:22px;color:#6B665C">CS-111</span><span style="font-size:25px;color:#1A1814;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Guest checkout flow</span></div>
+<div><span style="font-family:'JetBrains Mono';font-size:18px;letter-spacing:.06em;padding:6px 12px;background:#E7F5EA;color:#1E7A38;white-space:nowrap">DONE</span></div>
+<div><span style="width:36px;height:36px;border-radius:50%;background:#1A1814;color:#FFFFFF;font-family:'JetBrains Mono';font-size:15px;display:flex;align-items:center;justify-content:center">RM</span></div>
+<div style="font-family:'JetBrains Mono';font-size:20px;color:#6B665C;text-align:right">S3</div></div>
+    <div style="display:grid;grid-template-columns:minmax(0,1fr) 220px 90px 110px;align-items:center;height:48px;padding:0 24px;border-bottom:1px solid #EEEAE2;background:#FFFFFF">
+<div style="display:flex;align-items:center;gap:14px;padding-left:102px;min-width:0"><span style="flex:none;width:26px;height:26px;background:#5B7FDB;color:#FFFFFF;display:flex;align-items:center;justify-content:center;font-size:14px;border-radius:4px">↳</span><span style="flex:none;font-family:'JetBrains Mono';font-size:22px;color:#6B665C">CS-112</span><span style="font-size:25px;color:#1A1814;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Form components in Cuboids</span></div>
+<div><span style="font-family:'JetBrains Mono';font-size:18px;letter-spacing:.06em;padding:6px 12px;background:#E7F5EA;color:#1E7A38;white-space:nowrap">DONE</span></div>
+<div><span style="width:36px;height:36px;border-radius:50%;background:#5B7FDB;color:#FFFFFF;font-family:'JetBrains Mono';font-size:15px;display:flex;align-items:center;justify-content:center">DV</span></div>
+<div style="font-family:'JetBrains Mono';font-size:20px;color:#6B665C;text-align:right">S3</div></div>
+    <div style="display:grid;grid-template-columns:minmax(0,1fr) 220px 90px 110px;align-items:center;height:48px;padding:0 24px;border-bottom:1px solid #EEEAE2;background:#FFFFFF">
+<div style="display:flex;align-items:center;gap:14px;padding-left:68px;min-width:0"><span style="flex:none;width:26px;height:26px;background:#2FA84F;color:#FFFFFF;display:flex;align-items:center;justify-content:center;font-size:14px;border-radius:4px">▮</span><span style="flex:none;font-family:'JetBrains Mono';font-size:22px;color:#6B665C">CS-113</span><span style="font-size:25px;color:#1A1814;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Integrate checkout in Adobe AEM</span></div>
+<div><span style="font-family:'JetBrains Mono';font-size:18px;letter-spacing:.06em;padding:6px 12px;background:#E6ECFF;color:#1F5FE0;white-space:nowrap">IN REVIEW</span></div>
+<div><span style="width:36px;height:36px;border-radius:50%;background:#5B7FDB;color:#FFFFFF;font-family:'JetBrains Mono';font-size:15px;display:flex;align-items:center;justify-content:center">DV</span></div>
+<div style="font-family:'JetBrains Mono';font-size:20px;color:#6B665C;text-align:right">S4</div></div>
+    <div style="display:grid;grid-template-columns:minmax(0,1fr) 220px 90px 110px;align-items:center;height:48px;padding:0 24px;border-bottom:1px solid #EEEAE2;background:#FFF8F6">
+<div style="display:flex;align-items:center;gap:14px;padding-left:68px;min-width:0"><span style="flex:none;width:26px;height:26px;background:#E0533D;color:#FFFFFF;display:flex;align-items:center;justify-content:center;font-size:14px;border-radius:50%">●</span><span style="flex:none;font-family:'JetBrains Mono';font-size:22px;color:#6B665C">CS-114</span><span style="font-size:25px;color:#1A1814;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Tax field fails validation on staging ↩ back to CS-113</span></div>
+<div><span style="font-family:'JetBrains Mono';font-size:18px;letter-spacing:.06em;padding:6px 12px;background:#FFF1D6;color:#A86A00;white-space:nowrap">IN PROGRESS</span></div>
+<div><span style="width:36px;height:36px;border-radius:50%;background:#1A1814;color:#FFFFFF;font-family:'JetBrains Mono';font-size:15px;display:flex;align-items:center;justify-content:center">RM</span></div>
+<div style="font-family:'JetBrains Mono';font-size:20px;color:#6B665C;text-align:right">S5</div></div>
+    <div style="display:grid;grid-template-columns:minmax(0,1fr) 220px 90px 110px;align-items:center;height:50px;padding:0 24px;border-bottom:1px solid #EEEAE2;background:#F4F1EB">
+<div style="display:flex;align-items:center;gap:14px;padding-left:0px;min-width:0"><span style="flex:none;width:26px;height:26px;background:#1A1814;color:#FFFFFF;display:flex;align-items:center;justify-content:center;font-size:14px;border-radius:4px">◆</span><span style="font-family:'Space Grotesk';font-weight:600;font-size:26px;color:#1A1814;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">M3 · Release and measure</span></div>
+<div><span style="font-family:'JetBrains Mono';font-size:18px;letter-spacing:.06em;color:#6B665C">MILESTONE</span></div>
+<div></div>
+<div style="font-family:'JetBrains Mono';font-size:20px;color:#6B665C;text-align:right">S6</div></div>
+    <div style="display:grid;grid-template-columns:minmax(0,1fr) 220px 90px 110px;align-items:center;height:48px;padding:0 24px;border-bottom:1px solid #EEEAE2;background:#FFFFFF">
+<div style="display:flex;align-items:center;gap:14px;padding-left:34px;min-width:0"><span style="flex:none;width:26px;height:26px;background:#7A4FD6;color:#FFFFFF;display:flex;align-items:center;justify-content:center;font-size:14px;border-radius:4px">⚡</span><span style="flex:none;font-family:'JetBrains Mono';font-size:22px;color:#6B665C">CS-120</span><span style="font-size:25px;color:#1A1814;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Launch and measure</span></div>
+<div><span style="font-family:'JetBrains Mono';font-size:18px;letter-spacing:.06em;padding:6px 12px;background:#EEEAE2;color:#56524A;white-space:nowrap">TO DO</span></div>
+<div><span style="width:36px;height:36px;border-radius:50%;background:#1A1814;color:#FFFFFF;font-family:'JetBrains Mono';font-size:15px;display:flex;align-items:center;justify-content:center">RM</span></div>
+<div style="font-family:'JetBrains Mono';font-size:20px;color:#6B665C;text-align:right">S6</div></div>
+    <div style="display:grid;grid-template-columns:minmax(0,1fr) 220px 90px 110px;align-items:center;height:48px;padding:0 24px;border-bottom:1px solid #EEEAE2;background:#FFFFFF">
+<div style="display:flex;align-items:center;gap:14px;padding-left:68px;min-width:0"><span style="flex:none;width:26px;height:26px;background:#2FA84F;color:#FFFFFF;display:flex;align-items:center;justify-content:center;font-size:14px;border-radius:4px">▮</span><span style="flex:none;font-family:'JetBrains Mono';font-size:22px;color:#6B665C">CS-121</span><span style="font-size:25px;color:#1A1814;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">A/B test old vs new checkout</span></div>
+<div><span style="font-family:'JetBrains Mono';font-size:18px;letter-spacing:.06em;padding:6px 12px;background:#EEEAE2;color:#56524A;white-space:nowrap">TO DO</span></div>
+<div><span style="width:36px;height:36px;border-radius:50%;background:#1A1814;color:#FFFFFF;font-family:'JetBrains Mono';font-size:15px;display:flex;align-items:center;justify-content:center">RM</span></div>
+<div style="font-family:'JetBrains Mono';font-size:20px;color:#6B665C;text-align:right">S6</div></div>
+  </div>
+  <div style="font-family:'JetBrains Mono';font-size:20px;color:#6B665C">Recreated from my Jira workflow at Cadence. RM = me · DV = developer.</div>
+</section>
+
+<section data-label="Status brief" data-screen-label="06 Status brief" data-speaker-notes="This is the weekly one-page brief I send to leadership: milestones, risks with owners, and action items I follow up on. The project and data here are an example." style="background:#F7F4EF;color:#1A1814;font-family:'Hanken Grotesk',sans-serif;padding:80px 140px 70px;display:flex;flex-direction:column;gap:32px">
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:40px"><div style="display:flex;flex-direction:column;gap:20px"><div style="font-family:'JetBrains Mono';font-size:24px;letter-spacing:.08em;color:#6B665C">06 · WEEKLY STATUS BRIEF</div><h2 style="font-family:'Space Grotesk';font-weight:600;font-size:72px;line-height:1.05;letter-spacing:-.025em">One page. Every team. Every Friday.</h2></div><span style="font-family:'JetBrains Mono';font-size:20px;letter-spacing:.06em;color:#A86A00;border:1.5px solid #F0A21C;padding:10px 14px;white-space:nowrap">EXAMPLE FORMAT · FICTIONAL DATA</span></div>
+  <div style="flex:1;min-height:0;background:#FFFFFF;border:1px solid #DBD6CC;box-shadow:0 30px 60px -30px rgba(26,24,20,.35);display:flex;flex-direction:column;overflow:hidden">
+    <div style="flex:none;height:46px;background:#E9E4DA;border-bottom:1px solid #DBD6CC;display:flex;align-items:center;gap:10px;padding:0 18px"><span style="width:13px;height:13px;border-radius:50%;background:#C9C2B6"></span><span style="width:13px;height:13px;border-radius:50%;background:#C9C2B6"></span><span style="width:13px;height:13px;border-radius:50%;background:#C9C2B6"></span><span style="margin-left:16px;font-family:'JetBrains Mono';font-size:18px;color:#6B665C">Hall 2 lighting retrofit · Status week 3</span><span style="margin-left:auto;display:flex;align-items:center;gap:10px;font-family:'JetBrains Mono';font-size:18px;color:#A86A00"><span style="flex:none;width:18px;height:18px;border-radius:50%;background:#F0A21C"></span>OVERALL: AT RISK</span></div>
+    <div style="flex:1;min-height:0;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);">
+      <div style="padding:26px 30px;border-right:1px solid #EEEAE2;display:flex;flex-direction:column;gap:26px">
+        <div style="display:flex;flex-direction:column;gap:14px"><span style="font-family:'JetBrains Mono';font-size:18px;letter-spacing:.08em;color:#6B665C">MILESTONES</span>
+          <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px"><div style="display:flex;flex-direction:column;gap:10px;padding-top:12px;border-top:5px solid #2FA84F"><span style="font-family:'Space Grotesk';font-weight:600;font-size:24px;line-height:1.2">Scope sign-off</span><span style="font-family:'JetBrains Mono';font-size:18px;color:#6B665C">Wk 1</span><span style="font-family:'JetBrains Mono';font-size:17px;letter-spacing:.06em;padding:5px 10px;background:#E7F5EA;color:#1E7A38;white-space:nowrap">DONE</span></div><div style="display:flex;flex-direction:column;gap:10px;padding-top:12px;border-top:5px solid #F0A21C"><span style="font-family:'Space Grotesk';font-weight:600;font-size:24px;line-height:1.2">Supplier order</span><span style="font-family:'JetBrains Mono';font-size:18px;color:#6B665C">Wk 3</span><span style="font-family:'JetBrains Mono';font-size:17px;letter-spacing:.06em;padding:5px 10px;background:#FFF1D6;color:#A86A00;white-space:nowrap">AT RISK</span></div><div style="display:flex;flex-direction:column;gap:10px;padding-top:12px;border-top:5px solid #C9C2B6"><span style="font-family:'Space Grotesk';font-weight:600;font-size:24px;line-height:1.2">Installation</span><span style="font-family:'JetBrains Mono';font-size:18px;color:#6B665C">Wk 5–6</span><span style="font-family:'JetBrains Mono';font-size:17px;letter-spacing:.06em;padding:5px 10px;background:#EEEAE2;color:#56524A;white-space:nowrap">PLANNED</span></div><div style="display:flex;flex-direction:column;gap:10px;padding-top:12px;border-top:5px solid #C9C2B6"><span style="font-family:'Space Grotesk';font-weight:600;font-size:24px;line-height:1.2">Handover</span><span style="font-family:'JetBrains Mono';font-size:18px;color:#6B665C">Wk 7</span><span style="font-family:'JetBrains Mono';font-size:17px;letter-spacing:.06em;padding:5px 10px;background:#EEEAE2;color:#56524A;white-space:nowrap">PLANNED</span></div></div>
+        </div>
+        <div style="display:flex;flex-direction:column"><span style="font-family:'JetBrains Mono';font-size:18px;letter-spacing:.08em;color:#6B665C;margin-bottom:6px">RISKS</span>
+          <div style="display:grid;grid-template-columns:18px minmax(0,1fr) 190px;gap:16px;align-items:start;padding:14px 0;border-bottom:1px solid #EEEAE2"><span style="flex:none;width:18px;height:18px;border-radius:50%;background:#F0A21C"></span><span style="display:flex;flex-direction:column;gap:4px"><span style="font-size:24px;line-height:1.25;font-weight:600">Supplier delivery 1 week late</span><span style="font-size:21px;line-height:1.3;color:#6B665C">Installation slips → Book backup slot with maintenance</span></span><span style="font-family:'JetBrains Mono';font-size:18px;color:#56524A;text-align:right">Logistics</span></div><div style="display:grid;grid-template-columns:18px minmax(0,1fr) 190px;gap:16px;align-items:start;padding:14px 0;border-bottom:1px solid #EEEAE2"><span style="flex:none;width:18px;height:18px;border-radius:50%;background:#2FA84F"></span><span style="display:flex;flex-direction:column;gap:4px"><span style="font-size:24px;line-height:1.25;font-weight:600">Night shift access to Hall 2</span><span style="font-size:21px;line-height:1.3;color:#6B665C">Work hours limited → Agree schedule in Thursday sync</span></span><span style="font-family:'JetBrains Mono';font-size:18px;color:#56524A;text-align:right">Workplace</span></div><div style="display:grid;grid-template-columns:18px minmax(0,1fr) 190px;gap:16px;align-items:start;padding:14px 0;border-bottom:1px solid #EEEAE2"><span style="flex:none;width:18px;height:18px;border-radius:50%;background:#E0533D"></span><span style="display:flex;flex-direction:column;gap:4px"><span style="font-size:24px;line-height:1.25;font-weight:600">Waste removal not booked</span><span style="font-size:21px;line-height:1.3;color:#6B665C">Site not cleared → Ticket raised, owner confirmed</span></span><span style="font-family:'JetBrains Mono';font-size:18px;color:#56524A;text-align:right">Waste &amp; Logistics</span></div>
+        </div>
+      </div>
+      <div style="padding:26px 30px;display:flex;flex-direction:column"><span style="font-family:'JetBrains Mono';font-size:18px;letter-spacing:.08em;color:#6B665C;margin-bottom:6px">ACTION ITEMS</span>
+        <div style="display:flex;flex-direction:column;gap:8px;padding:16px 0;border-bottom:1px solid #EEEAE2"><span style="font-size:24px;line-height:1.25;font-weight:600">Send revised timeline to leadership</span><span style="display:flex;align-items:center;gap:14px;font-family:'JetBrains Mono';font-size:18px;color:#6B665C"><span>RM</span><span>· Mon</span><span style="margin-left:auto"><span style="font-family:'JetBrains Mono';font-size:17px;letter-spacing:.06em;padding:5px 10px;background:#E7F5EA;color:#1E7A38;white-space:nowrap">DONE</span></span></span></div><div style="display:flex;flex-direction:column;gap:8px;padding:16px 0;border-bottom:1px solid #EEEAE2"><span style="font-size:24px;line-height:1.25;font-weight:600">Confirm night-shift access</span><span style="display:flex;align-items:center;gap:14px;font-family:'JetBrains Mono';font-size:18px;color:#6B665C"><span>Workplace</span><span>· Wed</span><span style="margin-left:auto"><span style="font-family:'JetBrains Mono';font-size:17px;letter-spacing:.06em;padding:5px 10px;background:#EEEAE2;color:#56524A;white-space:nowrap">OPEN</span></span></span></div><div style="display:flex;flex-direction:column;gap:8px;padding:16px 0;border-bottom:1px solid #EEEAE2"><span style="font-size:24px;line-height:1.25;font-weight:600">Update risk log after supplier call</span><span style="display:flex;align-items:center;gap:14px;font-family:'JetBrains Mono';font-size:18px;color:#6B665C"><span>RM</span><span>· Thu</span><span style="margin-left:auto"><span style="font-family:'JetBrains Mono';font-size:17px;letter-spacing:.06em;padding:5px 10px;background:#EEEAE2;color:#56524A;white-space:nowrap">OPEN</span></span></span></div><div style="display:flex;flex-direction:column;gap:8px;padding:16px 0;border-bottom:1px solid #EEEAE2"><span style="font-size:24px;line-height:1.25;font-weight:600">Book waste pickup</span><span style="display:flex;align-items:center;gap:14px;font-family:'JetBrains Mono';font-size:18px;color:#6B665C"><span>Waste &amp; Logistics</span><span>· Fri</span><span style="margin-left:auto"><span style="font-family:'JetBrains Mono';font-size:17px;letter-spacing:.06em;padding:5px 10px;background:#FDECE8;color:#B3261E;white-space:nowrap">OVERDUE</span></span></span></div>
+        <div style="margin-top:auto;padding-top:16px;display:flex;flex-wrap:wrap;gap:10px"><span style="font-family:'JetBrains Mono';font-size:16px;letter-spacing:.06em;padding:6px 10px;border:1px solid #DBD6CC;color:#56524A">MAINTENANCE</span><span style="font-family:'JetBrains Mono';font-size:16px;letter-spacing:.06em;padding:6px 10px;border:1px solid #DBD6CC;color:#56524A">ENGINEERING</span><span style="font-family:'JetBrains Mono';font-size:16px;letter-spacing:.06em;padding:6px 10px;border:1px solid #DBD6CC;color:#56524A">WORKPLACE</span><span style="font-family:'JetBrains Mono';font-size:16px;letter-spacing:.06em;padding:6px 10px;border:1px solid #DBD6CC;color:#56524A">WASTE &amp; LOGISTICS</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-label="AI workflow" data-screen-label="07 AI workflow" data-speaker-notes="My Incident Briefing project: incident records in Excel go through an n8n workflow and a local model, and come out as a briefing. A person checks it before it goes to leadership. It is a personal prototype." style="background:#1A1814;color:#F7F4EF;font-family:'Hanken Grotesk',sans-serif;padding:100px 140px 90px;display:flex;flex-direction:column;gap:56px">
+  <div style="display:flex;flex-direction:column;gap:22px"><div style="font-family:'JetBrains Mono';font-size:24px;letter-spacing:.08em;color:#A8A294">07 · AI FOR OPERATIONS WORKFLOWS</div><h2 style="font-family:'Space Grotesk';font-weight:600;font-size:76px;line-height:1.05;letter-spacing:-.025em;max-width:1500px;text-wrap:balance">From a spreadsheet of incidents to a brief leadership can act on.</h2></div>
+  <div style="display:flex;gap:18px;margin:auto 0">
+    <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:12px;padding:26px 24px;border:1.5px solid #3A3731;background:transparent"><span style="font-family:'JetBrains Mono';font-size:20px;color:#A8A294">01</span><span style="font-family:'Space Grotesk';font-weight:600;font-size:32px;line-height:1.15">Excel records</span><span style="font-size:23px;line-height:1.35;color:#D9D4C9">Incident reports as they come in</span></div><span style="flex:none;align-self:center;font-family:'JetBrains Mono';font-size:30px;color:#6B665C">→</span><div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:12px;padding:26px 24px;border:1.5px solid #3A3731;background:transparent"><span style="font-family:'JetBrains Mono';font-size:20px;color:#A8A294">02</span><span style="font-family:'Space Grotesk';font-weight:600;font-size:32px;line-height:1.15">n8n workflow</span><span style="font-size:23px;line-height:1.35;color:#D9D4C9">Reads, cleans and routes the rows</span></div><span style="flex:none;align-self:center;font-family:'JetBrains Mono';font-size:30px;color:#6B665C">→</span><div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:12px;padding:26px 24px;border:1.5px solid #3A3731;background:transparent"><span style="font-family:'JetBrains Mono';font-size:20px;color:#A8A294">03</span><span style="font-family:'Space Grotesk';font-weight:600;font-size:32px;line-height:1.15">Local model</span><span style="font-size:23px;line-height:1.35;color:#D9D4C9">Ollama on Docker. No data leaves the machine.</span></div><span style="flex:none;align-self:center;font-family:'JetBrains Mono';font-size:30px;color:#6B665C">→</span><div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:12px;padding:26px 24px;border:1.5px solid #3A3731;background:transparent"><span style="font-family:'JetBrains Mono';font-size:20px;color:#A8A294">04</span><span style="font-family:'Space Grotesk';font-weight:600;font-size:32px;line-height:1.15">Briefing</span><span style="font-size:23px;line-height:1.35;color:#D9D4C9">HTML / PDF via Gotenberg</span></div><span style="flex:none;align-self:center;font-family:'JetBrains Mono';font-size:30px;color:#6B665C">→</span><div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:12px;padding:26px 24px;border:1.5px solid #F0A21C;background:#2A1F0C"><span style="font-family:'JetBrains Mono';font-size:20px;color:#F0A21C">05</span><span style="font-family:'Space Grotesk';font-weight:600;font-size:32px;line-height:1.15">Human check</span><span style="font-size:23px;line-height:1.35;color:#D9D4C9">Verified against source data before it is sent</span></div>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:48px;border-top:1px solid #3A3731;padding-top:36px;margin-top:auto">
+    <div style="display:flex;flex-direction:column;gap:10px"><span style="font-family:'JetBrains Mono';font-size:22px;color:#F0A21C">WHY IT FITS</span><span style="font-size:27px;line-height:1.4;color:#D9D4C9">Maintenance and facility incidents arrive the same way: many rows, little time.</span></div>
+    <div style="display:flex;flex-direction:column;gap:10px"><span style="font-family:'JetBrains Mono';font-size:22px;color:#F0A21C">HUMAN IN THE LOOP</span><span style="font-size:27px;line-height:1.4;color:#D9D4C9">AI drafts the summary. I check it against the source before it informs a decision.</span></div>
+    <div style="display:flex;flex-direction:column;gap:10px"><span style="font-family:'JetBrains Mono';font-size:22px;color:#F0A21C">STATUS</span><span style="font-size:27px;line-height:1.4;color:#D9D4C9">Personal prototype. Full write-up in the Incident Briefing case study.</span></div>
+  </div>
+</section>
+
+<section data-label="Cadence" data-screen-label="08 Cadence" data-speaker-notes="Three years at Cadence. I started as a junior web designer and grew into product ownership of Cadence Shop." style="background:#1A1814;color:#F7F4EF;font-family:'Hanken Grotesk',sans-serif;padding:110px 140px;display:flex;flex-direction:column;gap:56px">
+  <div style="font-family:'JetBrains Mono';font-size:24px;letter-spacing:.08em;color:#A8A294">08 · CADENCE DESIGN SYSTEMS · 2021–2024</div>
+  <h2 style="font-family:'Space Grotesk';font-weight:600;font-size:84px;line-height:1.05;letter-spacing:-.025em;max-width:1500px;text-wrap:balance">Grew from junior designer to product owner of Cadence Shop.</h2>
+  <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:72px;flex:1;min-height:0">
+    <div style="display:flex;flex-direction:column;gap:40px">
+    <div style="display:flex;flex-direction:column;gap:22px;font-size:30px;line-height:1.45;color:#D9D4C9">
+      <div>Owned roadmaps and the backlog in Jira and ClickUp</div>
+      <div>Ran heat maps, usability tests and A/B tests to set priorities</div>
+      <div>Built the Cuboids design system and presented it at CadenceLIVE</div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;align-content:start;margin-top:auto">
+      <div style="border-top:1px solid #3A3731;padding-top:24px"><div style="font-family:'Space Grotesk';font-weight:600;font-size:76px;letter-spacing:-.04em;line-height:1">+50%</div><div style="font-family:'JetBrains Mono';font-size:22px;color:#A8A294;margin-top:12px">TASK COMPLETION</div></div>
+      <div style="border-top:1px solid #3A3731;padding-top:24px"><div style="font-family:'Space Grotesk';font-weight:600;font-size:76px;letter-spacing:-.04em;line-height:1">−30%</div><div style="font-family:'JetBrains Mono';font-size:22px;color:#A8A294;margin-top:12px">DROP-OFF</div></div>
+      <div style="border-top:1px solid #3A3731;padding-top:24px"><div style="font-family:'Space Grotesk';font-weight:600;font-size:76px;letter-spacing:-.04em;line-height:1">85%</div><div style="font-family:'JetBrains Mono';font-size:22px;color:#A8A294;margin-top:12px">WCAG, UP FROM 32%</div></div>
+    </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:22px;min-height:0"><figure style="margin:0;flex:1;min-height:0;display:flex;flex-direction:column;gap:10px"><div style="flex:1;min-height:0;border:1px solid #3A3731;overflow:hidden;background:#F7F4EF"><img src="assets/6f757304.png" alt="Cadence Shop storefront" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block"></div><figcaption style="font-family:'JetBrains Mono';font-size:18px;color:#A8A294">CADENCE SHOP · LIVE STOREFRONT</figcaption></figure><figure style="margin:0;flex:1;min-height:0;display:flex;flex-direction:column;gap:10px"><div style="flex:1;min-height:0;border:1px solid #3A3731;overflow:hidden;background:#F7F4EF"><img src="assets/85b39f78.png" alt="Cuboids design system" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block"></div><figcaption style="font-family:'JetBrains Mono';font-size:18px;color:#A8A294">CUBOIDS DESIGN SYSTEM</figcaption></figure></div>
+  </div>
+</section>
+
+<section data-label="Web3 and VW R" data-screen-label="09 Web3 and VW R" data-speaker-notes="Two shorter roles, both about aligning many people around one delivery." style="background:#F7F4EF;color:#1A1814;font-family:'Hanken Grotesk',sans-serif;padding:110px 140px;display:flex;flex-direction:column;gap:44px">
+  <div style="font-family:'JetBrains Mono';font-size:24px;letter-spacing:.08em;color:#6B665C">09 · MULTI-TEAM DELIVERY</div>
+  <h2 style="font-family:'Space Grotesk';font-weight:600;font-size:84px;line-height:1.05;letter-spacing:-.025em">Many teams, one release.</h2>
+  <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:60px;flex:1">
+    <div style="border-top:2px solid #1A1814;padding-top:32px;display:flex;flex-direction:column;gap:22px">
+      <div style="font-family:'JetBrains Mono';font-size:24px;color:#A86A00">HOUSE OF WEB3 · 2024</div>
+      <div style="height:250px;border:1px solid #DBD6CC;background:#ECE7DE;padding:24px;display:flex;flex-direction:column;gap:18px;justify-content:center">
+        <div style="align-self:center;display:flex;align-items:center;gap:12px;padding:12px 20px;background:#1A1814;color:#F7F4EF;font-family:'JetBrains Mono';font-size:20px;letter-spacing:.08em"><span style="width:12px;height:12px;border-radius:50%;background:#F0A21C"></span>ONE SIGN-ON</div>
+        <div style="display:flex;justify-content:space-around;padding:0 16%"><span style="width:2px;height:18px;background:#9A958A"></span><span style="width:2px;height:18px;background:#9A958A"></span><span style="width:2px;height:18px;background:#9A958A"></span></div>
+        <div style="display:flex;gap:14px"><div style="flex:1;min-width:0;background:#FFFFFF;border:1px solid #DBD6CC;padding:18px;display:flex;flex-direction:column;gap:8px"><span style="font-family:'Space Grotesk';font-weight:600;font-size:28px;color:#1A1814">EdTech</span><span style="font-family:'JetBrains Mono';font-size:18px;color:#6B665C">PRODUCT 01</span></div><div style="flex:1;min-width:0;background:#FFFFFF;border:1px solid #DBD6CC;padding:18px;display:flex;flex-direction:column;gap:8px"><span style="font-family:'Space Grotesk';font-weight:600;font-size:28px;color:#1A1814">News</span><span style="font-family:'JetBrains Mono';font-size:18px;color:#6B665C">PRODUCT 02</span></div><div style="flex:1;min-width:0;background:#FFFFFF;border:1px solid #DBD6CC;padding:18px;display:flex;flex-direction:column;gap:8px"><span style="font-family:'Space Grotesk';font-weight:600;font-size:28px;color:#1A1814">Airdrop</span><span style="font-family:'JetBrains Mono';font-size:18px;color:#6B665C">PRODUCT 03</span></div></div>
+      </div>
+      <div style="font-size:32px;line-height:1.45">Three products delivered under one single sign-on</div>
+      <div style="font-size:32px;line-height:1.45">Led client meetings and mentored a junior designer</div>
+      <div style="font-family:'Space Grotesk';font-weight:600;font-size:56px;margin-top:auto">+15% retention</div>
+    </div>
+    <div style="border-top:2px solid #1A1814;padding-top:32px;display:flex;flex-direction:column;gap:22px">
+      <div style="font-family:'JetBrains Mono';font-size:24px;color:#A86A00">VOLKSWAGEN GROUP · VW R · 2025</div>
+      <div style="height:250px;border:1px solid #DBD6CC;overflow:hidden;background:#ECE7DE"><img src="assets/3a505d9d.png" alt="VW R Virtual Studio" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+      <div style="font-size:32px;line-height:1.45">Two live products, presented to stakeholders and the product owner</div>
+      <div style="font-size:32px;line-height:1.45">Prototype features shipped in Golf R and Touareg R releases</div>
+      <div style="font-family:'Space Grotesk';font-weight:600;font-size:56px;margin-top:auto">+40% engagement</div>
+    </div>
+  </div>
+</section>
+
+<section data-label="Proof map" data-screen-label="10 Proof map" data-speaker-notes="Close: pick a project to see the full story." style="background:#1A1814;color:#F7F4EF;font-family:'Hanken Grotesk',sans-serif;padding:110px 140px;display:flex;flex-direction:column;gap:56px">
+  <div style="display:flex;justify-content:space-between;align-items:center;gap:40px">
+    <div style="font-family:'JetBrains Mono';font-size:24px;letter-spacing:.08em;color:#A8A294">10 · PROOF MAP</div>
+    <a href="Portfolio.dc.html" style="font-family:'JetBrains Mono';font-size:24px;color:#F7F4EF;border:1px solid #4A463F;padding:14px 22px">← BACK TO PORTFOLIO</a>
+  </div>
+  <h2 style="font-family:'Space Grotesk';font-weight:600;font-size:84px;line-height:1.05;letter-spacing:-.025em">See the full projects.</h2>
+  <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;flex:1">
+    <a href="CaseWeb3.dc.html" style="border:1px solid #3A3731;padding:20px 20px 28px;display:flex;flex-direction:column;justify-content:space-between;gap:16px;color:#F7F4EF"><div style="aspect-ratio:4/3;overflow:hidden;background:#26231F"><img src="assets/6f757304.png" alt="" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block"></div><div style="font-family:'Space Grotesk';font-weight:600;font-size:38px">Cadence Shop</div><div style="font-family:'JetBrains Mono';font-size:22px;line-height:1.5;color:#A8A294">product ownership · roadmap · testing</div></a>
+    <a href="CaseCadence.dc.html" style="border:1px solid #3A3731;padding:20px 20px 28px;display:flex;flex-direction:column;justify-content:space-between;gap:16px;color:#F7F4EF"><div style="aspect-ratio:4/3;overflow:hidden;background:#26231F"><img src="assets/85b39f78.png" alt="" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block"></div><div style="font-family:'Space Grotesk';font-weight:600;font-size:38px">Cadence Design Systems</div><div style="font-family:'JetBrains Mono';font-size:22px;line-height:1.5;color:#A8A294">design system · documentation · developers</div></a>
+    <a href="CaseIncidentBriefing.dc.html" style="border:1px solid #3A3731;padding:20px 20px 28px;display:flex;flex-direction:column;justify-content:space-between;gap:16px;color:#F7F4EF"><div style="aspect-ratio:4/3;background:#F7F4EF;padding:18px;display:flex;flex-direction:column;gap:10px;overflow:hidden"><span style="font-family:'JetBrains Mono';font-size:14px;color:#6B665C">INCIDENTS.XLSX → BRIEFING</span><span style="display:flex;align-items:center;gap:10px"><span style="width:10px;height:10px;border-radius:50%;background:#E0533D"></span><span style="height:8px;flex:1;max-width:80%;background:#D6D0C4"></span></span><span style="display:flex;align-items:center;gap:10px"><span style="width:10px;height:10px;border-radius:50%;background:#F0A21C"></span><span style="height:8px;flex:1;max-width:62%;background:#D6D0C4"></span></span><span style="display:flex;align-items:center;gap:10px"><span style="width:10px;height:10px;border-radius:50%;background:#2FA84F"></span><span style="height:8px;flex:1;max-width:72%;background:#D6D0C4"></span></span><span style="display:flex;align-items:center;gap:10px"><span style="width:10px;height:10px;border-radius:50%;background:#E0533D"></span><span style="height:8px;flex:1;max-width:54%;background:#D6D0C4"></span></span><span style="margin-top:auto;align-self:flex-start;font-family:'JetBrains Mono';font-size:13px;padding:6px 10px;background:#E7F5EA;color:#1E7A38">✓ VERIFIED</span></div><div style="font-family:'Space Grotesk';font-weight:600;font-size:38px">AI Incident Briefing</div><div style="font-family:'JetBrains Mono';font-size:22px;line-height:1.5;color:#A8A294">n8n · local LLM · leadership briefs</div></a>
+    <a href="CaseVWR.dc.html" style="border:1px solid #3A3731;padding:20px 20px 28px;display:flex;flex-direction:column;justify-content:space-between;gap:16px;color:#F7F4EF"><div style="aspect-ratio:4/3;overflow:hidden;background:#26231F"><img src="assets/3a505d9d.png" alt="" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block"></div><div style="font-family:'Space Grotesk';font-weight:600;font-size:38px">VW R</div><div style="font-family:'JetBrains Mono';font-size:22px;line-height:1.5;color:#A8A294">stakeholders · live releases</div></a>
+  </div>
+</section>
+
+</x-import>
+</x-dc>
+
+
+</body></html>
