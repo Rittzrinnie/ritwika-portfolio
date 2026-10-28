@@ -37,7 +37,7 @@
   var reduce=window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
   var first=true; try{ first=!sessionStorage.getItem('rm-nav'); sessionStorage.removeItem('rm-nav'); }catch(e){}
   var HOLD=reduce?150:(first?1500:0);
-  var css='#rm-intro{position:fixed;inset:0;z-index:2147483000;background:#0E0D0C;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:34px;transition:opacity .55s ease,visibility .55s;perspective:900px;font-family:"JetBrains Mono",ui-monospace,monospace}'+
+  var css='#rm-intro{position:fixed;inset:0;z-index:2147483000;background:#0E0D0C;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:34px;transition:opacity .55s ease,visibility .55s;perspective:900px;font-family:"Space Grotesk",ui-monospace,monospace}'+
   '#rm-intro.out{opacity:0;visibility:hidden}#rm-intro.plain{transition:opacity .35s ease,visibility .35s}'+
   '#rm-intro .dia{width:132px;height:132px;position:relative;transform-style:preserve-3d;animation:rmSpin 2.2s cubic-bezier(.45,0,.2,1) infinite}'+
   '#rm-intro .face{position:absolute;inset:0;border:2px solid #F2EEE7;transform:rotate(45deg);box-shadow:0 0 0 rgba(242,238,231,0);animation:rmGlowBox 1.6s ease-in-out infinite alternate}'+

@@ -17,6 +17,14 @@
 [data-birdie-list]::-webkit-scrollbar-thumb{background:#DBD6CC;border:2px solid #FFFDF9;border-radius:8px}
 @media (max-width:640px){[data-birdie-panel]{left:12px!important;right:12px!important;width:auto!important;bottom:120px!important;max-height:calc(100vh - 150px)!important}[data-birdie-nudge]{display:none!important}}
 </style>
+<style>
+/* Portfolio refinement: typography, rhythm and accessible focus */
+:root{--rm-space-1:8px;--rm-space-2:16px;--rm-space-3:24px;--rm-space-4:32px;--rm-space-5:48px;--rm-space-6:72px}
+:where(a,button,input,textarea,select,[role="button"],[tabindex="0"]):focus-visible{outline:3px solid #1F5FE0!important;outline-offset:3px}
+:where(button,a){-webkit-tap-highlight-color:transparent}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+@media(max-width:640px){:where(p,li){overflow-wrap:break-word}}
+</style>
 </helmet>
 <div style="font-family:'Hanken Grotesk',system-ui,sans-serif;color:#1A1814">
   <sc-if value="{{ showNudge }}" hint-placeholder-val="{{ false }}">
@@ -31,11 +39,11 @@
       <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 16px 14px 18px;border-bottom:1px solid #DBD6CC">
         <div style="display:flex;flex-direction:column;gap:3px">
           <span style="font-family:'Space Grotesk';font-weight:600;font-size:16px">Birdie</span>
-          <span style="font-family:'JetBrains Mono';font-size:10px;letter-spacing:.06em;color:#6B665C">ASK ABOUT WORK, EXPERIENCE, SKILLS</span>
+          <span style="font-family:'Space Grotesk';font-size:10px;letter-spacing:.06em;color:#6B665C">ASK ABOUT WORK, EXPERIENCE, SKILLS</span>
         </div>
         <div style="display:flex;align-items:center;gap:8px">
-        <sc-if value="{{ hasAgent }}" hint-placeholder-val="{{ false }}"><button onClick="{{ toggleCall }}" aria-label="Voice call with Birdie" style="height:32px;padding:0 11px;border-radius:16px;border:1px solid #DBD6CC;background:{{ callBg }};color:{{ callFg }};cursor:pointer;font-family:'JetBrains Mono';font-size:10px;letter-spacing:.06em;white-space:nowrap" style-hover="border-color:#1A1814">{{ callText }}</button></sc-if>
-        <button onClick="{{ toggleVoice }}" aria-label="{{ voiceLabel }}" title="{{ voiceLabel }}" style="height:32px;padding:0 11px;border-radius:16px;border:1px solid #DBD6CC;background:{{ voiceBg }};color:{{ voiceFg }};cursor:pointer;font-family:'JetBrains Mono';font-size:10px;letter-spacing:.06em;white-space:nowrap" style-hover="border-color:#1A1814">{{ voiceText }}</button>
+        <sc-if value="{{ hasAgent }}" hint-placeholder-val="{{ false }}"><button onClick="{{ toggleCall }}" aria-label="Voice call with Birdie" style="height:32px;padding:0 11px;border-radius:16px;border:1px solid #DBD6CC;background:{{ callBg }};color:{{ callFg }};cursor:pointer;font-family:'Space Grotesk';font-size:10px;letter-spacing:.06em;white-space:nowrap" style-hover="border-color:#1A1814">{{ callText }}</button></sc-if>
+        <button onClick="{{ toggleVoice }}" aria-label="{{ voiceLabel }}" title="{{ voiceLabel }}" style="height:32px;padding:0 11px;border-radius:16px;border:1px solid #DBD6CC;background:{{ voiceBg }};color:{{ voiceFg }};cursor:pointer;font-family:'Space Grotesk';font-size:10px;letter-spacing:.06em;white-space:nowrap" style-hover="border-color:#1A1814">{{ voiceText }}</button>
         <button onClick="{{ toggle }}" aria-label="Close chat" style="width:32px;height:32px;border-radius:50%;border:1px solid #DBD6CC;background:transparent;cursor:pointer;font-size:16px;color:#1A1814;display:flex;align-items:center;justify-content:center" style-hover="background:#F1ECE3">×</button>
         </div>
       </div>
@@ -47,7 +55,7 @@
             <sc-if value="{{ m.hasSources }}" hint-placeholder-val="{{ false }}">
               <div style="align-self:flex-start;max-width:86%;display:flex;flex-wrap:wrap;gap:6px;margin-top:-4px">
                 <sc-for list="{{ m.sources }}" as="src" hint-placeholder-count="2">
-                  <a href="{{ src.url }}" style="font-family:'JetBrains Mono';font-size:10px;letter-spacing:.04em;color:#6B665C;border:1px solid #DBD6CC;border-radius:100px;padding:4px 9px;text-decoration:none" style-hover="color:#1A1814;border-color:#1A1814">{{ src.label }}</a>
+                  <a href="{{ src.url }}" style="font-family:'Space Grotesk';font-size:10px;letter-spacing:.04em;color:#6B665C;border:1px solid #DBD6CC;border-radius:100px;padding:4px 9px;text-decoration:none" style-hover="color:#1A1814;border-color:#1A1814">{{ src.label }}</a>
                 </sc-for>
               </div>
             </sc-if>
