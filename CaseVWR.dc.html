@@ -14,6 +14,24 @@
 <meta name="twitter:description" content="Explore UX research, prototyping, accessibility, and interaction design for the Volkswagen R Virtual Studio digital automotive experience.">
 
 <script src="./support.js"></script>
+<style id="rm-mobile-case-study-fix">
+/* Keep case-study metadata in normal document flow on tablets and phones. */
+@media (max-width:960px){
+  [data-r~="stackmd"]{display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:28px!important;align-items:start!important}
+  [data-r~="stackmd"] > *{min-width:0!important;max-width:100%!important}
+  [data-r~="stackmd"] > [style*="position:sticky"],
+  [data-r~="stackmd"] > [style*="position: sticky"]{position:static!important;top:auto!important;height:auto!important;max-height:none!important;overflow:visible!important;z-index:auto!important}
+  [data-r~="stackmd"] p,[data-r~="stackmd"] h1,[data-r~="stackmd"] h2{overflow-wrap:anywhere}
+}
+@media (max-width:640px){
+  [data-r~="stackmd"]{gap:26px!important}
+  [data-r~="stackmd"] > [style*="position:sticky"]{gap:14px!important;padding-bottom:22px!important;border-bottom:1px solid #DBD6CC}
+  [data-r~="stackmd"] > [style*="position:sticky"] > div{min-width:0!important}
+  [data-r~="stackmd"] > [style*="position:sticky"] > div > div{overflow-wrap:anywhere}
+  [data-r~="pad"]{padding-left:20px!important;padding-right:20px!important}
+  [data-r~="stack"]{grid-template-columns:minmax(0,1fr)!important}
+}
+</style>
 </head>
 <body>
 
