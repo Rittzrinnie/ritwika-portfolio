@@ -440,7 +440,7 @@ html.reduce-motion *{animation:none!important}
 
   <section data-r="pad" style="max-width:1100px;margin:0 auto;padding:0 40px 24px">
     <div data-r="stack stackmd" style="display:grid;grid-template-columns:240px minmax(0,1fr);gap:56px;align-items:start">
-      <div data-reveal="" style="position:sticky;top:96px;display:flex;flex-direction:column;gap:20px;border-top:1px solid #DBD6CC;padding-top:24px">
+      <div data-mobile-meta-sidebar data-reveal="" style="position:sticky;top:96px;display:flex;flex-direction:column;gap:20px;border-top:1px solid #DBD6CC;padding-top:24px">
         <div><div style="font-family:'Space Grotesk';font-size:11px;color:#9A958A;letter-spacing:.06em;margin-bottom:6px">ROLE</div><div style="font-size:15px;font-weight:500;line-height:1.5">Designer &amp; builder, end to end</div></div><div><div style="font-family:'Space Grotesk';font-size:11px;color:#9A958A;letter-spacing:.06em;margin-bottom:6px">YEAR</div><div style="font-size:15px;font-weight:500;line-height:1.5">2026</div></div><div><div style="font-family:'Space Grotesk';font-size:11px;color:#9A958A;letter-spacing:.06em;margin-bottom:6px">TYPE</div><div style="font-size:15px;font-weight:500;line-height:1.5">AI automation · Local LLM</div></div><div><div style="font-family:'Space Grotesk';font-size:11px;color:#9A958A;letter-spacing:.06em;margin-bottom:6px">TOOLS</div><div style="font-size:15px;font-weight:500;line-height:1.5">n8n · Ollama · Llama 3.2 · Docker</div></div><div><div style="font-family:'Space Grotesk';font-size:11px;color:#9A958A;letter-spacing:.06em;margin-bottom:6px">OUTPUT</div><div style="font-size:15px;font-weight:500;line-height:1.5">Executive briefing · PDF</div></div>
       </div>
       <div style="display:flex;flex-direction:column;gap:56px;border-top:1px solid #DBD6CC;padding-top:24px">
@@ -655,4 +655,10 @@ class Component extends DCLogic {
 </script>
 
 
-</body></html>
+<style id="rm-verified-mobile-sidebar-override">
+@media screen and (max-width: 960px) {
+  [data-mobile-meta-sidebar] { display:none !important; position:static !important; }
+  [data-r~="stackmd"] { display:block !important; width:100% !important; max-width:100% !important; }
+  [data-r~="stackmd"] > :not([data-mobile-meta-sidebar]) { display:flex; width:100%; min-width:0; max-width:100%; position:relative; }
+}
+</style></body></html>
