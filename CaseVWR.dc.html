@@ -411,7 +411,7 @@ html.reduce-motion *{animation:none!important}
 
   <section data-r="pad" style="max-width:1100px;margin:0 auto;padding:0 40px 40px">
     <div data-r="stack stackmd" style="display:grid;grid-template-columns:240px 1fr;gap:56px;align-items:start">
-      <div data-reveal="" style="position:sticky;top:96px;display:flex;flex-direction:column;gap:20px;border-top:1px solid #DBD6CC;padding-top:24px">
+      <div data-mobile-meta-sidebar data-reveal="" style="position:sticky;top:96px;display:flex;flex-direction:column;gap:20px;border-top:1px solid #DBD6CC;padding-top:24px">
         <div><div style="font-family:'Space Grotesk';font-size:11px;color:#9A958A;letter-spacing:.06em;margin-bottom:6px">ROLE</div><div style="font-size:15px;font-weight:500;line-height:1.5">UX Designer · owned end-to-end UX direction, with the senior designer &amp; VW R team</div></div>
         <div><div style="font-family:'Space Grotesk';font-size:11px;color:#9A958A;letter-spacing:.06em;margin-bottom:6px">TIMELINE</div><div style="font-size:15px;font-weight:500">2025</div></div>
         <div><div style="font-family:'Space Grotesk';font-size:11px;color:#9A958A;letter-spacing:.06em;margin-bottom:6px">TYPE</div><div style="font-size:15px;font-weight:500">Immersive commerce · SaaS · AR</div></div>
@@ -709,4 +709,10 @@ class Component extends DCLogic {
 </script>
 
 
-</body></html>
+<style id="rm-verified-mobile-sidebar-override">
+@media screen and (max-width: 960px) {
+  [data-mobile-meta-sidebar] { display:none !important; position:static !important; }
+  [data-r~="stackmd"] { display:block !important; width:100% !important; max-width:100% !important; }
+  [data-r~="stackmd"] > :not([data-mobile-meta-sidebar]) { display:flex; width:100%; min-width:0; max-width:100%; position:relative; }
+}
+</style></body></html>
