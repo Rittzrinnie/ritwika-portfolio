@@ -32,10 +32,14 @@
   [data-r~="stack"]{grid-template-columns:minmax(0,1fr)!important}
 }
 </style>
+<style id="portfolio-editorial-type">
+@font-face{font-family:'Libre Baskerville';font-style:normal;font-weight:700;font-display:swap;src:url('https://rittzrinnie.github.io/ritwika-portfolio/fonts/libre-baskerville-bold.ttf') format('truetype')}
+h1,h2,h3{font-family:'Libre Baskerville',Georgia,serif!important;font-weight:700!important;letter-spacing:-.025em!important;line-height:1.2!important}
+</style>
 </head>
 <body>
 
-<div id="rm-boot" style="position:fixed;inset:0;z-index:2147483001;background:#F7F4EF;display:flex;align-items:center;justify-content:center"></div><script>(function(){var b=document.getElementById('rm-boot');var f=true;try{f=!sessionStorage.getItem('rm-nav');}catch(e){}var d=false;try{d=localStorage.getItem('rm-theme')==='dark';}catch(e){}if(f){b.style.background='#0E0D0C';b.innerHTML='<div style="width:132px;height:132px;border:2px solid #F2EEE7;transform:rotate(45deg);display:flex;align-items:center;justify-content:center"><span style="transform:rotate(-45deg);font:700 40px Space Grotesk,system-ui,sans-serif;color:#F2EEE7">RM</span></div>';}else if(d){b.style.background='#121110';}setTimeout(function(){if(b.parentNode)b.remove();},5000);})();</script>
+<div id="rm-boot" style="position:fixed;inset:0;z-index:2147483001;background:#F7F4EF;display:flex;align-items:center;justify-content:center"></div><script>(function(){var b=document.getElementById('rm-boot');var f=true;try{f=!sessionStorage.getItem('rm-nav');}catch(e){}var d=false;try{d=localStorage.getItem('rm-theme')==='dark';}catch(e){}if(f){b.style.background='#0E0D0C';b.innerHTML='<div style="width:132px;height:132px;border:2px solid #F2EEE7;transform:rotate(45deg);display:flex;align-items:center;justify-content:center"><span style="transform:rotate(-45deg);font:700 40px Hanken Grotesk,system-ui,sans-serif;color:#F2EEE7">RM</span></div>';}else if(d){b.style.background='#121110';}setTimeout(function(){if(b.parentNode)b.remove();},5000);})();</script>
 <x-dc>
 <helmet>
 <script src="theme.js"></script>
@@ -206,113 +210,29 @@
 /* latin-ext */
 /* latin */
 /* vietnamese */
-@font-face {
-  font-family: 'Space Grotesk';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url("fonts/d699664b.woff2") format('woff2');
-  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
-}
+
 /* latin-ext */
-@font-face {
-  font-family: 'Space Grotesk';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url("fonts/054c266f.woff2") format('woff2');
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
+
 /* latin */
-@font-face {
-  font-family: 'Space Grotesk';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url("fonts/a0d054c4.woff2") format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
+
 /* vietnamese */
-@font-face {
-  font-family: 'Space Grotesk';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url("fonts/d699664b.woff2") format('woff2');
-  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
-}
+
 /* latin-ext */
-@font-face {
-  font-family: 'Space Grotesk';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url("fonts/054c266f.woff2") format('woff2');
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
+
 /* latin */
-@font-face {
-  font-family: 'Space Grotesk';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url("fonts/a0d054c4.woff2") format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
+
 /* vietnamese */
-@font-face {
-  font-family: 'Space Grotesk';
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url("fonts/d699664b.woff2") format('woff2');
-  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
-}
+
 /* latin-ext */
-@font-face {
-  font-family: 'Space Grotesk';
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url("fonts/054c266f.woff2") format('woff2');
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
+
 /* latin */
-@font-face {
-  font-family: 'Space Grotesk';
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url("fonts/a0d054c4.woff2") format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
+
 /* vietnamese */
-@font-face {
-  font-family: 'Space Grotesk';
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url("fonts/d699664b.woff2") format('woff2');
-  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
-}
+
 /* latin-ext */
-@font-face {
-  font-family: 'Space Grotesk';
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url("fonts/054c266f.woff2") format('woff2');
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
+
 /* latin */
-@font-face {
-  font-family: 'Space Grotesk';
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url("fonts/a0d054c4.woff2") format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
+
 </style>
 <script src="image-slot.js"></script>
 <style>
@@ -347,13 +267,13 @@ html.reduce-motion *{animation:none!important}
   <nav style="position:sticky;top:0;z-index:900;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);background:rgba(247,244,239,.82);border-bottom:1px solid #DBD6CC">
     <div data-r="pad" style="max-width:1100px;margin:0 auto;padding:13px 40px;display:flex;align-items:center;justify-content:space-between;gap:24px">
       <a href="index.html" style="flex:none;display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit">
-        <div style="width:34px;height:34px;border:1.5px solid #1A1814;display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk';font-weight:700;font-size:15px;letter-spacing:-.02em">RM</div>
+        <div style="width:34px;height:34px;border:1.5px solid #1A1814;display:flex;align-items:center;justify-content:center;font-family:'Hanken Grotesk';font-weight:700;font-size:15px;letter-spacing:-.02em">RM</div>
         <div style="display:flex;flex-direction:column;line-height:1.12">
-          <span style="font-family:'Space Grotesk';font-weight:600;font-size:14px;white-space:nowrap">Ritwika Mondal</span>
-          <span style="font-family:'Space Grotesk';font-size:10px;color:#6B665C;letter-spacing:.05em;white-space:nowrap">CASE STUDY 04 / 06</span>
+          <span style="font-family:'Hanken Grotesk';font-weight:600;font-size:14px;white-space:nowrap">Ritwika Mondal</span>
+          <span style="font-family:'Hanken Grotesk';font-size:10px;color:#6B665C;letter-spacing:.05em;white-space:nowrap">CASE STUDY 04 / 06</span>
         </div>
       </a>
-      <div data-r="navlinks" style="display:flex;align-items:center;gap:16px;font-family:'Space Grotesk';font-size:12px;letter-spacing:.04em">
+      <div data-r="navlinks" style="display:flex;align-items:center;gap:16px;font-family:'Hanken Grotesk';font-size:12px;letter-spacing:.04em">
         <a href="CaseIncidentBriefing.dc.html" style="text-decoration:none;color:#1A1814;white-space:nowrap;transition:color .2s" style-hover="color:var(--accent,#1F5FE0)">01 · AI BRIEFING</a>
         <a href="CaseVWR.dc.html" style="text-decoration:none;color:#1A1814;white-space:nowrap;transition:color .2s" style-hover="color:var(--accent,#1F5FE0)">02 · VW R</a>
         <a href="CasePosterStudio.dc.html" style="text-decoration:none;color:#1A1814;white-space:nowrap;transition:color .2s" style-hover="color:var(--accent,#1F5FE0)">03 · POSTERS</a>
@@ -361,32 +281,32 @@ html.reduce-motion *{animation:none!important}
         <a href="CaseCadence.dc.html" style="text-decoration:none;color:#1A1814;white-space:nowrap;transition:color .2s" style-hover="color:var(--accent,#1F5FE0)">05 · CUBOIDS</a>
         <a href="CaseEvoDrive.dc.html" style="text-decoration:none;color:#1A1814;white-space:nowrap;transition:color .2s" style-hover="color:var(--accent,#1F5FE0)">06 · EVO</a>
       </div>
-      <div style="display:flex;align-items:center;gap:10px;flex:none"><button data-theme-toggle="" aria-label="Toggle dark mode" style="flex:none;width:32px;height:32px;border:1px solid #DBD6CC;border-radius:50%;background:transparent;color:#1A1814;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:14px;line-height:1;transition:border-color .2s" style-hover="border-color:#1A1814"><span data-theme-icon="">☾</span></button><a href="index.html#work" style="flex:none;white-space:nowrap;display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:inherit;font-family:'Space Grotesk';font-size:11px;border:1px solid #DBD6CC;padding:8px 13px;transition:border-color .2s" style-hover="border-color:#1A1814">← ALL WORK</a></div>
+      <div style="display:flex;align-items:center;gap:10px;flex:none"><button data-theme-toggle="" aria-label="Toggle dark mode" style="flex:none;width:32px;height:32px;border:1px solid #DBD6CC;border-radius:50%;background:transparent;color:#1A1814;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:14px;line-height:1;transition:border-color .2s" style-hover="border-color:#1A1814"><span data-theme-icon="">☾</span></button><a href="index.html#work" style="flex:none;white-space:nowrap;display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:inherit;font-family:'Hanken Grotesk';font-size:11px;border:1px solid #DBD6CC;padding:8px 13px;transition:border-color .2s" style-hover="border-color:#1A1814">← ALL WORK</a></div>
     </div>
   </nav>
 
   <section data-r="pad" data-screen-label="Cadence Shop Header" style="max-width:1100px;margin:0 auto;padding:72px 40px 44px">
-    <div data-reveal="" style="font-family:'Space Grotesk';font-size:12px;color:var(--accent,#1F5FE0);letter-spacing:.08em;display:flex;align-items:center;gap:10px;margin-bottom:24px">
+    <div data-reveal="" style="font-family:'Hanken Grotesk';font-size:12px;color:var(--accent,#1F5FE0);letter-spacing:.08em;display:flex;align-items:center;gap:10px;margin-bottom:24px">
       <span style="width:24px;height:1px;background:var(--accent,#1F5FE0);display:inline-block"></span>CASE STUDY 04 · ECOMMERCE · SAAS
     </div>
     <div data-r="stack" style="display:grid;grid-template-columns:1.5fr 1fr;gap:48px;align-items:end">
       <div>
-        <h1 data-reveal="" style="font-family:'Space Grotesk';font-weight:600;font-size:clamp(38px,5.6vw,68px);line-height:1.0;letter-spacing:-.03em;max-width:900px;text-wrap:balance">Cadence Shop</h1>
+        <h1 data-reveal="" style="font-family:'Hanken Grotesk';font-weight:600;font-size:clamp(38px,5.6vw,68px);line-height:1.0;letter-spacing:-.03em;max-width:900px;text-wrap:balance">Cadence Shop</h1>
         <p data-reveal="" style="margin-top:22px;font-size:18px;line-height:1.55;color:#46423A;max-width:600px">A 0-to-1 e-commerce experience: how I shaped research-informed customer journeys, accessible interfaces and launch-ready workflows so buyers could discover, trial and purchase Cadence software independently.</p>
         <div data-reveal="" style="display:flex;flex-wrap:wrap;gap:8px;margin-top:26px">
-          <span style="font-family:'Space Grotesk';font-size:10.5px;color:#6B665C;border:1px solid #DBD6CC;padding:7px 11px;border-radius:100px">0 → 1</span>
-          <span style="font-family:'Space Grotesk';font-size:10.5px;color:#6B665C;border:1px solid #DBD6CC;padding:7px 11px;border-radius:100px">ENTERPRISE UX</span>
-          <span style="font-family:'Space Grotesk';font-size:10.5px;color:#6B665C;border:1px solid #DBD6CC;padding:7px 11px;border-radius:100px">WCAG 2.1 AA</span>
-          <span style="font-family:'Space Grotesk';font-size:10.5px;color:#6B665C;border:1px solid #DBD6CC;padding:7px 11px;border-radius:100px">BUILT ON CUBOIDS</span>
+          <span style="font-family:'Hanken Grotesk';font-size:10.5px;color:#6B665C;border:1px solid #DBD6CC;padding:7px 11px;border-radius:100px">0 → 1</span>
+          <span style="font-family:'Hanken Grotesk';font-size:10.5px;color:#6B665C;border:1px solid #DBD6CC;padding:7px 11px;border-radius:100px">ENTERPRISE UX</span>
+          <span style="font-family:'Hanken Grotesk';font-size:10.5px;color:#6B665C;border:1px solid #DBD6CC;padding:7px 11px;border-radius:100px">WCAG 2.1 AA</span>
+          <span style="font-family:'Hanken Grotesk';font-size:10.5px;color:#6B665C;border:1px solid #DBD6CC;padding:7px 11px;border-radius:100px">BUILT ON CUBOIDS</span>
         </div>
       </div>
       <div data-reveal="" style="border:1px solid #DBD6CC;background:#FBF9F5;padding:22px">
         <div style="display:flex;flex-direction:column;gap:16px">
-          <div><div style="font-family:'Space Grotesk';font-size:10px;color:#9A958A;letter-spacing:.06em;margin-bottom:4px">ROLE</div><div style="font-size:14px;font-weight:600;line-height:1.45">UX Lead · UI, accessibility &amp; workflow</div></div>
+          <div><div style="font-family:'Hanken Grotesk';font-size:10px;color:#9A958A;letter-spacing:.06em;margin-bottom:4px">ROLE</div><div style="font-size:14px;font-weight:600;line-height:1.45">UX Lead · UI, accessibility &amp; workflow</div></div>
           <div style="height:1px;background:#E4DFD5"></div>
-          <div><div style="font-family:'Space Grotesk';font-size:10px;color:#9A958A;letter-spacing:.06em;margin-bottom:4px">TIMELINE</div><div style="font-size:14px;font-weight:600;line-height:1.45">2022 – 2023</div></div>
+          <div><div style="font-family:'Hanken Grotesk';font-size:10px;color:#9A958A;letter-spacing:.06em;margin-bottom:4px">TIMELINE</div><div style="font-size:14px;font-weight:600;line-height:1.45">2022 – 2023</div></div>
           <div style="height:1px;background:#E4DFD5"></div>
-          <div><div style="font-family:'Space Grotesk';font-size:10px;color:#9A958A;letter-spacing:.06em;margin-bottom:4px">LIVE PROJECT</div><a href="https://shop.cadence.com/Ecom/all-products" target="_blank" rel="noopener" style="font-size:14px;font-weight:600;color:var(--accent,#1F5FE0);text-decoration:none">shop.cadence.com ↗</a></div>
+          <div><div style="font-family:'Hanken Grotesk';font-size:10px;color:#9A958A;letter-spacing:.06em;margin-bottom:4px">LIVE PROJECT</div><a href="https://shop.cadence.com/Ecom/all-products" target="_blank" rel="noopener" style="font-size:14px;font-weight:600;color:var(--accent,#1F5FE0);text-decoration:none">shop.cadence.com ↗</a></div>
         </div>
       </div>
     </div>
@@ -395,45 +315,45 @@ html.reduce-motion *{animation:none!important}
   <section data-r="pad" style="max-width:1100px;margin:0 auto;padding:0 40px 56px">
     <figure data-reveal="" data-ripple-zone="" style="margin:0;position:relative;border:1px solid #DBD6CC;background:#ECE7DE;overflow:hidden;cursor:pointer">
       <img src="assets/6f757304.png" alt="Cadence Shop" style="display:block;width:100%;height:auto">
-      <span style="position:absolute;top:14px;left:14px;font-family:'Space Grotesk';font-size:10px;color:#46423A;background:rgba(247,244,239,.85);padding:3px 8px">CADENCE SHOP · STOREFRONT</span>
+      <span style="position:absolute;top:14px;left:14px;font-family:'Hanken Grotesk';font-size:10px;color:#46423A;background:rgba(247,244,239,.85);padding:3px 8px">CADENCE SHOP · STOREFRONT</span>
     </figure>
   </section>
 
   <section data-r="pad" style="max-width:1100px;margin:0 auto;padding:0 40px 24px">
     <div data-r="stack stackmd" style="display:grid;grid-template-columns:240px minmax(0,1fr);gap:56px;align-items:start">
       <div data-mobile-meta-sidebar data-reveal="" style="position:sticky;top:96px;display:flex;flex-direction:column;gap:20px;border-top:1px solid #DBD6CC;padding-top:24px">
-        <div><div style="font-family:'Space Grotesk';font-size:11px;color:#9A958A;letter-spacing:.06em;margin-bottom:6px">ROLE</div><div style="font-size:15px;font-weight:500;line-height:1.5">UX Lead · UI, accessibility &amp; workflow</div></div>
-        <div><div style="font-family:'Space Grotesk';font-size:11px;color:#9A958A;letter-spacing:.06em;margin-bottom:6px">DOCUMENTATION</div><div style="font-size:15px;font-weight:500;line-height:1.5">Wiki · requirements, research, decision records, SOPs, testing, governance</div></div>
-        <div><div style="font-family:'Space Grotesk';font-size:11px;color:#9A958A;letter-spacing:.06em;margin-bottom:6px">YEAR</div><div style="font-size:15px;font-weight:500;line-height:1.5">2022 – 2023</div></div>
-        <div><div style="font-family:'Space Grotesk';font-size:11px;color:#9A958A;letter-spacing:.06em;margin-bottom:6px">TYPE</div><div style="font-size:15px;font-weight:500;line-height:1.5">Ecommerce · SaaS</div></div>
-        <div><div style="font-family:'Space Grotesk';font-size:11px;color:#9A958A;letter-spacing:.06em;margin-bottom:6px">TOOLS</div><div style="font-size:15px;font-weight:500;line-height:1.5">Figma · Adobe AEM · Adobe Analytics · Cadence Wiki · Excel · Silktide · Baymard</div></div>
-        <div><div style="font-family:'Space Grotesk';font-size:11px;color:#9A958A;letter-spacing:.06em;margin-bottom:6px">COLLABORATION</div><div style="font-size:15px;font-weight:500;line-height:1.5">ClickUp · Jira</div></div>
-        <div><div style="font-family:'Space Grotesk';font-size:11px;color:#9A958A;letter-spacing:.06em;margin-bottom:6px">PROCESS</div><div style="font-size:15px;font-weight:500;line-height:1.5">Agile · staging-site testing</div></div>
+        <div><div style="font-family:'Hanken Grotesk';font-size:11px;color:#9A958A;letter-spacing:.06em;margin-bottom:6px">ROLE</div><div style="font-size:15px;font-weight:500;line-height:1.5">UX Lead · UI, accessibility &amp; workflow</div></div>
+        <div><div style="font-family:'Hanken Grotesk';font-size:11px;color:#9A958A;letter-spacing:.06em;margin-bottom:6px">DOCUMENTATION</div><div style="font-size:15px;font-weight:500;line-height:1.5">Wiki · requirements, research, decision records, SOPs, testing, governance</div></div>
+        <div><div style="font-family:'Hanken Grotesk';font-size:11px;color:#9A958A;letter-spacing:.06em;margin-bottom:6px">YEAR</div><div style="font-size:15px;font-weight:500;line-height:1.5">2022 – 2023</div></div>
+        <div><div style="font-family:'Hanken Grotesk';font-size:11px;color:#9A958A;letter-spacing:.06em;margin-bottom:6px">TYPE</div><div style="font-size:15px;font-weight:500;line-height:1.5">Ecommerce · SaaS</div></div>
+        <div><div style="font-family:'Hanken Grotesk';font-size:11px;color:#9A958A;letter-spacing:.06em;margin-bottom:6px">TOOLS</div><div style="font-size:15px;font-weight:500;line-height:1.5">Figma · Adobe AEM · Adobe Analytics · Cadence Wiki · Excel · Silktide · Baymard</div></div>
+        <div><div style="font-family:'Hanken Grotesk';font-size:11px;color:#9A958A;letter-spacing:.06em;margin-bottom:6px">COLLABORATION</div><div style="font-size:15px;font-weight:500;line-height:1.5">ClickUp · Jira</div></div>
+        <div><div style="font-family:'Hanken Grotesk';font-size:11px;color:#9A958A;letter-spacing:.06em;margin-bottom:6px">PROCESS</div><div style="font-size:15px;font-weight:500;line-height:1.5">Agile · staging-site testing</div></div>
       </div>
       <div style="display:flex;flex-direction:column;gap:56px;border-top:1px solid #DBD6CC;padding-top:24px">
         <div data-editorial-strategy="true" style="padding:22px 24px;border:1px solid #DBD6CC;background:#FBF9F5;margin-bottom:32px;max-width:100%;min-width:0">
-<div style="font-family:'Space Grotesk',sans-serif;letter-spacing:.09em;font-size:10px;color:#777167;margin-bottom:8px">CASE STUDY FOCUS</div>
-<div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:19px;line-height:1.35;color:#1A1814;margin-bottom:18px">Enterprise commerce · 0→1</div>
+<div style="font-family:'Hanken Grotesk',sans-serif;letter-spacing:.09em;font-size:10px;color:#777167;margin-bottom:8px">CASE STUDY FOCUS</div>
+<div style="font-family:'Hanken Grotesk',sans-serif;font-weight:600;font-size:19px;line-height:1.35;color:#1A1814;margin-bottom:18px">Enterprise commerce · 0→1</div>
 <div style="display:flex;flex-direction:column;gap:14px">
-<div><div style="font-family:'Space Grotesk',sans-serif;font-size:10px;letter-spacing:.07em;color:#817B70;margin-bottom:4px">PROBLEM TO SOLVE</div><p style="font-size:14px;line-height:1.6;color:#2C2A24;margin:0">Make complex Cadence software discoverable and trial-ready through a self-service storefront.</p></div>
-<div><div style="font-family:'Space Grotesk',sans-serif;font-size:10px;letter-spacing:.07em;color:#817B70;margin-bottom:4px">WHAT MY WORK DEMONSTRATES</div><p style="font-size:14px;line-height:1.6;color:#2C2A24;margin:0">Information architecture, progressive disclosure, trial flows and accessibility.</p></div>
-<div><div style="font-family:'Space Grotesk',sans-serif;font-size:10px;letter-spacing:.07em;color:#817B70;margin-bottom:4px">EVIDENCE &amp; SCOPE</div><p style="font-size:13px;line-height:1.6;color:#625D55;margin:0">Production project; separate reported business metrics from design decisions.</p></div>
+<div><div style="font-family:'Hanken Grotesk',sans-serif;font-size:10px;letter-spacing:.07em;color:#817B70;margin-bottom:4px">PROBLEM TO SOLVE</div><p style="font-size:14px;line-height:1.6;color:#2C2A24;margin:0">Make complex Cadence software discoverable and trial-ready through a self-service storefront.</p></div>
+<div><div style="font-family:'Hanken Grotesk',sans-serif;font-size:10px;letter-spacing:.07em;color:#817B70;margin-bottom:4px">WHAT MY WORK DEMONSTRATES</div><p style="font-size:14px;line-height:1.6;color:#2C2A24;margin:0">Information architecture, progressive disclosure, trial flows and accessibility.</p></div>
+<div><div style="font-family:'Hanken Grotesk',sans-serif;font-size:10px;letter-spacing:.07em;color:#817B70;margin-bottom:4px">EVIDENCE &amp; SCOPE</div><p style="font-size:13px;line-height:1.6;color:#625D55;margin:0">Production project; separate reported business metrics from design decisions.</p></div>
 </div></div>
 <div data-reveal="">
-          <div data-toc="Context" style="font-family:'Space Grotesk';font-size:11px;color:var(--accent,#1F5FE0);letter-spacing:.08em;margin-bottom:14px">CONTEXT</div>
-          <p style="font-family:'Space Grotesk';font-weight:500;font-size:22px;line-height:1.4;letter-spacing:-.01em;color:#1A1814;max-width:780px;text-wrap:pretty">Cadence sold deeply technical software through a sales-led process. Cadence Shop was the 0→1 bet to let customers discover, trial and buy online, on their own.</p>
+          <div data-toc="Context" style="font-family:'Hanken Grotesk';font-size:11px;color:var(--accent,#1F5FE0);letter-spacing:.08em;margin-bottom:14px">CONTEXT</div>
+          <p style="font-family:'Hanken Grotesk';font-weight:500;font-size:22px;line-height:1.4;letter-spacing:-.01em;color:#1A1814;max-width:780px;text-wrap:pretty">Cadence sold deeply technical software through a sales-led process. Cadence Shop was the 0→1 bet to let customers discover, trial and buy online, on their own.</p>
           <p style="font-size:16px;line-height:1.65;color:#56524A;max-width:720px;margin-top:14px;text-wrap:pretty">I led the UX decisions, UI, accessibility and workflow. The shop was built on Cuboids, Cadence’s design language, with no existing e-commerce patterns or user journeys to reference. Released in phases, with WCAG-aligned accessibility improving each release.</p>
           <p style="font-size:16px;line-height:1.65;color:#56524A;max-width:720px;margin-top:14px;text-wrap:pretty">I used the wiki as the single home for all documentation: requirements, research, design decision records, process documentation, SOPs, project documentation, testing, technical documentation, knowledge base and governance. Everything was integrated in a structured, strategic way.</p>
         </div>
         <div data-reveal="">
-          <div data-toc="Challenge" style="font-family:'Space Grotesk';font-size:11px;color:var(--accent,#1F5FE0);letter-spacing:.08em;margin-bottom:14px">THE CHALLENGE</div>
+          <div data-toc="Challenge" style="font-family:'Hanken Grotesk';font-size:11px;color:var(--accent,#1F5FE0);letter-spacing:.08em;margin-bottom:14px">THE CHALLENGE</div>
           <div style="border:1px solid #DBD6CC;background:#1A1814;color:#F7F4EF;padding:26px 28px">
-            <p style="font-family:'Space Grotesk';font-weight:500;font-size:21px;line-height:1.4;letter-spacing:-.01em;max-width:760px">How can users discover, understand and trial Cadence products quickly and confidently, without oversimplifying the technical details?</p>
+            <p style="font-family:'Hanken Grotesk';font-weight:500;font-size:21px;line-height:1.4;letter-spacing:-.01em;max-width:760px">How can users discover, understand and trial Cadence products quickly and confidently, without oversimplifying the technical details?</p>
           </div>
           <div data-r="fitmin" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-top:14px">
-            <div style="border:1px solid #DBD6CC;background:#FBF9F5;padding:20px"><div style="font-family:'Space Grotesk';font-weight:600;font-size:17px">Complex products</div><p style="font-size:14.5px;line-height:1.55;color:#56524A;margin-top:6px">Interdependent tools, licensing models and compatibility constraints.</p></div>
-            <div style="border:1px solid #DBD6CC;background:#FBF9F5;padding:20px"><div style="font-family:'Space Grotesk';font-weight:600;font-size:17px">Mixed expertise</div><p style="font-size:14.5px;line-height:1.55;color:#56524A;margin-top:6px">From senior engineers who know what they need to students still exploring.</p></div>
-            <div style="border:1px solid #DBD6CC;background:#FBF9F5;padding:20px"><div style="font-family:'Space Grotesk';font-weight:600;font-size:17px">Scale over time</div><p style="font-size:14.5px;line-height:1.55;color:#56524A;margin-top:6px">Accessibility and structure had to hold up across releases without rework.</p></div>
+            <div style="border:1px solid #DBD6CC;background:#FBF9F5;padding:20px"><div style="font-family:'Hanken Grotesk';font-weight:600;font-size:17px">Complex products</div><p style="font-size:14.5px;line-height:1.55;color:#56524A;margin-top:6px">Interdependent tools, licensing models and compatibility constraints.</p></div>
+            <div style="border:1px solid #DBD6CC;background:#FBF9F5;padding:20px"><div style="font-family:'Hanken Grotesk';font-weight:600;font-size:17px">Mixed expertise</div><p style="font-size:14.5px;line-height:1.55;color:#56524A;margin-top:6px">From senior engineers who know what they need to students still exploring.</p></div>
+            <div style="border:1px solid #DBD6CC;background:#FBF9F5;padding:20px"><div style="font-family:'Hanken Grotesk';font-weight:600;font-size:17px">Scale over time</div><p style="font-size:14.5px;line-height:1.55;color:#56524A;margin-top:6px">Accessibility and structure had to hold up across releases without rework.</p></div>
           </div>
         </div>
       </div>
@@ -442,64 +362,64 @@ html.reduce-motion *{animation:none!important}
 
   <section data-r="pad" style="max-width:1100px;margin:0 auto;padding:72px 40px 0">
     <div data-reveal="">
-      <div data-toc="Insights" style="font-family:'Space Grotesk';font-size:11px;color:var(--accent,#1F5FE0);letter-spacing:.08em;margin-bottom:14px">INSIGHTS → PRODUCT DECISIONS</div>
+      <div data-toc="Insights" style="font-family:'Hanken Grotesk';font-size:11px;color:var(--accent,#1F5FE0);letter-spacing:.08em;margin-bottom:14px">INSIGHTS → PRODUCT DECISIONS</div>
       <p style="font-size:16px;line-height:1.65;color:#56524A;max-width:760px;margin-top:0;text-wrap:pretty">The strategic challenge was not simply to put Cadence software online. It was to make a technically complex, sales-led product range understandable and actionable through self-service. Secondary research, stakeholder discussions, competitor reviews and heuristic evaluation informed four connected decisions.</p>
       <div style="margin-top:16px;padding:16px 20px;border-left:3px solid var(--accent,#1F5FE0);background:#F3F1EC;color:#1A1814;font-size:14px;line-height:1.6"><strong>Design principle:</strong> Reveal the right information when it becomes useful — from user intent, to product fit, to a confident trial or purchase decision.</div>
       <div style="margin-top:24px;border:1px solid #DBD6CC">
-        <div data-r="stack" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);background:#ECE7DE;font-family:'Space Grotesk';font-size:10.5px;letter-spacing:.06em;color:#6B665C"><div style="padding:12px 20px">CONSTRAINT / RESEARCH SYNTHESIS</div><div style="padding:12px 20px;border-left:1px solid #DBD6CC">DESIGN DECISION / STRATEGIC VALUE</div></div>
+        <div data-r="stack" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);background:#ECE7DE;font-family:'Hanken Grotesk';font-size:10.5px;letter-spacing:.06em;color:#6B665C"><div style="padding:12px 20px">CONSTRAINT / RESEARCH SYNTHESIS</div><div style="padding:12px 20px;border-left:1px solid #DBD6CC">DESIGN DECISION / STRATEGIC VALUE</div></div>
         <div data-r="stack" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);border-top:1px solid #DBD6CC;background:#FBF9F5">
-          <div style="padding:18px 20px;font-size:15px;line-height:1.55;color:#56524A"><div style="font-family:'Space Grotesk';font-size:10px;letter-spacing:.09em;color:#81796D;margin-bottom:8px">01 · PRODUCT DISCOVERY</div>Technical software was organized around product terminology, while buyers arrived with different levels of domain knowledge.</div>
+          <div style="padding:18px 20px;font-size:15px;line-height:1.55;color:#56524A"><div style="font-family:'Hanken Grotesk';font-size:10px;letter-spacing:.09em;color:#81796D;margin-bottom:8px">01 · PRODUCT DISCOVERY</div>Technical software was organized around product terminology, while buyers arrived with different levels of domain knowledge.</div>
           <div style="padding:18px 20px;font-size:15px;line-height:1.55;color:#1A1814;border-left:1px solid #DBD6CC"><div style="font-weight:600;margin-bottom:8px">Make intent the entry point: goal → workflow category → relevant product set → trial or purchase.</div><div style="font-size:13px;line-height:1.55;color:#6B665C">Helps new buyers orient themselves without slowing down experienced users.</div></div>
         </div>
         <div data-r="stack" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);border-top:1px solid #DBD6CC;background:#FBF9F5">
-          <div style="padding:18px 20px;font-size:15px;line-height:1.55;color:#56524A"><div style="font-family:'Space Grotesk';font-size:10px;letter-spacing:.09em;color:#81796D;margin-bottom:8px">02 · DECISION COMPLEXITY</div>Product capabilities, compatibility and licensing details all matter, but showing everything at once increases comparison effort.</div>
+          <div style="padding:18px 20px;font-size:15px;line-height:1.55;color:#56524A"><div style="font-family:'Hanken Grotesk';font-size:10px;letter-spacing:.09em;color:#81796D;margin-bottom:8px">02 · DECISION COMPLEXITY</div>Product capabilities, compatibility and licensing details all matter, but showing everything at once increases comparison effort.</div>
           <div style="padding:18px 20px;font-size:15px;line-height:1.55;color:#1A1814;border-left:1px solid #DBD6CC"><div style="font-weight:600;margin-bottom:8px">Use progressive disclosure: category tabs and meaningful filters first; detailed specifications and licensing at the decision point.</div><div style="font-size:13px;line-height:1.55;color:#6B665C">Keeps technical accuracy while making the catalogue easier to scan and narrow.</div></div>
         </div>
         <div data-r="stack" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);border-top:1px solid #DBD6CC;background:#FBF9F5">
-          <div style="padding:18px 20px;font-size:15px;line-height:1.55;color:#56524A"><div style="font-family:'Space Grotesk';font-size:10px;letter-spacing:.09em;color:#81796D;margin-bottom:8px">03 · TRIAL ACTIVATION</div>A self-service proposition fails if sign-in, account creation or trial initiation introduces avoidable uncertainty.</div>
+          <div style="padding:18px 20px;font-size:15px;line-height:1.55;color:#56524A"><div style="font-family:'Hanken Grotesk';font-size:10px;letter-spacing:.09em;color:#81796D;margin-bottom:8px">03 · TRIAL ACTIVATION</div>A self-service proposition fails if sign-in, account creation or trial initiation introduces avoidable uncertainty.</div>
           <div style="padding:18px 20px;font-size:15px;line-height:1.55;color:#1A1814;border-left:1px solid #DBD6CC"><div style="font-weight:600;margin-bottom:8px">Make the next action explicit; clarify Cadence ID benefits, form requirements and trial steps, then validate the journey against Baymard guidelines.</div><div style="font-size:13px;line-height:1.55;color:#6B665C">Connects UX decisions directly to the business objective of self-service adoption.</div></div>
         </div>
         <div data-r="stack" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);border-top:1px solid #DBD6CC;background:#FBF9F5">
-          <div style="padding:18px 20px;font-size:15px;line-height:1.55;color:#56524A"><div style="font-family:'Space Grotesk';font-size:10px;letter-spacing:.09em;color:#81796D;margin-bottom:8px">04 · ACCESSIBLE SCALE</div>A new storefront needed reusable interaction patterns that could support different users and phased releases.</div>
+          <div style="padding:18px 20px;font-size:15px;line-height:1.55;color:#56524A"><div style="font-family:'Hanken Grotesk';font-size:10px;letter-spacing:.09em;color:#81796D;margin-bottom:8px">04 · ACCESSIBLE SCALE</div>A new storefront needed reusable interaction patterns that could support different users and phased releases.</div>
           <div style="padding:18px 20px;font-size:15px;line-height:1.55;color:#1A1814;border-left:1px solid #DBD6CC"><div style="font-weight:600;margin-bottom:8px">Build on Cuboids with keyboard access, visible focus, usable form errors and accessibility fixes prioritized across releases.</div><div style="font-size:13px;line-height:1.55;color:#6B665C">Makes accessibility and consistency part of the delivery model rather than post-launch polish.</div></div>
         </div>
       </div>
       <p style="font-size:12px;line-height:1.6;color:#777168;margin:12px 0 0;max-width:760px">These are synthesized design rationales, not measured research findings. Specific implementation fixes and remaining dependencies are documented in the Baymard audit below.</p>
-      <div data-r="stack" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px;margin-top:18px;align-items:start"><figure style="margin:0"><img src="assets/ad072504.png" alt="Competitor analysis" loading="lazy" style="width:100%;height:auto;display:block;border:1px solid #DBD6CC;background:#FBF9F5"><div style="font-family:'Space Grotesk';font-size:10.5px;letter-spacing:.06em;color:#6B665C;margin-top:10px">COMPETITOR ANALYSIS</div></figure><figure style="margin:0"><img src="assets/fd9b3041.png" alt="New user flow: sign in, account creation, password reset and location checks through to checkout" loading="lazy" style="width:100%;height:auto;display:block;border:1px solid #DBD6CC;background:#FFFFFF"><div style="font-family:'Space Grotesk';font-size:10.5px;letter-spacing:.06em;color:#6B665C;margin-top:10px">WORKFLOW</div></figure></div>
+      <div data-r="stack" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px;margin-top:18px;align-items:start"><figure style="margin:0"><img src="assets/ad072504.png" alt="Competitor analysis" loading="lazy" style="width:100%;height:auto;display:block;border:1px solid #DBD6CC;background:#FBF9F5"><div style="font-family:'Hanken Grotesk';font-size:10.5px;letter-spacing:.06em;color:#6B665C;margin-top:10px">COMPETITOR ANALYSIS</div></figure><figure style="margin:0"><img src="assets/fd9b3041.png" alt="New user flow: sign in, account creation, password reset and location checks through to checkout" loading="lazy" style="width:100%;height:auto;display:block;border:1px solid #DBD6CC;background:#FFFFFF"><div style="font-family:'Hanken Grotesk';font-size:10.5px;letter-spacing:.06em;color:#6B665C;margin-top:10px">WORKFLOW</div></figure></div>
     </div>
   </section>
 
   <section data-r="pad" style="max-width:1100px;margin:0 auto;padding:72px 40px 0">
     <div data-reveal="">
-      <div data-toc="Audit" style="font-family:'Space Grotesk';font-size:11px;color:var(--accent,#1F5FE0);letter-spacing:.08em;margin-bottom:14px">BAYMARD UX AUDIT</div>
-      <p style="font-family:'Space Grotesk';font-weight:500;font-size:22px;line-height:1.4;letter-spacing:-.01em;color:#1A1814;max-width:780px;text-wrap:pretty">I benchmarked the redesign against Baymard's e-commerce UX guidelines to back each design decision with research evidence.</p>
+      <div data-toc="Audit" style="font-family:'Hanken Grotesk';font-size:11px;color:var(--accent,#1F5FE0);letter-spacing:.08em;margin-bottom:14px">BAYMARD UX AUDIT</div>
+      <p style="font-family:'Hanken Grotesk';font-weight:500;font-size:22px;line-height:1.4;letter-spacing:-.01em;color:#1A1814;max-width:780px;text-wrap:pretty">I benchmarked the redesign against Baymard's e-commerce UX guidelines to back each design decision with research evidence.</p>
       <p style="font-size:16px;line-height:1.65;color:#56524A;max-width:720px;margin-top:14px;text-wrap:pretty">Two audits ran in March 2022 in Baymard's review tool: the existing staging shop (B2B) and the new design (digital subscription and SaaS). Comparing them guideline by guideline across sign-in, registration, forms and account showed what the redesign improved, what needed engineering, and where to fix next.</p>
       <div data-r="fitmin" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin-top:24px;align-items:start">
-        <div style="border:1px solid #DBD6CC;background:#FBF9F5;padding:20px;display:flex;flex-direction:column;gap:12px"><div style="display:flex;align-items:center;gap:10px"><span style="width:10px;height:10px;background:#4E7A34;flex:none"></span><span style="font-family:'Space Grotesk';font-size:10.5px;letter-spacing:.08em;color:#1A1814">IMPROVED</span></div><div style="font-family:'Space Grotesk';font-weight:600;font-size:17px;line-height:1.3">Solved in design</div><ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px"><li style="font-size:14.5px;line-height:1.55;color:#56524A;padding-top:10px;border-top:1px solid #E4DFD5">Cadence ID benefits shown in the sign-in sidebar.</li><li style="font-size:14.5px;line-height:1.55;color:#56524A;padding-top:10px;border-top:1px solid #E4DFD5">Password rules simplified and updated live as users type.</li><li style="font-size:14.5px;line-height:1.55;color:#56524A;padding-top:10px;border-top:1px solid #E4DFD5">Phone field explains why it is asked; screen name field removed.</li><li style="font-size:14.5px;line-height:1.55;color:#56524A;padding-top:10px;border-top:1px solid #E4DFD5">Buttons named by context; cart icon placed top-right.</li><li style="font-size:14.5px;line-height:1.55;color:#56524A;padding-top:10px;border-top:1px solid #E4DFD5">Tooltips on free trial, location and country fields.</li></ul></div>
-        <div style="border:1px solid #DBD6CC;background:#FBF9F5;padding:20px;display:flex;flex-direction:column;gap:12px"><div style="display:flex;align-items:center;gap:10px"><span style="width:10px;height:10px;background:#C98A1E;flex:none"></span><span style="font-family:'Space Grotesk';font-size:10.5px;letter-spacing:.08em;color:#1A1814">NO CHANGE</span></div><div style="font-family:'Space Grotesk';font-weight:600;font-size:17px;line-height:1.3">Handed to engineering</div><ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px"><li style="font-size:14.5px;line-height:1.55;color:#56524A;padding-top:10px;border-top:1px solid #E4DFD5">Autocomplete country selector, with IP geo-targeting to preselect the country.</li><li style="font-size:14.5px;line-height:1.55;color:#56524A;padding-top:10px;border-top:1px solid #E4DFD5">Most form-validation items in this category depend on development.</li><li style="font-size:14.5px;line-height:1.55;color:#56524A;padding-top:10px;border-top:1px solid #E4DFD5">Account dropdown to open on hover.</li></ul></div>
-        <div style="border:1px solid #DBD6CC;background:#FBF9F5;padding:20px;display:flex;flex-direction:column;gap:12px"><div style="display:flex;align-items:center;gap:10px"><span style="width:10px;height:10px;background:#A8322D;flex:none"></span><span style="font-family:'Space Grotesk';font-size:10.5px;letter-spacing:.08em;color:#1A1814">DECLINED</span></div><div style="font-family:'Space Grotesk';font-weight:600;font-size:17px;line-height:1.3">Next fixes, prioritised</div><ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px"><li style="font-size:14.5px;line-height:1.55;color:#56524A;padding-top:10px;border-top:1px solid #E4DFD5">Replace the distorted captcha with Google reCAPTCHA.</li><li style="font-size:14.5px;line-height:1.55;color:#56524A;padding-top:10px;border-top:1px solid #E4DFD5">Localised phone input masks that accept any formatting.</li><li style="font-size:14.5px;line-height:1.55;color:#56524A;padding-top:10px;border-top:1px solid #E4DFD5">Check the email exists during password reset and show an error if not. A quick fix.</li></ul></div>
+        <div style="border:1px solid #DBD6CC;background:#FBF9F5;padding:20px;display:flex;flex-direction:column;gap:12px"><div style="display:flex;align-items:center;gap:10px"><span style="width:10px;height:10px;background:#4E7A34;flex:none"></span><span style="font-family:'Hanken Grotesk';font-size:10.5px;letter-spacing:.08em;color:#1A1814">IMPROVED</span></div><div style="font-family:'Hanken Grotesk';font-weight:600;font-size:17px;line-height:1.3">Solved in design</div><ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px"><li style="font-size:14.5px;line-height:1.55;color:#56524A;padding-top:10px;border-top:1px solid #E4DFD5">Cadence ID benefits shown in the sign-in sidebar.</li><li style="font-size:14.5px;line-height:1.55;color:#56524A;padding-top:10px;border-top:1px solid #E4DFD5">Password rules simplified and updated live as users type.</li><li style="font-size:14.5px;line-height:1.55;color:#56524A;padding-top:10px;border-top:1px solid #E4DFD5">Phone field explains why it is asked; screen name field removed.</li><li style="font-size:14.5px;line-height:1.55;color:#56524A;padding-top:10px;border-top:1px solid #E4DFD5">Buttons named by context; cart icon placed top-right.</li><li style="font-size:14.5px;line-height:1.55;color:#56524A;padding-top:10px;border-top:1px solid #E4DFD5">Tooltips on free trial, location and country fields.</li></ul></div>
+        <div style="border:1px solid #DBD6CC;background:#FBF9F5;padding:20px;display:flex;flex-direction:column;gap:12px"><div style="display:flex;align-items:center;gap:10px"><span style="width:10px;height:10px;background:#C98A1E;flex:none"></span><span style="font-family:'Hanken Grotesk';font-size:10.5px;letter-spacing:.08em;color:#1A1814">NO CHANGE</span></div><div style="font-family:'Hanken Grotesk';font-weight:600;font-size:17px;line-height:1.3">Handed to engineering</div><ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px"><li style="font-size:14.5px;line-height:1.55;color:#56524A;padding-top:10px;border-top:1px solid #E4DFD5">Autocomplete country selector, with IP geo-targeting to preselect the country.</li><li style="font-size:14.5px;line-height:1.55;color:#56524A;padding-top:10px;border-top:1px solid #E4DFD5">Most form-validation items in this category depend on development.</li><li style="font-size:14.5px;line-height:1.55;color:#56524A;padding-top:10px;border-top:1px solid #E4DFD5">Account dropdown to open on hover.</li></ul></div>
+        <div style="border:1px solid #DBD6CC;background:#FBF9F5;padding:20px;display:flex;flex-direction:column;gap:12px"><div style="display:flex;align-items:center;gap:10px"><span style="width:10px;height:10px;background:#A8322D;flex:none"></span><span style="font-family:'Hanken Grotesk';font-size:10.5px;letter-spacing:.08em;color:#1A1814">DECLINED</span></div><div style="font-family:'Hanken Grotesk';font-weight:600;font-size:17px;line-height:1.3">Next fixes, prioritised</div><ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px"><li style="font-size:14.5px;line-height:1.55;color:#56524A;padding-top:10px;border-top:1px solid #E4DFD5">Replace the distorted captcha with Google reCAPTCHA.</li><li style="font-size:14.5px;line-height:1.55;color:#56524A;padding-top:10px;border-top:1px solid #E4DFD5">Localised phone input masks that accept any formatting.</li><li style="font-size:14.5px;line-height:1.55;color:#56524A;padding-top:10px;border-top:1px solid #E4DFD5">Check the email exists during password reset and show an error if not. A quick fix.</li></ul></div>
       </div>
-      <div data-r="stack" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px;margin-top:18px;align-items:start"><figure style="margin:0"><img src="assets/4b03ee04.png" alt="Baymard audit: staging shop results and actions required" loading="lazy" style="width:100%;height:auto;display:block;border:1px solid #DBD6CC;background:#FFFFFF"><div style="font-family:'Space Grotesk';font-size:10.5px;letter-spacing:.06em;color:#6B665C;margin-top:10px">BAYMARD · STAGING SHOP (BEFORE)</div></figure><figure style="margin:0"><img src="assets/f7054645.png" alt="Baymard audit: new design results and items solved" loading="lazy" style="width:100%;height:auto;display:block;border:1px solid #DBD6CC;background:#FFFFFF"><div style="font-family:'Space Grotesk';font-size:10.5px;letter-spacing:.06em;color:#6B665C;margin-top:10px">BAYMARD · NEW DESIGN (AFTER)</div></figure></div>
+      <div data-r="stack" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px;margin-top:18px;align-items:start"><figure style="margin:0"><img src="assets/4b03ee04.png" alt="Baymard audit: staging shop results and actions required" loading="lazy" style="width:100%;height:auto;display:block;border:1px solid #DBD6CC;background:#FFFFFF"><div style="font-family:'Hanken Grotesk';font-size:10.5px;letter-spacing:.06em;color:#6B665C;margin-top:10px">BAYMARD · STAGING SHOP (BEFORE)</div></figure><figure style="margin:0"><img src="assets/f7054645.png" alt="Baymard audit: new design results and items solved" loading="lazy" style="width:100%;height:auto;display:block;border:1px solid #DBD6CC;background:#FFFFFF"><div style="font-family:'Hanken Grotesk';font-size:10.5px;letter-spacing:.06em;color:#6B665C;margin-top:10px">BAYMARD · NEW DESIGN (AFTER)</div></figure></div>
     </div>
   </section>
 
   <section data-hs="" style="position:relative">
     <div data-hs-sticky="" style="position:sticky;top:0;height:100vh;overflow:hidden;display:flex;flex-direction:column;justify-content:center;gap:36px;padding-top:56px">
       <div data-r="pad" style="width:100%;max-width:1100px;margin:0 auto;padding:0 40px;display:flex;align-items:center;justify-content:space-between;gap:24px">
-        <div data-toc="Solution" style="font-family:'Space Grotesk';font-size:11px;color:var(--accent,#1F5FE0);letter-spacing:.08em">SOLUTION</div>
-        <div data-hs-gauge="" style="display:flex;align-items:center;gap:14px;font-family:'Space Grotesk';font-size:11px;letter-spacing:.06em;color:#6B665C"><span data-hs-count="">01 / 03</span><div style="width:160px;height:2px;background:#DBD6CC;position:relative;overflow:hidden"><div data-hs-fill="" style="position:absolute;left:0;top:0;bottom:0;width:0%;background:var(--accent,#1F5FE0)"></div></div></div>
+        <div data-toc="Solution" style="font-family:'Hanken Grotesk';font-size:11px;color:var(--accent,#1F5FE0);letter-spacing:.08em">SOLUTION</div>
+        <div data-hs-gauge="" style="display:flex;align-items:center;gap:14px;font-family:'Hanken Grotesk';font-size:11px;letter-spacing:.06em;color:#6B665C"><span data-hs-count="">01 / 03</span><div style="width:160px;height:2px;background:#DBD6CC;position:relative;overflow:hidden"><div data-hs-fill="" style="position:absolute;left:0;top:0;bottom:0;width:0%;background:var(--accent,#1F5FE0)"></div></div></div>
       </div>
       <div data-hs-track="" style="display:flex;gap:96px;width:max-content;padding:0 max(40px,calc((100vw - 1100px) / 2 + 40px));will-change:transform">
       <article style="flex:none;width:min(78vw,1040px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:44px;align-items:center">
-        <div style="position:relative"><div data-pxn="" aria-hidden="true" style="font-family:'Space Grotesk';font-weight:700;font-size:128px;line-height:.9;letter-spacing:-.05em;color:#E4DFD5;will-change:transform">01</div><div style="font-family:'Space Grotesk';font-weight:600;font-size:24px;letter-spacing:-.01em;line-height:1.2;margin-top:8px">Self-service marketplace</div><p style="font-size:15px;line-height:1.6;color:#56524A;margin-top:10px;text-wrap:pretty">Discovery to purchase without a sales call, shortening decision cycles and time-to-value.</p></div>
+        <div style="position:relative"><div data-pxn="" aria-hidden="true" style="font-family:'Hanken Grotesk';font-weight:700;font-size:128px;line-height:.9;letter-spacing:-.05em;color:#E4DFD5;will-change:transform">01</div><div style="font-family:'Hanken Grotesk';font-weight:600;font-size:24px;letter-spacing:-.01em;line-height:1.2;margin-top:8px">Self-service marketplace</div><p style="font-size:15px;line-height:1.6;color:#56524A;margin-top:10px;text-wrap:pretty">Discovery to purchase without a sales call, shortening decision cycles and time-to-value.</p></div>
         <div style="overflow:hidden;border:1px solid #DBD6CC;background:#FBF9F5"><img data-px="" src="assets/f22c6b0d.png" alt="Self-service marketplace" loading="lazy" style="display:block;width:100%;height:auto;transform:scale(1.14);will-change:transform"></div>
       </article>
       <article style="flex:none;width:min(78vw,1040px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:44px;align-items:center">
-        <div style="position:relative"><div data-pxn="" aria-hidden="true" style="font-family:'Space Grotesk';font-weight:700;font-size:128px;line-height:.9;letter-spacing:-.05em;color:#E4DFD5;will-change:transform">02</div><div style="font-family:'Space Grotesk';font-weight:600;font-size:24px;letter-spacing:-.01em;line-height:1.2;margin-top:8px">Tabs + checkbox filters</div><p style="font-size:15px;line-height:1.6;color:#56524A;margin-top:10px;text-wrap:pretty">Large, complex catalogues become easy to narrow down, lowering cognitive load.</p></div>
+        <div style="position:relative"><div data-pxn="" aria-hidden="true" style="font-family:'Hanken Grotesk';font-weight:700;font-size:128px;line-height:.9;letter-spacing:-.05em;color:#E4DFD5;will-change:transform">02</div><div style="font-family:'Hanken Grotesk';font-weight:600;font-size:24px;letter-spacing:-.01em;line-height:1.2;margin-top:8px">Tabs + checkbox filters</div><p style="font-size:15px;line-height:1.6;color:#56524A;margin-top:10px;text-wrap:pretty">Large, complex catalogues become easy to narrow down, lowering cognitive load.</p></div>
         <div style="overflow:hidden;border:1px solid #DBD6CC;background:#FBF9F5"><img data-px="" src="assets/71cfdcef.png" alt="Tabs + checkbox filters" loading="lazy" style="display:block;width:100%;height:auto;transform:scale(1.14);will-change:transform"></div>
       </article>
       <article style="flex:none;width:min(78vw,1040px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:44px;align-items:center">
-        <div style="position:relative"><div data-pxn="" aria-hidden="true" style="font-family:'Space Grotesk';font-weight:700;font-size:128px;line-height:.9;letter-spacing:-.05em;color:#E4DFD5;will-change:transform">03</div><div style="font-family:'Space Grotesk';font-weight:600;font-size:24px;letter-spacing:-.01em;line-height:1.2;margin-top:8px">Guided onboarding</div><p style="font-size:15px;line-height:1.6;color:#56524A;margin-top:10px;text-wrap:pretty">First-time users reach their first meaningful action faster, building early trust.</p></div>
+        <div style="position:relative"><div data-pxn="" aria-hidden="true" style="font-family:'Hanken Grotesk';font-weight:700;font-size:128px;line-height:.9;letter-spacing:-.05em;color:#E4DFD5;will-change:transform">03</div><div style="font-family:'Hanken Grotesk';font-weight:600;font-size:24px;letter-spacing:-.01em;line-height:1.2;margin-top:8px">Guided onboarding</div><p style="font-size:15px;line-height:1.6;color:#56524A;margin-top:10px;text-wrap:pretty">First-time users reach their first meaningful action faster, building early trust.</p></div>
         <div style="overflow:hidden;border:1px solid #DBD6CC;background:#FBF9F5"><img data-px="" src="assets/43a2761b.png" alt="Guided onboarding" loading="lazy" style="display:block;width:100%;height:auto;transform:scale(1.14);will-change:transform"></div>
       </article>
       </div>
@@ -508,57 +428,57 @@ html.reduce-motion *{animation:none!important}
 
   <section data-r="pad" style="max-width:1100px;margin:0 auto;padding:72px 40px 0">
     <div data-reveal="">
-      <div data-toc="Accessibility" style="font-family:'Space Grotesk';font-size:11px;color:var(--accent,#1F5FE0);letter-spacing:.08em;margin-bottom:14px">ACCESSIBILITY · 3 RELEASES</div>
+      <div data-toc="Accessibility" style="font-family:'Hanken Grotesk';font-size:11px;color:var(--accent,#1F5FE0);letter-spacing:.08em;margin-bottom:14px">ACCESSIBILITY · 3 RELEASES</div>
       <p style="font-size:16px;line-height:1.65;color:#56524A;max-width:720px;margin-top:0px;text-wrap:pretty">Rolled out incrementally rather than as a one-time fix, reducing compliance risk and improving the experience for all users.</p>
-      <div data-r="fitmin" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin-top:18px"><div style="display:flex;gap:10px;border:1px solid #DBD6CC;background:#FBF9F5;padding:14px 16px;font-size:14.5px;line-height:1.5;color:#2C2A24"><span style="color:var(--accent,#1F5FE0);font-family:'Space Grotesk'">✓</span>WCAG 2.1 AA contrast and focus visibility</div><div style="display:flex;gap:10px;border:1px solid #DBD6CC;background:#FBF9F5;padding:14px 16px;font-size:14.5px;line-height:1.5;color:#2C2A24"><span style="color:var(--accent,#1F5FE0);font-family:'Space Grotesk'">✓</span>Keyboard-first interaction</div><div style="display:flex;gap:10px;border:1px solid #DBD6CC;background:#FBF9F5;padding:14px 16px;font-size:14.5px;line-height:1.5;color:#2C2A24"><span style="color:var(--accent,#1F5FE0);font-family:'Space Grotesk'">✓</span>Accessible-by-default forms and error states</div><div style="display:flex;gap:10px;border:1px solid #DBD6CC;background:#FBF9F5;padding:14px 16px;font-size:14.5px;line-height:1.5;color:#2C2A24"><span style="color:var(--accent,#1F5FE0);font-family:'Space Grotesk'">✓</span>Semantic structure, not visual-only fixes</div></div>
+      <div data-r="fitmin" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin-top:18px"><div style="display:flex;gap:10px;border:1px solid #DBD6CC;background:#FBF9F5;padding:14px 16px;font-size:14.5px;line-height:1.5;color:#2C2A24"><span style="color:var(--accent,#1F5FE0);font-family:'Hanken Grotesk'">✓</span>WCAG 2.1 AA contrast and focus visibility</div><div style="display:flex;gap:10px;border:1px solid #DBD6CC;background:#FBF9F5;padding:14px 16px;font-size:14.5px;line-height:1.5;color:#2C2A24"><span style="color:var(--accent,#1F5FE0);font-family:'Hanken Grotesk'">✓</span>Keyboard-first interaction</div><div style="display:flex;gap:10px;border:1px solid #DBD6CC;background:#FBF9F5;padding:14px 16px;font-size:14.5px;line-height:1.5;color:#2C2A24"><span style="color:var(--accent,#1F5FE0);font-family:'Hanken Grotesk'">✓</span>Accessible-by-default forms and error states</div><div style="display:flex;gap:10px;border:1px solid #DBD6CC;background:#FBF9F5;padding:14px 16px;font-size:14.5px;line-height:1.5;color:#2C2A24"><span style="color:var(--accent,#1F5FE0);font-family:'Hanken Grotesk'">✓</span>Semantic structure, not visual-only fixes</div></div>
       <div data-r="stack" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px;margin-top:18px;align-items:start"><img src="assets/5b429545.png" alt="Color contrast" loading="lazy" style="width:100%;height:auto;display:block;border:1px solid #DBD6CC;background:#FBF9F5"><img src="assets/c250a90d.png" alt="Form labeling and error states" loading="lazy" style="width:100%;height:auto;display:block;border:1px solid #DBD6CC;background:#FBF9F5"></div>
     </div>
   </section>
 
   <section data-r="pad" style="max-width:1100px;margin:0 auto;padding:72px 40px 0">
     <div data-reveal="">
-      <div data-toc="Impact" style="font-family:'Space Grotesk';font-size:11px;color:var(--accent,#1F5FE0);letter-spacing:.08em;margin-bottom:14px">IMPACT</div>
+      <div data-toc="Impact" style="font-family:'Hanken Grotesk';font-size:11px;color:var(--accent,#1F5FE0);letter-spacing:.08em;margin-bottom:14px">IMPACT</div>
       <div data-r="fitmin" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px">
-        <div style="border:1px solid #DBD6CC;padding:22px;background:#FBF9F5"><div style="font-family:'Space Grotesk';font-weight:600;font-size:20px;letter-spacing:-.01em">Faster discovery</div><p style="font-size:14.5px;line-height:1.55;color:#56524A;margin-top:8px">Goal-oriented navigation helped users find relevant products faster.</p></div>
-        <div style="border:1px solid #DBD6CC;padding:22px;background:#FBF9F5"><div style="font-family:'Space Grotesk';font-weight:600;font-size:20px;letter-spacing:-.01em">More confidence</div><p style="font-size:14.5px;line-height:1.55;color:#56524A;margin-top:8px">Novice and expert users completed trial and purchase journeys with less support.</p></div>
-        <div style="border:1px solid #DBD6CC;padding:22px;background:#FBF9F5"><div style="font-family:'Space Grotesk';font-weight:600;font-size:20px;letter-spacing:-.01em">Inclusive by default</div><p style="font-size:14.5px;line-height:1.55;color:#56524A;margin-top:8px">Keyboard and assistive-tech users can use the full platform.</p></div>
+        <div style="border:1px solid #DBD6CC;padding:22px;background:#FBF9F5"><div style="font-family:'Hanken Grotesk';font-weight:600;font-size:20px;letter-spacing:-.01em">Faster discovery</div><p style="font-size:14.5px;line-height:1.55;color:#56524A;margin-top:8px">Goal-oriented navigation helped users find relevant products faster.</p></div>
+        <div style="border:1px solid #DBD6CC;padding:22px;background:#FBF9F5"><div style="font-family:'Hanken Grotesk';font-weight:600;font-size:20px;letter-spacing:-.01em">More confidence</div><p style="font-size:14.5px;line-height:1.55;color:#56524A;margin-top:8px">Novice and expert users completed trial and purchase journeys with less support.</p></div>
+        <div style="border:1px solid #DBD6CC;padding:22px;background:#FBF9F5"><div style="font-family:'Hanken Grotesk';font-weight:600;font-size:20px;letter-spacing:-.01em">Inclusive by default</div><p style="font-size:14.5px;line-height:1.55;color:#56524A;margin-top:8px">Keyboard and assistive-tech users can use the full platform.</p></div>
       </div>
       <div data-r="stack stackmd" style="margin-top:36px;padding-top:24px;border-top:1px solid #DBD6CC;display:grid;grid-template-columns:240px minmax(0,1fr);gap:40px">
-        <div data-toc="Takeaway" style="font-family:'Space Grotesk';font-size:11px;color:#9A958A;letter-spacing:.06em">TAKEAWAY</div>
-        <p style="font-family:'Space Grotesk';font-weight:500;font-size:20px;line-height:1.45;letter-spacing:-.01em;color:#1A1814;max-width:720px">Selling complex software online depends less on showing everything and more on sequencing it: goal first, then solution, then trial. Designing accessibility in from the first release helped every user, not just those relying on assistive tech.</p>
+        <div data-toc="Takeaway" style="font-family:'Hanken Grotesk';font-size:11px;color:#9A958A;letter-spacing:.06em">TAKEAWAY</div>
+        <p style="font-family:'Hanken Grotesk';font-weight:500;font-size:20px;line-height:1.45;letter-spacing:-.01em;color:#1A1814;max-width:720px">Selling complex software online depends less on showing everything and more on sequencing it: goal first, then solution, then trial. Designing accessibility in from the first release helped every user, not just those relying on assistive tech.</p>
       </div>
     </div>
   </section>
 
   <section data-r="pad" style="max-width:1100px;margin:0 auto;padding:72px 40px 88px">
     <div data-reveal="">
-      <div data-toc="Gallery" style="font-family:'Space Grotesk';font-size:11px;color:var(--accent,#1F5FE0);letter-spacing:.08em;margin-bottom:14px">PROJECT GALLERY</div>
+      <div data-toc="Gallery" style="font-family:'Hanken Grotesk';font-size:11px;color:var(--accent,#1F5FE0);letter-spacing:.08em;margin-bottom:14px">PROJECT GALLERY</div>
       <div data-r="fitmin" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px"><img src="assets/813038e1.png" alt="Cadence Shop gallery" loading="lazy" style="width:100%;height:auto;display:block;border:1px solid #DBD6CC;background:#FBF9F5"><img src="assets/e7744e25.png" alt="Cadence Shop gallery" loading="lazy" style="width:100%;height:auto;display:block;border:1px solid #DBD6CC;background:#FBF9F5"><img src="assets/4abc4a30.png" alt="Cadence Shop gallery" loading="lazy" style="width:100%;height:auto;display:block;border:1px solid #DBD6CC;background:#FBF9F5"></div>
     </div>
   </section>
 
   <section style="border-top:1px solid #DBD6CC;background:#FBF9F5">
     <div data-r="pad stack" style="max-width:1100px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:1fr 1fr">
-      <div style="padding:34px 0;font-family:'Space Grotesk';font-size:12px;color:#9A958A">PREV<div style="margin-top:6px"><a href="CasePosterStudio.dc.html" style="font-family:'Space Grotesk';font-weight:600;font-size:20px;color:#1A1814;text-decoration:none">← R Poster Studio</a></div></div>
-      <div style="padding:34px 0;text-align:right;font-family:'Space Grotesk';font-size:12px;color:#9A958A;border-left:1px solid #DBD6CC;padding-left:34px">NEXT<div style="margin-top:6px"><a href="CaseCadence.dc.html" style="font-family:'Space Grotesk';font-weight:600;font-size:20px;color:#1A1814;text-decoration:none">Cuboids Design System →</a></div></div>
+      <div style="padding:34px 0;font-family:'Hanken Grotesk';font-size:12px;color:#9A958A">PREV<div style="margin-top:6px"><a href="CasePosterStudio.dc.html" style="font-family:'Hanken Grotesk';font-weight:600;font-size:20px;color:#1A1814;text-decoration:none">← R Poster Studio</a></div></div>
+      <div style="padding:34px 0;text-align:right;font-family:'Hanken Grotesk';font-size:12px;color:#9A958A;border-left:1px solid #DBD6CC;padding-left:34px">NEXT<div style="margin-top:6px"><a href="CaseCadence.dc.html" style="font-family:'Hanken Grotesk';font-weight:600;font-size:20px;color:#1A1814;text-decoration:none">Cuboids Design System →</a></div></div>
     </div>
   </section>
 
   <section data-screen-label="Cadence Shop CTA" style="background:#1A1814;color:#F7F4EF">
     <div data-r="pad" style="max-width:1100px;margin:0 auto;padding:80px 40px 52px">
       <div data-reveal="" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:30px">
-        <h2 style="font-family:'Space Grotesk';font-weight:600;font-size:clamp(26px,4vw,44px);letter-spacing:-.02em;line-height:1.05;max-width:560px;text-wrap:balance">Want the full walkthrough? Let's talk.</h2>
+        <h2 style="font-family:'Hanken Grotesk';font-weight:600;font-size:clamp(26px,4vw,44px);letter-spacing:-.02em;line-height:1.05;max-width:560px;text-wrap:balance">Want the full walkthrough? Let's talk.</h2>
         <div style="display:flex;flex-wrap:wrap;gap:14px">
-          <a href="index.html#contact" style="text-decoration:none;background:#F7F4EF;color:#1A1814;font-family:'Space Grotesk';font-size:13px;padding:15px 22px;transition:transform .25s,background .25s" style-hover="transform:translateY(-2px);background:var(--accent,#1F5FE0)">GET IN TOUCH ↗</a>
-          <a href="index.html#work" style="text-decoration:none;color:#F7F4EF;font-family:'Space Grotesk';font-size:13px;border:1px solid #44403A;padding:15px 22px;transition:border-color .25s" style-hover="border-color:#F7F4EF">← ALL WORK</a>
+          <a href="index.html#contact" style="text-decoration:none;background:#F7F4EF;color:#1A1814;font-family:'Hanken Grotesk';font-size:13px;padding:15px 22px;transition:transform .25s,background .25s" style-hover="transform:translateY(-2px);background:var(--accent,#1F5FE0)">GET IN TOUCH ↗</a>
+          <a href="index.html#work" style="text-decoration:none;color:#F7F4EF;font-family:'Hanken Grotesk';font-size:13px;border:1px solid #44403A;padding:15px 22px;transition:border-color .25s" style-hover="border-color:#F7F4EF">← ALL WORK</a>
         </div>
       </div>
       <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px;margin-top:56px;padding-top:26px;border-top:1px solid #36322B">
         <div style="display:flex;align-items:center;gap:12px">
-          <div style="width:30px;height:30px;border:1.5px solid #F7F4EF;display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk';font-weight:700;font-size:13px">RM</div>
-          <span style="font-family:'Space Grotesk';font-size:11px;color:#8A857B">© 2026 RITWIKA MONDAL · CASE STUDY 04</span>
+          <div style="width:30px;height:30px;border:1.5px solid #F7F4EF;display:flex;align-items:center;justify-content:center;font-family:'Hanken Grotesk';font-weight:700;font-size:13px">RM</div>
+          <span style="font-family:'Hanken Grotesk';font-size:11px;color:#8A857B">© 2026 RITWIKA MONDAL · CASE STUDY 04</span>
         </div>
-        <span style="font-family:'Space Grotesk';font-size:11px;color:#8A857B">Context → insights → solution → impact</span>
+        <span style="font-family:'Hanken Grotesk';font-size:11px;color:#8A857B">Context → insights → solution → impact</span>
       </div>
     </div>
   </section>
@@ -573,7 +493,7 @@ class Component extends DCLogic {
     var targets=Array.prototype.slice.call(root.querySelectorAll('[data-toc]'));
     if(!targets.length||document.getElementById('side-ctx-nav')) return;
     var nav=document.createElement('nav'); nav.id='side-ctx-nav';
-    nav.style.cssText='position:fixed;left:24px;top:50%;transform:translateY(-50%);z-index:40;display:flex;flex-direction:column;gap:4px;font-family:Space Grotesk,monospace;font-size:10px;letter-spacing:.08em;opacity:0;transition:opacity .4s;pointer-events:none';
+    nav.style.cssText='position:fixed;left:24px;top:50%;transform:translateY(-50%);z-index:40;display:flex;flex-direction:column;gap:4px;font-family:Hanken Grotesk,monospace;font-size:10px;letter-spacing:.08em;opacity:0;transition:opacity .4s;pointer-events:none';
     var items=targets.map(function(t,i){
       var a=document.createElement('a'); a.href='#';
       a.style.cssText='display:flex;align-items:center;gap:10px;padding:5px 0;color:#9A958A;text-decoration:none;transition:color .25s';
@@ -676,7 +596,7 @@ class Component extends DCLogic {
             var dx = Math.cos(angle) * dist, dy = Math.sin(angle) * dist;
             var chip = document.createElement('span');
             chip.textContent = nextLabel();
-            chip.style.cssText = 'position:absolute;left:'+x+'px;top:'+y+'px;transform:translate(-50%,-50%) scale(.6);font-family:\'Space Grotesk\',monospace;font-size:10.5px;letter-spacing:.04em;color:#1A1814;background:#F7F4EF;border:1px solid '+accent+';padding:6px 10px;border-radius:100px;pointer-events:none;opacity:0;white-space:nowrap;transition:transform .7s cubic-bezier(.16,.9,.3,1),opacity .7s ease-out;z-index:7';
+            chip.style.cssText = 'position:absolute;left:'+x+'px;top:'+y+'px;transform:translate(-50%,-50%) scale(.6);font-family:\'Hanken Grotesk\',monospace;font-size:10.5px;letter-spacing:.04em;color:#1A1814;background:#F7F4EF;border:1px solid '+accent+';padding:6px 10px;border-radius:100px;pointer-events:none;opacity:0;white-space:nowrap;transition:transform .7s cubic-bezier(.16,.9,.3,1),opacity .7s ease-out;z-index:7';
             zone.appendChild(chip);
             requestAnimationFrame(function(){
               chip.style.opacity='1';

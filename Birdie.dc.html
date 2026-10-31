@@ -38,12 +38,12 @@
     <div data-birdie-panel="" role="dialog" aria-label="Chat with Birdie" style="position:fixed;left:{{ panelLeft }};right:{{ panelRight }};top:{{ panelTop }};bottom:{{ panelBottom }};z-index:960;width:370px;max-height:min(560px,calc(100vh - 180px));display:flex;flex-direction:column;background:#FFFDF9;border:1px solid #DBD6CC;border-radius:18px;box-shadow:0 24px 60px rgba(26,24,20,.18);overflow:hidden">
       <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 16px 14px 18px;border-bottom:1px solid #DBD6CC">
         <div style="display:flex;flex-direction:column;gap:3px">
-          <span style="font-family:'Space Grotesk';font-weight:600;font-size:16px">Birdie</span>
-          <span style="font-family:'Space Grotesk';font-size:10px;letter-spacing:.06em;color:#6B665C">ASK ABOUT WORK, EXPERIENCE, SKILLS</span>
+          <span style="font-family:'Hanken Grotesk';font-weight:600;font-size:16px">Birdie</span>
+          <span style="font-family:'Hanken Grotesk';font-size:10px;letter-spacing:.06em;color:#6B665C">ASK ABOUT WORK, EXPERIENCE, SKILLS</span>
         </div>
         <div style="display:flex;align-items:center;gap:8px">
-        <sc-if value="{{ hasAgent }}" hint-placeholder-val="{{ false }}"><button onClick="{{ toggleCall }}" aria-label="Voice call with Birdie" style="height:32px;padding:0 11px;border-radius:16px;border:1px solid #DBD6CC;background:{{ callBg }};color:{{ callFg }};cursor:pointer;font-family:'Space Grotesk';font-size:10px;letter-spacing:.06em;white-space:nowrap" style-hover="border-color:#1A1814">{{ callText }}</button></sc-if>
-        <button onClick="{{ toggleVoice }}" aria-label="{{ voiceLabel }}" title="{{ voiceLabel }}" style="height:32px;padding:0 11px;border-radius:16px;border:1px solid #DBD6CC;background:{{ voiceBg }};color:{{ voiceFg }};cursor:pointer;font-family:'Space Grotesk';font-size:10px;letter-spacing:.06em;white-space:nowrap" style-hover="border-color:#1A1814">{{ voiceText }}</button>
+        <sc-if value="{{ hasAgent }}" hint-placeholder-val="{{ false }}"><button onClick="{{ toggleCall }}" aria-label="Voice call with Birdie" style="height:32px;padding:0 11px;border-radius:16px;border:1px solid #DBD6CC;background:{{ callBg }};color:{{ callFg }};cursor:pointer;font-family:'Hanken Grotesk';font-size:10px;letter-spacing:.06em;white-space:nowrap" style-hover="border-color:#1A1814">{{ callText }}</button></sc-if>
+        <button onClick="{{ toggleVoice }}" aria-label="{{ voiceLabel }}" title="{{ voiceLabel }}" style="height:32px;padding:0 11px;border-radius:16px;border:1px solid #DBD6CC;background:{{ voiceBg }};color:{{ voiceFg }};cursor:pointer;font-family:'Hanken Grotesk';font-size:10px;letter-spacing:.06em;white-space:nowrap" style-hover="border-color:#1A1814">{{ voiceText }}</button>
         <button onClick="{{ toggle }}" aria-label="Close chat" style="width:32px;height:32px;border-radius:50%;border:1px solid #DBD6CC;background:transparent;cursor:pointer;font-size:16px;color:#1A1814;display:flex;align-items:center;justify-content:center" style-hover="background:#F1ECE3">×</button>
         </div>
       </div>
@@ -55,7 +55,7 @@
             <sc-if value="{{ m.hasSources }}" hint-placeholder-val="{{ false }}">
               <div style="align-self:flex-start;max-width:86%;display:flex;flex-wrap:wrap;gap:6px;margin-top:-4px">
                 <sc-for list="{{ m.sources }}" as="src" hint-placeholder-count="2">
-                  <a href="{{ src.url }}" style="font-family:'Space Grotesk';font-size:10px;letter-spacing:.04em;color:#6B665C;border:1px solid #DBD6CC;border-radius:100px;padding:4px 9px;text-decoration:none" style-hover="color:#1A1814;border-color:#1A1814">{{ src.label }}</a>
+                  <a href="{{ src.url }}" style="font-family:'Hanken Grotesk';font-size:10px;letter-spacing:.04em;color:#6B665C;border:1px solid #DBD6CC;border-radius:100px;padding:4px 9px;text-decoration:none" style-hover="color:#1A1814;border-color:#1A1814">{{ src.label }}</a>
                 </sc-for>
               </div>
             </sc-if>
@@ -709,7 +709,7 @@ When appropriate, end with:
     const brim = new THREE.Mesh(new THREE.CylinderGeometry(0.62, 0.62, 0.05, 40, 1, false, -Math.PI / 2 - 0.9, 1.8), capM); brim.scale.set(1.15, 1, 1.05); brim.position.set(0, 0.02, 0.32); brim.rotation.x = 0.12; cap.add(brim);
     const band = new THREE.Mesh(new THREE.TorusGeometry(0.79, 0.018, 8, 60, Math.PI * 0.8), white); band.rotation.set(Math.PI / 2, 0, Math.PI * 0.1); band.position.y = 0.05; band.scale.set(1.02, 1, 1); cap.add(band);
     const lc = document.createElement('canvas'); lc.width = 256; lc.height = 128;
-    const lx = lc.getContext('2d'); lx.fillStyle = '#fff'; lx.font = "700 58px 'Space Grotesk', sans-serif"; lx.textAlign = 'center'; lx.textBaseline = 'middle'; lx.letterSpacing = '12px'; lx.fillText('', 134, 68);
+    const lx = lc.getContext('2d'); lx.fillStyle = '#fff'; lx.font = "700 58px 'Hanken Grotesk', sans-serif"; lx.textAlign = 'center'; lx.textBaseline = 'middle'; lx.letterSpacing = '12px'; lx.fillText('', 134, 68);
     const logo = new THREE.Mesh(new THREE.PlaneGeometry(0.54, 0.27), new THREE.MeshBasicMaterial({ map: new THREE.CanvasTexture(lc), transparent: true }));
     logo.position.set(0, 0.3, 0.73); logo.rotation.x = -0.45; cap.add(logo);
     const wings = [];
