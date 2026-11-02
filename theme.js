@@ -1,8 +1,10 @@
 (function(){
   if(window.__rmThemeInit) return; window.__rmThemeInit=true;
   var KEY='rm-theme';
-  var saved=null; try{ saved=localStorage.getItem(KEY); }catch(e){}
-  var theme=(saved==='dark'||saved==='light') ? saved : 'light';
+  // Always begin a new page load in light mode, regardless of older preferences.
+  // Visitors can still switch to dark mode using the navbar control.
+  var theme='light';
+  try{ localStorage.removeItem(KEY); }catch(e){}
   var html=document.documentElement; html.setAttribute('data-theme',theme);
   var D='html[data-theme="dark"] ';
   var bg=[['247, 244, 239','18, 17, 16'],['251, 249, 245','26, 25, 23'],['236, 231, 222','34, 32, 28'],['228, 223, 213','42, 40, 35'],['241, 236, 227','36, 34, 30'],['239, 235, 227','30, 28, 25'],['219, 214, 204','52, 49, 43'],['201, 195, 182','74, 70, 62'],['255, 255, 255','238, 235, 229']];
@@ -26,7 +28,7 @@
   css+='html,body,[style]{transition-property:background-color,color,border-color;transition-duration:.25s}';
   var st=document.createElement('style'); st.id='rm-theme-css'; st.textContent=css; (document.head||html).appendChild(st);
   function sync(){ var dark=html.getAttribute('data-theme')==='dark'; document.querySelectorAll('[data-theme-toggle]').forEach(function(b){ var p=String(dark), tl=dark?'Switch to light mode':'Switch to dark mode', ic=dark?'☀':'☾'; if(b.getAttribute('aria-pressed')!==p) b.setAttribute('aria-pressed',p); if(b.getAttribute('title')!==tl) b.setAttribute('title',tl); var i=b.querySelector('[data-theme-icon]'); if(i && i.textContent!==ic) i.textContent=ic; }); }
-  document.addEventListener('click',function(e){ var b=e.target.closest && e.target.closest('[data-theme-toggle]'); if(!b) return; var next=html.getAttribute('data-theme')==='dark'?'light':'dark'; html.setAttribute('data-theme',next); try{ localStorage.setItem(KEY,next); }catch(err){} sync(); });
+  document.addEventListener('click',function(e){ var b=e.target.closest && e.target.closest('[data-theme-toggle]'); if(!b) return; var next=html.getAttribute('data-theme')==='dark'?'light':'dark'; html.setAttribute('data-theme',next); sync(); });
   document.addEventListener('DOMContentLoaded',sync);
   [300,1200,3000].forEach(function(ms){ setTimeout(sync,ms); });
   sync();
