@@ -158,17 +158,20 @@ html[data-theme="light"] [data-birdie-panel] button[data-birdie-voice="true"]{
           </sc-if>
         </sc-for>
         <sc-if value="{{ thinking }}" hint-placeholder-val="{{ false }}">
-          <div style="align-self:flex-start;background:#F1ECE3;padding:12px 14px;border-radius:14px 14px 14px 4px;display:flex;gap:5px">
+          <div role="status" aria-live="polite" style="align-self:flex-start;background:#F1ECE3;color:#1A1814;padding:12px 14px;border-radius:14px 14px 14px 4px;display:flex;align-items:center;gap:8px;flex-wrap:wrap"><span style="font-family:'Hanken Grotesk';font-size:12px;font-weight:600">{{ thinkingStatus }}</span>
             <span data-birdie-dot="" style="width:6px;height:6px;border-radius:50%;background:#6B665C"></span>
             <span data-birdie-dot="" style="width:6px;height:6px;border-radius:50%;background:#6B665C;animation-delay:.15s"></span>
             <span data-birdie-dot="" style="width:6px;height:6px;border-radius:50%;background:#6B665C;animation-delay:.3s"></span>
           </div>
         </sc-if>
         <sc-if value="{{ showSuggestions }}" hint-placeholder-val="{{ true }}">
-          <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:4px">
-            <sc-for list="{{ suggestions }}" as="s" hint-placeholder-count="4">
-              <button onClick="{{ s.ask }}" style="cursor:pointer;background:transparent;border:1px solid #DBD6CC;color:#1A1814;padding:7px 11px;border-radius:100px;font-family:'Hanken Grotesk';font-size:12.5px;text-align:left" style-hover="border-color:#1A1814">{{ s.label }}</button>
-            </sc-for>
+          <div style="align-self:flex-start;width:100%;padding:6px 2px;color:#1A1814">
+            <div style="font-family:'Hanken Grotesk';font-size:11px;font-weight:700;letter-spacing:.05em;margin-bottom:8px">{{ suggestionTitle }}</div>
+            <ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:7px;list-style:disc">
+              <sc-for list="{{ suggestions }}" as="s" hint-placeholder-count="3">
+                <li style="font-size:13px;line-height:1.35;color:#1F5FE0"><button onClick="{{ s.ask }}" style="cursor:pointer;background:transparent;border:0;color:inherit;padding:0;font-family:'Hanken Grotesk';font-size:13px;text-align:left;text-decoration:underline;text-underline-offset:3px" style-hover="color:#1A1814">{{ s.label }}</button></li>
+              </sc-for>
+            </ul>
           </div>
         </sc-if>
       </div>
@@ -187,7 +190,7 @@ html[data-theme="light"] [data-birdie-panel] button[data-birdie-voice="true"]{
 class Component extends DCLogic {
   state = {
     voice: (() => { try { return localStorage.getItem('birdie-voice') === '1'; } catch (e) { return false; } })(),
-    open: false, nudge: true, dragging: false, pos: (() => { try { return JSON.parse(localStorage.getItem('birdie-pos')) || null; } catch (e) { return null; } })(), draft: '', thinking: false,
+    open: false, nudge: true, dragging: false, pos: (() => { try { return JSON.parse(localStorage.getItem('birdie-pos')) || null; } catch (e) { return null; } })(), draft: '', thinking: false, thinkingStatus: '', followUps: [],
     messages: [{ role: 'assistant', text: "Tweet! I'm Birdie. I know Ritwika's projects, experience and background. What would you like to know?" }]
   };
   mouse = { x: 0, y: 0 };
@@ -601,11 +604,29 @@ When appropriate, end with:
     } catch (e) {}
   }
 
+  relatedQuestions(q) {
+    // Public-facing topic prompts, never a transcript of private model reasoning.
+    const question = (q || '').toLowerCase();
+    const groups = [
+      [/volkswagen|virtual studio|vw r|automotive|car/, ['What did Ritwika design for Volkswagen R?', 'How did she validate the experience?', 'What outcomes can she demonstrate?']],
+      [/cadence|cuboids|design system|accessibility|wcag/, ['How did Ritwika build Cuboids?', 'What accessibility decisions did she make?', 'How did she collaborate with engineering?']],
+      [/shop|ecommerce|e-commerce|subscription|checkout/, ['What problem did Cadence Shop solve?', 'How did she improve the user journey?', 'How was accessibility tested?']],
+      [/birdie|incident|automation|n8n|ollama|llm|ai adopt|agent/, ['How does her AI automation workflow work?', 'How does she handle AI reliability and trust?', 'Which AI tools has she used hands-on?']],
+      [/web3|airdrop|sign.on|education|news/, ['How did the Web3 products work together?', 'What was her role as product designer?', 'What was the user experience outcome?']],
+      [/evo|thesis|hmi|driving/, ['What is EvoDrive?', 'What research informed the concept?', 'How does the interface adapt to drivers?']],
+      [/skill|tool|stack|technical|developer|code/, ['Which tools does she use most?', 'How does she collaborate with developers?', 'Can you explain her AI project?']],
+      [/hire|role|job|experience|background|about|achievement/, ['What is her biggest achievement?', 'What kinds of problems does she solve?', 'Can you show a relevant case study?']]
+    ];
+    const match = groups.find(([pattern]) => pattern.test(question));
+    const prompts = match ? match[1] : ['Which case study best demonstrates this?', 'How did she approach the design process?', 'What did she learn from this work?'];
+    return prompts.filter(p => p.toLowerCase() !== question).slice(0, 3);
+  }
+
   async ask(q) {
     q = (q || '').trim(); if (!q || this.state.thinking) return;
     if (this.state.voice) this.unlockAudio();
     const history = [...this.state.messages, { role: 'user', text: q }];
-    this.setState({ messages: history, draft: '', thinking: true });
+    this.setState({ messages: history, draft: '', thinking: true, thinkingStatus: 'Finding relevant portfolio details…', followUps: [] });
     let ctx = null, sources = [];
     try {
       const recent = history.filter(m => m.role === 'user').slice(-2).map(m => m.text).join(' ');
@@ -619,6 +640,7 @@ When appropriate, end with:
       }
     } catch (e) {}
     if (!ctx) { if (!this.context) await this.buildContext(); ctx = this.context; }
+    this.setState({ thinkingStatus: 'Preparing a clear answer…' });
     const PAGE_NAMES = { vwr: 'Volkswagen R Virtual Studio', poster: 'VW R Poster Studio', cadence: 'Cuboids Design System (Cadence)', shop: 'Cadence Shop', evo: 'Evo Drive (MA thesis)', incident: 'AI Incident Briefing Automation' };
     const onPage = PAGE_NAMES[this.props.page] ? "The visitor is currently reading the " + PAGE_NAMES[this.props.page] + " case study; the 'Portfolio home page' context below is actually this case study page. Assume questions like 'this project' refer to it. " : "";
     const system = onPage + "You are Birdie, a friendly little bird on Ritwika Mondal's portfolio. Follow the skill below exactly. Refer to Ritwika in the third person. Plain text only, no markdown. Never share her phone number.\n\n" + this.skill() + "\n\n## Additional portfolio context (use only facts consistent with the skill guardrails)\n" + ctx + "\n\n## Approved portfolio metrics (the ONLY numbers you may quote; use this exact wording, say 'projected' where marked)\n- VW R Virtual Studio: +40% longer average session time, measured through Adobe Analytics after launch. Projected: +50% more feature-exploration clicks, +20–30% more lead-generation interactions, +25% uplift in perceived brand innovation.\n- Cuboids Design System (Cadence): 95% UI consistency across products and cadence.com, 50% less repetitive design/dev effort via reusable parts, 3× faster feature delivery, 4× cross-team collaboration and handoff efficiency, 15+ core components used company-wide.\n- Cadence: promoted P1 → P2.\n- Cadence Shop (qualitative, no numbers): faster discovery through goal-oriented navigation; more confidence, as novice and expert users completed trial and purchase journeys with less support; inclusive by default, keyboard and assistive-tech users can use the full platform; WCAG-aligned accessibility improved with each release.\n- VW R Poster Studio (qualitative): connects brand discovery with personal creation; visitors understand the concept, explore inspiration, create an artwork and return to a previous design; live on volkswagen.de.\n- AI Incident Briefing: 150 incident records reduced to a controlled 15-item sample before aggregation, to manage context size and inference time; Llama 3.2 via Ollama with num_predict 120.\n- Evo Drive: no metrics in the portfolio.\nIf asked for any other number, say: I don't have that information in Ritwika's portfolio." + "\n\nFORMAT (overrides everything above): reply in plain conversational text only. No headings, no # or * characters, no bullet lists. Maximum about 90 words unless the visitor explicitly asks for detail. Personality: warm, a little playful. When you don't know something or it isn't in the portfolio, never guess; say something like: Hmm, I might be hallucinating here. Better ask Ritwika herself on LinkedIn at linkedin.com/in/ritwika-mondal. Never use emoji.";
@@ -640,7 +662,7 @@ When appropriate, end with:
     }
     text = (text || '').replace(/^#{1,6}\s*/gm, '').replace(/\*\*|__/g, '').replace(/^\s*[-*]\s+/gm, '• ').replace(/\n{3,}/g, '\n\n');
     this.hop = 1;
-    this.setState(s => ({ messages: [...s.messages, { role: 'assistant', text: (text || '').trim(), sources }], thinking: false }));
+    this.setState(s => ({ messages: [...s.messages, { role: 'assistant', text: (text || '').trim(), sources }], thinking: false, thinkingStatus: '', followUps: this.relatedQuestions(q) }));
     this.say((text || '').trim());
   }
 
@@ -900,9 +922,11 @@ When appropriate, end with:
         else { this.bling(); this.hop = 1; this.setState(s => ({ open: !s.open, nudge: false })); }
       },
       showNudge: nudge && !open,
-      showSuggestions: messages.length <= 1 && !thinking,
+      showSuggestions: !thinking && (messages.length <= 1 || this.state.followUps.length > 0),
+      suggestionTitle: messages.length <= 1 ? 'START WITH A QUESTION' : 'RELATED QUESTIONS',
+      thinkingStatus: this.state.thinkingStatus,
       messages: messages.map(m => ({ text: m.text, isBot: m.role === 'assistant', isUser: m.role === 'user', sources: m.sources || [], hasSources: !!(m.sources && m.sources.length) })),
-      suggestions: qs.map(q => ({ label: q, ask: () => this.ask(q) })),
+      suggestions: (messages.length <= 1 ? qs.slice(0, 4) : this.state.followUps).map(q => ({ label: q, ask: () => this.ask(q) })),
       setMount: el => { this.mount = el; },
       setList: el => { this.list = el; },
       toggle: () => { this.bling(); this.hop = 1; this.setState(s => ({ open: !s.open, nudge: false })); },
