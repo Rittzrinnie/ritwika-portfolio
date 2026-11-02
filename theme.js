@@ -2,7 +2,7 @@
   if(window.__rmThemeInit) return; window.__rmThemeInit=true;
   var KEY='rm-theme';
   var saved=null; try{ saved=localStorage.getItem(KEY); }catch(e){}
-  var theme=saved || (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  var theme=(saved==='dark'||saved==='light') ? saved : 'light';
   var html=document.documentElement; html.setAttribute('data-theme',theme);
   var D='html[data-theme="dark"] ';
   var bg=[['247, 244, 239','18, 17, 16'],['251, 249, 245','26, 25, 23'],['236, 231, 222','34, 32, 28'],['228, 223, 213','42, 40, 35'],['241, 236, 227','36, 34, 30'],['239, 235, 227','30, 28, 25'],['219, 214, 204','52, 49, 43'],['201, 195, 182','74, 70, 62'],['255, 255, 255','238, 235, 229']];
