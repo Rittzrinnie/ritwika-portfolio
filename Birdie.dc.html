@@ -16,6 +16,14 @@
 [data-birdie-list]::-webkit-scrollbar{width:8px}
 [data-birdie-list]::-webkit-scrollbar-thumb{background:#DBD6CC;border:2px solid #FFFDF9;border-radius:8px}
 @media (max-width:640px){[data-birdie-panel]{left:12px!important;right:12px!important;width:auto!important;bottom:120px!important;max-height:calc(100vh - 150px)!important}[data-birdie-nudge]{display:none!important}}
+
+/* Keep follow-up suggestions in Birdie's original neutral design, including dark mode. */
+[data-birdie-panel] [data-birdie-suggestions],
+[data-birdie-panel] [data-birdie-suggestions] > div { list-style:none!important; padding-left:0!important; }
+[data-birdie-panel] [data-birdie-question] { text-decoration:none!important; background:#F7F4EF!important; color:#38342D!important; border:1px solid #DBD6CC!important; border-radius:12px!important; box-shadow:none!important; }
+[data-birdie-panel] [data-birdie-question]:hover { background:#ECE7DE!important; border-color:#B6B0A6!important; }
+html[data-theme="dark"] [data-birdie-panel] [data-birdie-question] { background:#302D28!important; color:#F2EEE7!important; border-color:#615C52!important; }
+html[data-theme="dark"] [data-birdie-panel] [data-birdie-question]:hover { background:#403B35!important; }
 </style>
 </helmet>
 <div style="font-family:'Hanken Grotesk',system-ui,sans-serif;color:#1A1814">
@@ -65,10 +73,15 @@
           </div>
         </sc-if>
         <sc-if value="{{ showSuggestions }}" hint-placeholder-val="{{ true }}">
-          <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:4px">
-            <sc-for list="{{ suggestions }}" as="s" hint-placeholder-count="4">
-              <button onClick="{{ s.ask }}" style="cursor:pointer;background:transparent;border:1px solid #DBD6CC;color:#1A1814;padding:7px 11px;border-radius:100px;font-family:'Hanken Grotesk';font-size:12.5px;text-align:left" style-hover="border-color:#1A1814">{{ s.label }}</button>
-            </sc-for>
+          <div data-birdie-suggestions="" style="align-self:flex-start;max-width:100%;display:flex;flex-direction:column;gap:9px;margin-top:7px">
+            <sc-if value="{{ hasFollowUps }}" hint-placeholder-val="{{ false }}">
+              <span style="font-family:'Hanken Grotesk';font-size:10px;font-weight:700;letter-spacing:.09em;color:#817B71">EXPLORE NEXT</span>
+            </sc-if>
+            <div style="display:flex;flex-wrap:wrap;gap:7px;align-items:flex-start">
+              <sc-for list="{{ suggestions }}" as="s" hint-placeholder-count="3">
+                <button data-birdie-question="" onClick="{{ s.ask }}" style="appearance:none;display:inline-flex;align-items:center;max-width:100%;cursor:pointer;background:#F7F4EF;border:1px solid #DBD6CC;color:#38342D;padding:9px 12px;border-radius:12px;font-family:'Hanken Grotesk';font-size:12.5px;line-height:1.4;font-weight:500;text-decoration:none;text-align:left;box-shadow:none;list-style:none" style-hover="background:#ECE7DE;border-color:#B6B0A6;color:#1A1814">{{ s.label }}</button>
+              </sc-for>
+            </div>
           </div>
         </sc-if>
       </div>
@@ -817,6 +830,7 @@ When appropriate, end with:
       showNudge: nudge && !open,
       showSuggestions: !thinking && (messages.length <= 1 || this.state.followUps.length > 0),
       thinkingStatus: this.state.thinkingStatus,
+      hasFollowUps: messages.length > 1,
       messages: messages.map(m => ({ text: m.text, isBot: m.role === 'assistant', isUser: m.role === 'user', sources: m.sources || [], hasSources: !!(m.sources && m.sources.length) })),
       suggestions: (messages.length <= 1 ? qs : this.state.followUps).map(q => ({ label: q, ask: () => this.ask(q) })),
       setMount: el => { this.mount = el; },
