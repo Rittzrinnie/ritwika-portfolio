@@ -17,6 +17,11 @@
 <style id="portfolio-editorial-type">
 @font-face{font-family:'Libre Baskerville';font-style:normal;font-weight:700;font-display:swap;src:url('https://rittzrinnie.github.io/ritwika-portfolio/fonts/libre-baskerville-bold.ttf') format('truetype')}
 h1,h2,h3{font-family:'Libre Baskerville',Georgia,serif!important;font-weight:700!important;letter-spacing:-.025em!important;line-height:1.2!important}
+/* Hide legacy navbar engine/stop controls */
+button[title^="Engine start / stop"],
+button[sc-camel-on-click*="toggleEngine"],
+button[aria-label="STOP motion"],
+button[aria-label="START motion"]{display:none!important}
 </style>
 </head>
 <body>
