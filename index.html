@@ -21,7 +21,7 @@ h1,h2,h3{font-family:'Libre Baskerville',Georgia,serif!important;font-weight:700
 </head>
 <body>
 
-<div id="rm-boot" style="position:fixed;inset:0;z-index:2147483001;background:#F7F4EF;display:flex;align-items:center;justify-content:center"></div><script>(function(){var b=document.getElementById('rm-boot');var f=true;try{f=!sessionStorage.getItem('rm-nav');}catch(e){}var d=false;try{d=localStorage.getItem('rm-theme')==='dark';}catch(e){}if(f){b.style.background='#0E0D0C';b.innerHTML='<div style="width:132px;height:132px;border:2px solid #F2EEE7;transform:rotate(45deg);display:flex;align-items:center;justify-content:center"><span style="transform:rotate(-45deg);font:700 40px Hanken Grotesk,system-ui,sans-serif;color:#F2EEE7">RM</span></div>';}else if(d){b.style.background='#121110';}setTimeout(function(){if(b.parentNode)b.remove();},5000);})();</script>
+<div id="rm-boot" style="position:fixed;inset:0;z-index:2147483001;background:#F7F4EF;display:flex;align-items:center;justify-content:center"></div><script>(function(){var b=document.getElementById('rm-boot');var f=true;try{f=!sessionStorage.getItem('rm-nav');}catch(e){}var d=false;if(f){b.style.background='#0E0D0C';b.innerHTML='<div style="width:132px;height:132px;border:2px solid #F2EEE7;transform:rotate(45deg);display:flex;align-items:center;justify-content:center"><span style="transform:rotate(-45deg);font:700 40px Hanken Grotesk,system-ui,sans-serif;color:#F2EEE7">RM</span></div>';}else if(d){b.style.background='#121110';}setTimeout(function(){if(b.parentNode)b.remove();},5000);})();</script>
 <x-dc>
 <helmet>
 <script src="theme.js"></script>
