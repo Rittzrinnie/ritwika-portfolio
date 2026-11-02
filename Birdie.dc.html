@@ -17,107 +17,6 @@
 [data-birdie-list]::-webkit-scrollbar-thumb{background:#DBD6CC;border:2px solid #FFFDF9;border-radius:8px}
 @media (max-width:640px){[data-birdie-panel]{left:12px!important;right:12px!important;width:auto!important;bottom:120px!important;max-height:calc(100vh - 150px)!important}[data-birdie-nudge]{display:none!important}}
 </style>
-<style>
-/* Portfolio refinement: typography, rhythm and accessible focus */
-:root{--rm-space-1:8px;--rm-space-2:16px;--rm-space-3:24px;--rm-space-4:32px;--rm-space-5:48px;--rm-space-6:72px}
-:where(a,button,input,textarea,select,[role="button"],[tabindex="0"]):focus-visible{outline:3px solid #1F5FE0!important;outline-offset:3px}
-:where(button,a){-webkit-tap-highlight-color:transparent}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
-@media(max-width:640px){:where(p,li){overflow-wrap:break-word}}
-</style>
-<style>
-/* Birdie dark-mode contrast fix */
-html[data-theme="dark"] [data-birdie-panel]{
-  background:#1A1917!important;
-  color:#F2EEE7!important;
-  border-color:#4A463E!important;
-}
-html[data-theme="dark"] [data-birdie-panel] > div:first-child,
-html[data-theme="dark"] [data-birdie-panel] > div:last-child{
-  border-color:#4A463E!important;
-}
-html[data-theme="dark"] [data-birdie-panel] [data-birdie-list]{
-  color:#F2EEE7!important;
-}
-html[data-theme="dark"] [data-birdie-panel] [data-birdie-list] [style*="background: rgb(241, 236, 227)"],
-html[data-theme="dark"] [data-birdie-panel] [data-birdie-list] [style*="background:#F1ECE3"]{
-  background:#302D28!important;
-  color:#F2EEE7!important;
-}
-html[data-theme="dark"] [data-birdie-panel] [data-birdie-list] [style*="background: rgb(26, 24, 20)"],
-html[data-theme="dark"] [data-birdie-panel] [data-birdie-list] [style*="background:#1A1814"]{
-  background:#F2EEE7!important;
-  color:#121110!important;
-}
-html[data-theme="dark"] [data-birdie-panel] input{
-  background:#302D28!important;
-  color:#F2EEE7!important;
-  border-color:#615C52!important;
-  caret-color:#F2EEE7!important;
-}
-html[data-theme="dark"] [data-birdie-panel] input::placeholder{
-  color:#B9B2A7!important;
-  opacity:1;
-}
-html[data-theme="dark"] [data-birdie-panel] button:not([aria-label="Send"]){
-  color:#F2EEE7!important;
-  border-color:#615C52!important;
-}
-html[data-theme="dark"] [data-birdie-panel] button[aria-label="Close chat"]{
-  background:#302D28!important;
-}
-html[data-theme="dark"] [data-birdie-panel] [data-birdie-list] a{
-  color:#C9C3B9!important;
-  border-color:#615C52!important;
-}
-html[data-theme="dark"] [data-birdie-panel] [data-birdie-list] button{
-  background:#302D28!important;
-  color:#F2EEE7!important;
-}
-html[data-theme="dark"] [data-birdie-panel] button[aria-label="Send"]{
-  background:#1F5FE0!important;
-  color:#FFFFFF!important;
-}
-
-/* Explicit contrast for voice controls in both themes, including active states */
-[data-birdie-panel] button[aria-label="Voice call with Birdie"],
-[data-birdie-panel] button[data-birdie-voice]{
-  min-height:32px;
-  font-weight:600;
-}
-html[data-theme="dark"] [data-birdie-panel] button[data-birdie-call="false"],
-html[data-theme="dark"] [data-birdie-panel] button[data-birdie-voice="false"]{
-  background:#302D28!important;
-  color:#F2EEE7!important;
-  border-color:#777064!important;
-}
-html[data-theme="dark"] [data-birdie-panel] button[data-birdie-call="true"]{
-  background:#C4361D!important;
-  color:#FFFFFF!important;
-  border-color:#C4361D!important;
-}
-html[data-theme="dark"] [data-birdie-panel] button[data-birdie-voice="true"]{
-  background:#F2EEE7!important;
-  color:#121110!important;
-  border-color:#F2EEE7!important;
-}
-html[data-theme="light"] [data-birdie-panel] button[data-birdie-call="true"]{
-  background:#C4361D!important;
-  color:#FFFFFF!important;
-  border-color:#C4361D!important;
-}
-html[data-theme="light"] [data-birdie-panel] button[data-birdie-voice="true"]{
-  background:#1A1814!important;
-  color:#FFFFFF!important;
-  border-color:#1A1814!important;
-}
-[data-birdie-panel] button[data-birdie-call]:focus-visible,
-[data-birdie-panel] button[data-birdie-voice]:focus-visible,
-[data-birdie-panel] button[aria-label="Send"]:focus-visible{
-  outline:3px solid #1F5FE0!important;
-  outline-offset:2px;
-}
-</style>
 </helmet>
 <div style="font-family:'Hanken Grotesk',system-ui,sans-serif;color:#1A1814">
   <sc-if value="{{ showNudge }}" hint-placeholder-val="{{ false }}">
@@ -131,12 +30,12 @@ html[data-theme="light"] [data-birdie-panel] button[data-birdie-voice="true"]{
     <div data-birdie-panel="" role="dialog" aria-label="Chat with Birdie" style="position:fixed;left:{{ panelLeft }};right:{{ panelRight }};top:{{ panelTop }};bottom:{{ panelBottom }};z-index:960;width:370px;max-height:min(560px,calc(100vh - 180px));display:flex;flex-direction:column;background:#FFFDF9;border:1px solid #DBD6CC;border-radius:18px;box-shadow:0 24px 60px rgba(26,24,20,.18);overflow:hidden">
       <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 16px 14px 18px;border-bottom:1px solid #DBD6CC">
         <div style="display:flex;flex-direction:column;gap:3px">
-          <span style="font-family:'Hanken Grotesk';font-weight:600;font-size:16px">Birdie</span>
-          <span style="font-family:'Hanken Grotesk';font-size:10px;letter-spacing:.06em;color:#6B665C">ASK ABOUT WORK, EXPERIENCE, SKILLS</span>
+          <span style="font-family:'Space Grotesk';font-weight:600;font-size:16px">Birdie</span>
+          <span style="font-family:'JetBrains Mono';font-size:10px;letter-spacing:.06em;color:#6B665C">ASK ABOUT WORK, EXPERIENCE, SKILLS</span>
         </div>
         <div style="display:flex;align-items:center;gap:8px">
-        <sc-if value="{{ hasAgent }}" hint-placeholder-val="{{ false }}"><button onClick="{{ toggleCall }}" aria-label="Voice call with Birdie" aria-pressed="{{ callActive }}" data-birdie-call="{{ callActive }}" style="height:32px;padding:0 11px;border-radius:16px;border:1px solid #DBD6CC;background:{{ callBg }};color:{{ callFg }};cursor:pointer;font-family:'Hanken Grotesk';font-size:10px;letter-spacing:.06em;white-space:nowrap" style-hover="border-color:#1A1814">{{ callText }}</button></sc-if>
-        <button onClick="{{ toggleVoice }}" aria-label="{{ voiceLabel }}" title="{{ voiceLabel }}" aria-pressed="{{ voiceActive }}" data-birdie-voice="{{ voiceActive }}" style="height:32px;padding:0 11px;border-radius:16px;border:1px solid #DBD6CC;background:{{ voiceBg }};color:{{ voiceFg }};cursor:pointer;font-family:'Hanken Grotesk';font-size:10px;letter-spacing:.06em;white-space:nowrap" style-hover="border-color:#1A1814">{{ voiceText }}</button>
+        <sc-if value="{{ hasAgent }}" hint-placeholder-val="{{ false }}"><button onClick="{{ toggleCall }}" aria-label="Voice call with Birdie" style="height:32px;padding:0 11px;border-radius:16px;border:1px solid #DBD6CC;background:{{ callBg }};color:{{ callFg }};cursor:pointer;font-family:'JetBrains Mono';font-size:10px;letter-spacing:.06em;white-space:nowrap" style-hover="border-color:#1A1814">{{ callText }}</button></sc-if>
+        <button onClick="{{ toggleVoice }}" aria-label="{{ voiceLabel }}" title="{{ voiceLabel }}" style="height:32px;padding:0 11px;border-radius:16px;border:1px solid #DBD6CC;background:{{ voiceBg }};color:{{ voiceFg }};cursor:pointer;font-family:'JetBrains Mono';font-size:10px;letter-spacing:.06em;white-space:nowrap" style-hover="border-color:#1A1814">{{ voiceText }}</button>
         <button onClick="{{ toggle }}" aria-label="Close chat" style="width:32px;height:32px;border-radius:50%;border:1px solid #DBD6CC;background:transparent;cursor:pointer;font-size:16px;color:#1A1814;display:flex;align-items:center;justify-content:center" style-hover="background:#F1ECE3">×</button>
         </div>
       </div>
@@ -148,7 +47,7 @@ html[data-theme="light"] [data-birdie-panel] button[data-birdie-voice="true"]{
             <sc-if value="{{ m.hasSources }}" hint-placeholder-val="{{ false }}">
               <div style="align-self:flex-start;max-width:86%;display:flex;flex-wrap:wrap;gap:6px;margin-top:-4px">
                 <sc-for list="{{ m.sources }}" as="src" hint-placeholder-count="2">
-                  <a href="{{ src.url }}" style="font-family:'Hanken Grotesk';font-size:10px;letter-spacing:.04em;color:#6B665C;border:1px solid #DBD6CC;border-radius:100px;padding:4px 9px;text-decoration:none" style-hover="color:#1A1814;border-color:#1A1814">{{ src.label }}</a>
+                  <a href="{{ src.url }}" style="font-family:'JetBrains Mono';font-size:10px;letter-spacing:.04em;color:#6B665C;border:1px solid #DBD6CC;border-radius:100px;padding:4px 9px;text-decoration:none" style-hover="color:#1A1814;border-color:#1A1814">{{ src.label }}</a>
                 </sc-for>
               </div>
             </sc-if>
@@ -158,10 +57,11 @@ html[data-theme="light"] [data-birdie-panel] button[data-birdie-voice="true"]{
           </sc-if>
         </sc-for>
         <sc-if value="{{ thinking }}" hint-placeholder-val="{{ false }}">
-          <div style="align-self:flex-start;background:#F1ECE3;padding:12px 14px;border-radius:14px 14px 14px 4px;display:flex;gap:5px">
+          <div role="status" aria-live="polite" style="align-self:flex-start;background:#F1ECE3;padding:12px 14px;border-radius:14px 14px 14px 4px;display:flex;align-items:center;gap:5px">
             <span data-birdie-dot="" style="width:6px;height:6px;border-radius:50%;background:#6B665C"></span>
             <span data-birdie-dot="" style="width:6px;height:6px;border-radius:50%;background:#6B665C;animation-delay:.15s"></span>
             <span data-birdie-dot="" style="width:6px;height:6px;border-radius:50%;background:#6B665C;animation-delay:.3s"></span>
+            <span style="font-family:'JetBrains Mono';font-size:10px;margin-left:7px;color:#6B665C">{{ thinkingStatus }}</span>
           </div>
         </sc-if>
         <sc-if value="{{ showSuggestions }}" hint-placeholder-val="{{ true }}">
@@ -187,7 +87,7 @@ html[data-theme="light"] [data-birdie-panel] button[data-birdie-voice="true"]{
 class Component extends DCLogic {
   state = {
     voice: (() => { try { return localStorage.getItem('birdie-voice') === '1'; } catch (e) { return false; } })(),
-    open: false, nudge: true, dragging: false, pos: (() => { try { return JSON.parse(localStorage.getItem('birdie-pos')) || null; } catch (e) { return null; } })(), draft: '', thinking: false,
+    open: false, nudge: true, dragging: false, pos: (() => { try { return JSON.parse(localStorage.getItem('birdie-pos')) || null; } catch (e) { return null; } })(), draft: '', thinking: false, thinkingStatus: '', followUps: [],
     messages: [{ role: 'assistant', text: "Tweet! I'm Birdie. I know Ritwika's projects, experience and background. What would you like to know?" }]
   };
   mouse = { x: 0, y: 0 };
@@ -601,11 +501,27 @@ When appropriate, end with:
     } catch (e) {}
   }
 
+  relatedQuestions(q) {
+    const question = (q || '').toLowerCase();
+    const groups = [
+      [/volkswagen|virtual studio|vw r|automotive|car/, ['What did she design at Volkswagen R?', 'How did she validate the experience?', 'What outcomes can she demonstrate?']],
+      [/cadence|cuboids|design system|accessibility|wcag/, ['How did she build the design system?', 'What accessibility decisions did she make?', 'How did she work with engineers?']],
+      [/shop|ecommerce|e-commerce|subscription|checkout/, ['What problem did Cadence Shop solve?', 'How did she improve its journey?', 'How did she test accessibility?']],
+      [/birdie|incident|automation|n8n|ollama|llm|ai adopt|agent/, ['How does the AI workflow work?', 'How did she design for AI trust?', 'Which AI tools has she used?']],
+      [/web3|airdrop|sign.on|education|news/, ['How did the Web3 products connect?', 'What was her role in the project?', 'What did users gain from it?']],
+      [/evo|thesis|hmi|driving/, ['What is EvoDrive?', 'How did she research the concept?', 'How does it adapt to drivers?']],
+      [/skill|tool|stack|technical|developer|code/, ['What tools does she use?', 'How does she work with developers?', 'How does she apply AI tools?']],
+      [/hire|role|job|experience|background|about|achievement/, ['What is her biggest achievement?', 'Which problems does she solve?', 'Which case study should I explore?']]
+    ];
+    const matched = groups.find(([pattern]) => pattern.test(question));
+    return (matched ? matched[1] : ['Which project relates to this?', 'How did she approach the design?', 'What did she learn?']).filter(x => x.toLowerCase() !== question).slice(0, 3);
+  }
+
   async ask(q) {
     q = (q || '').trim(); if (!q || this.state.thinking) return;
     if (this.state.voice) this.unlockAudio();
     const history = [...this.state.messages, { role: 'user', text: q }];
-    this.setState({ messages: history, draft: '', thinking: true });
+    this.setState({ messages: history, draft: '', thinking: true, thinkingStatus: 'Checking portfolio…', followUps: [] });
     let ctx = null, sources = [];
     try {
       const recent = history.filter(m => m.role === 'user').slice(-2).map(m => m.text).join(' ');
@@ -619,6 +535,7 @@ When appropriate, end with:
       }
     } catch (e) {}
     if (!ctx) { if (!this.context) await this.buildContext(); ctx = this.context; }
+    this.setState({ thinkingStatus: 'Preparing answer…' });
     const PAGE_NAMES = { vwr: 'Volkswagen R Virtual Studio', poster: 'VW R Poster Studio', cadence: 'Cuboids Design System (Cadence)', shop: 'Cadence Shop', evo: 'Evo Drive (MA thesis)', incident: 'AI Incident Briefing Automation' };
     const onPage = PAGE_NAMES[this.props.page] ? "The visitor is currently reading the " + PAGE_NAMES[this.props.page] + " case study; the 'Portfolio home page' context below is actually this case study page. Assume questions like 'this project' refer to it. " : "";
     const system = onPage + "You are Birdie, a friendly little bird on Ritwika Mondal's portfolio. Follow the skill below exactly. Refer to Ritwika in the third person. Plain text only, no markdown. Never share her phone number.\n\n" + this.skill() + "\n\n## Additional portfolio context (use only facts consistent with the skill guardrails)\n" + ctx + "\n\n## Approved portfolio metrics (the ONLY numbers you may quote; use this exact wording, say 'projected' where marked)\n- VW R Virtual Studio: +40% longer average session time, measured through Adobe Analytics after launch. Projected: +50% more feature-exploration clicks, +20–30% more lead-generation interactions, +25% uplift in perceived brand innovation.\n- Cuboids Design System (Cadence): 95% UI consistency across products and cadence.com, 50% less repetitive design/dev effort via reusable parts, 3× faster feature delivery, 4× cross-team collaboration and handoff efficiency, 15+ core components used company-wide.\n- Cadence: promoted P1 → P2.\n- Cadence Shop (qualitative, no numbers): faster discovery through goal-oriented navigation; more confidence, as novice and expert users completed trial and purchase journeys with less support; inclusive by default, keyboard and assistive-tech users can use the full platform; WCAG-aligned accessibility improved with each release.\n- VW R Poster Studio (qualitative): connects brand discovery with personal creation; visitors understand the concept, explore inspiration, create an artwork and return to a previous design; live on volkswagen.de.\n- AI Incident Briefing: 150 incident records reduced to a controlled 15-item sample before aggregation, to manage context size and inference time; Llama 3.2 via Ollama with num_predict 120.\n- Evo Drive: no metrics in the portfolio.\nIf asked for any other number, say: I don't have that information in Ritwika's portfolio." + "\n\nFORMAT (overrides everything above): reply in plain conversational text only. No headings, no # or * characters, no bullet lists. Maximum about 90 words unless the visitor explicitly asks for detail. Personality: warm, a little playful. When you don't know something or it isn't in the portfolio, never guess; say something like: Hmm, I might be hallucinating here. Better ask Ritwika herself on LinkedIn at linkedin.com/in/ritwika-mondal. Never use emoji.";
@@ -640,7 +557,7 @@ When appropriate, end with:
     }
     text = (text || '').replace(/^#{1,6}\s*/gm, '').replace(/\*\*|__/g, '').replace(/^\s*[-*]\s+/gm, '• ').replace(/\n{3,}/g, '\n\n');
     this.hop = 1;
-    this.setState(s => ({ messages: [...s.messages, { role: 'assistant', text: (text || '').trim(), sources }], thinking: false }));
+    this.setState(s => ({ messages: [...s.messages, { role: 'assistant', text: (text || '').trim(), sources }], thinking: false, thinkingStatus: '', followUps: this.relatedQuestions(q) }));
     this.say((text || '').trim());
   }
 
@@ -802,7 +719,7 @@ When appropriate, end with:
     const brim = new THREE.Mesh(new THREE.CylinderGeometry(0.62, 0.62, 0.05, 40, 1, false, -Math.PI / 2 - 0.9, 1.8), capM); brim.scale.set(1.15, 1, 1.05); brim.position.set(0, 0.02, 0.32); brim.rotation.x = 0.12; cap.add(brim);
     const band = new THREE.Mesh(new THREE.TorusGeometry(0.79, 0.018, 8, 60, Math.PI * 0.8), white); band.rotation.set(Math.PI / 2, 0, Math.PI * 0.1); band.position.y = 0.05; band.scale.set(1.02, 1, 1); cap.add(band);
     const lc = document.createElement('canvas'); lc.width = 256; lc.height = 128;
-    const lx = lc.getContext('2d'); lx.fillStyle = '#fff'; lx.font = "700 58px 'Hanken Grotesk', sans-serif"; lx.textAlign = 'center'; lx.textBaseline = 'middle'; lx.letterSpacing = '12px'; lx.fillText('', 134, 68);
+    const lx = lc.getContext('2d'); lx.fillStyle = '#fff'; lx.font = "700 58px 'Space Grotesk', sans-serif"; lx.textAlign = 'center'; lx.textBaseline = 'middle'; lx.letterSpacing = '12px'; lx.fillText('', 134, 68);
     const logo = new THREE.Mesh(new THREE.PlaneGeometry(0.54, 0.27), new THREE.MeshBasicMaterial({ map: new THREE.CanvasTexture(lc), transparent: true }));
     logo.position.set(0, 0.3, 0.73); logo.rotation.x = -0.45; cap.add(logo);
     const wings = [];
@@ -862,8 +779,6 @@ When appropriate, end with:
       toggleVoice: this.toggleVoice,
       toggleCall: this.toggleCall,
       hasAgent: !!Component.AGENT_ID,
-      callActive: !!this.state.call,
-      voiceActive: !!this.state.voice,
       callText: ({ connecting: 'CONNECTING…', listening: '● LISTENING · END', speaking: '● SPEAKING · END' })[this.state.call] || '◉ TALK',
       callBg: this.state.call ? '#C4361D' : 'transparent',
       callFg: this.state.call ? '#FFFFFF' : '#1A1814',
@@ -900,9 +815,10 @@ When appropriate, end with:
         else { this.bling(); this.hop = 1; this.setState(s => ({ open: !s.open, nudge: false })); }
       },
       showNudge: nudge && !open,
-      showSuggestions: messages.length <= 1 && !thinking,
+      showSuggestions: !thinking && (messages.length <= 1 || this.state.followUps.length > 0),
+      thinkingStatus: this.state.thinkingStatus,
       messages: messages.map(m => ({ text: m.text, isBot: m.role === 'assistant', isUser: m.role === 'user', sources: m.sources || [], hasSources: !!(m.sources && m.sources.length) })),
-      suggestions: qs.map(q => ({ label: q, ask: () => this.ask(q) })),
+      suggestions: (messages.length <= 1 ? qs : this.state.followUps).map(q => ({ label: q, ask: () => this.ask(q) })),
       setMount: el => { this.mount = el; },
       setList: el => { this.list = el; },
       toggle: () => { this.bling(); this.hop = 1; this.setState(s => ({ open: !s.open, nudge: false })); },
