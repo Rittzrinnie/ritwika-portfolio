@@ -158,20 +158,18 @@ html[data-theme="light"] [data-birdie-panel] button[data-birdie-voice="true"]{
           </sc-if>
         </sc-for>
         <sc-if value="{{ thinking }}" hint-placeholder-val="{{ false }}">
-          <div role="status" aria-live="polite" style="align-self:flex-start;background:#F1ECE3;color:#1A1814;padding:12px 14px;border-radius:14px 14px 14px 4px;display:flex;align-items:center;gap:8px;flex-wrap:wrap"><span style="font-family:'Hanken Grotesk';font-size:12px;font-weight:600">{{ thinkingStatus }}</span>
+          <div role="status" aria-live="polite" style="align-self:flex-start;background:#F1ECE3;padding:12px 14px;border-radius:14px 14px 14px 4px;display:flex;align-items:center;gap:5px">
             <span data-birdie-dot="" style="width:6px;height:6px;border-radius:50%;background:#6B665C"></span>
             <span data-birdie-dot="" style="width:6px;height:6px;border-radius:50%;background:#6B665C;animation-delay:.15s"></span>
             <span data-birdie-dot="" style="width:6px;height:6px;border-radius:50%;background:#6B665C;animation-delay:.3s"></span>
+            <span style="margin-left:7px;font-family:'Hanken Grotesk';font-size:11px;color:#6B665C">{{ thinkingStatus }}</span>
           </div>
         </sc-if>
         <sc-if value="{{ showSuggestions }}" hint-placeholder-val="{{ true }}">
-          <div style="align-self:flex-start;width:100%;padding:6px 2px;color:#1A1814">
-            <div style="font-family:'Hanken Grotesk';font-size:11px;font-weight:700;letter-spacing:.05em;margin-bottom:8px">{{ suggestionTitle }}</div>
-            <ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:7px;list-style:disc">
-              <sc-for list="{{ suggestions }}" as="s" hint-placeholder-count="3">
-                <li style="font-size:13px;line-height:1.35;color:#1F5FE0"><button onClick="{{ s.ask }}" style="cursor:pointer;background:transparent;border:0;color:inherit;padding:0;font-family:'Hanken Grotesk';font-size:13px;text-align:left;text-decoration:underline;text-underline-offset:3px" style-hover="color:#1A1814">{{ s.label }}</button></li>
-              </sc-for>
-            </ul>
+          <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:4px">
+            <sc-for list="{{ suggestions }}" as="s" hint-placeholder-count="4">
+              <button onClick="{{ s.ask }}" style="cursor:pointer;background:transparent;border:1px solid #DBD6CC;color:#1A1814;padding:7px 11px;border-radius:100px;font-family:'Hanken Grotesk';font-size:12.5px;text-align:left" style-hover="border-color:#1A1814">{{ s.label }}</button>
+            </sc-for>
           </div>
         </sc-if>
       </div>
@@ -923,7 +921,6 @@ When appropriate, end with:
       },
       showNudge: nudge && !open,
       showSuggestions: !thinking && (messages.length <= 1 || this.state.followUps.length > 0),
-      suggestionTitle: messages.length <= 1 ? 'START WITH A QUESTION' : 'RELATED QUESTIONS',
       thinkingStatus: this.state.thinkingStatus,
       messages: messages.map(m => ({ text: m.text, isBot: m.role === 'assistant', isUser: m.role === 'user', sources: m.sources || [], hasSources: !!(m.sources && m.sources.length) })),
       suggestions: (messages.length <= 1 ? qs.slice(0, 4) : this.state.followUps).map(q => ({ label: q, ask: () => this.ask(q) })),
