@@ -25,6 +25,60 @@
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
 @media(max-width:640px){:where(p,li){overflow-wrap:break-word}}
 </style>
+<style>
+/* Birdie dark-mode contrast fix */
+html[data-theme="dark"] [data-birdie-panel]{
+  background:#1A1917!important;
+  color:#F2EEE7!important;
+  border-color:#4A463E!important;
+}
+html[data-theme="dark"] [data-birdie-panel] > div:first-child,
+html[data-theme="dark"] [data-birdie-panel] > div:last-child{
+  border-color:#4A463E!important;
+}
+html[data-theme="dark"] [data-birdie-panel] [data-birdie-list]{
+  color:#F2EEE7!important;
+}
+html[data-theme="dark"] [data-birdie-panel] [data-birdie-list] [style*="background: rgb(241, 236, 227)"],
+html[data-theme="dark"] [data-birdie-panel] [data-birdie-list] [style*="background:#F1ECE3"]{
+  background:#302D28!important;
+  color:#F2EEE7!important;
+}
+html[data-theme="dark"] [data-birdie-panel] [data-birdie-list] [style*="background: rgb(26, 24, 20)"],
+html[data-theme="dark"] [data-birdie-panel] [data-birdie-list] [style*="background:#1A1814"]{
+  background:#F2EEE7!important;
+  color:#121110!important;
+}
+html[data-theme="dark"] [data-birdie-panel] input{
+  background:#302D28!important;
+  color:#F2EEE7!important;
+  border-color:#615C52!important;
+  caret-color:#F2EEE7!important;
+}
+html[data-theme="dark"] [data-birdie-panel] input::placeholder{
+  color:#B9B2A7!important;
+  opacity:1;
+}
+html[data-theme="dark"] [data-birdie-panel] button:not([aria-label="Send"]){
+  color:#F2EEE7!important;
+  border-color:#615C52!important;
+}
+html[data-theme="dark"] [data-birdie-panel] button[aria-label="Close chat"]{
+  background:#302D28!important;
+}
+html[data-theme="dark"] [data-birdie-panel] [data-birdie-list] a{
+  color:#C9C3B9!important;
+  border-color:#615C52!important;
+}
+html[data-theme="dark"] [data-birdie-panel] [data-birdie-list] button{
+  background:#302D28!important;
+  color:#F2EEE7!important;
+}
+html[data-theme="dark"] [data-birdie-panel] button[aria-label="Send"]{
+  background:#1F5FE0!important;
+  color:#FFFFFF!important;
+}
+</style>
 </helmet>
 <div style="font-family:'Hanken Grotesk',system-ui,sans-serif;color:#1A1814">
   <sc-if value="{{ showNudge }}" hint-placeholder-val="{{ false }}">
