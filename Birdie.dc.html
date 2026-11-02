@@ -158,11 +158,10 @@ html[data-theme="light"] [data-birdie-panel] button[data-birdie-voice="true"]{
           </sc-if>
         </sc-for>
         <sc-if value="{{ thinking }}" hint-placeholder-val="{{ false }}">
-          <div role="status" aria-live="polite" style="align-self:flex-start;background:#F1ECE3;padding:12px 14px;border-radius:14px 14px 14px 4px;display:flex;align-items:center;gap:5px">
+          <div style="align-self:flex-start;background:#F1ECE3;padding:12px 14px;border-radius:14px 14px 14px 4px;display:flex;gap:5px">
             <span data-birdie-dot="" style="width:6px;height:6px;border-radius:50%;background:#6B665C"></span>
             <span data-birdie-dot="" style="width:6px;height:6px;border-radius:50%;background:#6B665C;animation-delay:.15s"></span>
             <span data-birdie-dot="" style="width:6px;height:6px;border-radius:50%;background:#6B665C;animation-delay:.3s"></span>
-            <span style="margin-left:7px;font-family:'Hanken Grotesk';font-size:11px;color:#6B665C">{{ thinkingStatus }}</span>
           </div>
         </sc-if>
         <sc-if value="{{ showSuggestions }}" hint-placeholder-val="{{ true }}">
