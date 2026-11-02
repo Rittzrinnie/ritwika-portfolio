@@ -25,6 +25,7 @@
   css+=S+'[style*="solid rgb(247, 244, 239)"]{border-color:rgb(242, 238, 231)!important}';
   css+=S+'[style*="background: rgb(242, 238, 231)"]{color:rgb(18, 17, 16)!important}';
   css+=D+'[data-theme-toggle]{color:#F2EEE7!important}';
+  css+="/* Hide legacy navbar engine/stop controls */\nbutton[title^=\"Engine start / stop\"],\nbutton[sc-camel-on-click*=\"toggleEngine\"],\nbutton[aria-label=\"STOP motion\"],\nbutton[aria-label=\"START motion\"]{display:none!important}\n";
   css+='html,body,[style]{transition-property:background-color,color,border-color;transition-duration:.25s}';
   var st=document.createElement('style'); st.id='rm-theme-css'; st.textContent=css; (document.head||html).appendChild(st);
   function sync(){ var dark=html.getAttribute('data-theme')==='dark'; document.querySelectorAll('[data-theme-toggle]').forEach(function(b){ var p=String(dark), tl=dark?'Switch to light mode':'Switch to dark mode', ic=dark?'☀':'☾'; if(b.getAttribute('aria-pressed')!==p) b.setAttribute('aria-pressed',p); if(b.getAttribute('title')!==tl) b.setAttribute('title',tl); var i=b.querySelector('[data-theme-icon]'); if(i && i.textContent!==ic) i.textContent=ic; }); }
