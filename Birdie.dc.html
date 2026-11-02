@@ -78,6 +78,45 @@ html[data-theme="dark"] [data-birdie-panel] button[aria-label="Send"]{
   background:#1F5FE0!important;
   color:#FFFFFF!important;
 }
+
+/* Explicit contrast for voice controls in both themes, including active states */
+[data-birdie-panel] button[aria-label="Voice call with Birdie"],
+[data-birdie-panel] button[data-birdie-voice]{
+  min-height:32px;
+  font-weight:600;
+}
+html[data-theme="dark"] [data-birdie-panel] button[data-birdie-call="false"],
+html[data-theme="dark"] [data-birdie-panel] button[data-birdie-voice="false"]{
+  background:#302D28!important;
+  color:#F2EEE7!important;
+  border-color:#777064!important;
+}
+html[data-theme="dark"] [data-birdie-panel] button[data-birdie-call="true"]{
+  background:#C4361D!important;
+  color:#FFFFFF!important;
+  border-color:#C4361D!important;
+}
+html[data-theme="dark"] [data-birdie-panel] button[data-birdie-voice="true"]{
+  background:#F2EEE7!important;
+  color:#121110!important;
+  border-color:#F2EEE7!important;
+}
+html[data-theme="light"] [data-birdie-panel] button[data-birdie-call="true"]{
+  background:#C4361D!important;
+  color:#FFFFFF!important;
+  border-color:#C4361D!important;
+}
+html[data-theme="light"] [data-birdie-panel] button[data-birdie-voice="true"]{
+  background:#1A1814!important;
+  color:#FFFFFF!important;
+  border-color:#1A1814!important;
+}
+[data-birdie-panel] button[data-birdie-call]:focus-visible,
+[data-birdie-panel] button[data-birdie-voice]:focus-visible,
+[data-birdie-panel] button[aria-label="Send"]:focus-visible{
+  outline:3px solid #1F5FE0!important;
+  outline-offset:2px;
+}
 </style>
 </helmet>
 <div style="font-family:'Hanken Grotesk',system-ui,sans-serif;color:#1A1814">
@@ -96,8 +135,8 @@ html[data-theme="dark"] [data-birdie-panel] button[aria-label="Send"]{
           <span style="font-family:'Hanken Grotesk';font-size:10px;letter-spacing:.06em;color:#6B665C">ASK ABOUT WORK, EXPERIENCE, SKILLS</span>
         </div>
         <div style="display:flex;align-items:center;gap:8px">
-        <sc-if value="{{ hasAgent }}" hint-placeholder-val="{{ false }}"><button onClick="{{ toggleCall }}" aria-label="Voice call with Birdie" style="height:32px;padding:0 11px;border-radius:16px;border:1px solid #DBD6CC;background:{{ callBg }};color:{{ callFg }};cursor:pointer;font-family:'Hanken Grotesk';font-size:10px;letter-spacing:.06em;white-space:nowrap" style-hover="border-color:#1A1814">{{ callText }}</button></sc-if>
-        <button onClick="{{ toggleVoice }}" aria-label="{{ voiceLabel }}" title="{{ voiceLabel }}" style="height:32px;padding:0 11px;border-radius:16px;border:1px solid #DBD6CC;background:{{ voiceBg }};color:{{ voiceFg }};cursor:pointer;font-family:'Hanken Grotesk';font-size:10px;letter-spacing:.06em;white-space:nowrap" style-hover="border-color:#1A1814">{{ voiceText }}</button>
+        <sc-if value="{{ hasAgent }}" hint-placeholder-val="{{ false }}"><button onClick="{{ toggleCall }}" aria-label="Voice call with Birdie" aria-pressed="{{ callActive }}" data-birdie-call="{{ callActive }}" style="height:32px;padding:0 11px;border-radius:16px;border:1px solid #DBD6CC;background:{{ callBg }};color:{{ callFg }};cursor:pointer;font-family:'Hanken Grotesk';font-size:10px;letter-spacing:.06em;white-space:nowrap" style-hover="border-color:#1A1814">{{ callText }}</button></sc-if>
+        <button onClick="{{ toggleVoice }}" aria-label="{{ voiceLabel }}" title="{{ voiceLabel }}" aria-pressed="{{ voiceActive }}" data-birdie-voice="{{ voiceActive }}" style="height:32px;padding:0 11px;border-radius:16px;border:1px solid #DBD6CC;background:{{ voiceBg }};color:{{ voiceFg }};cursor:pointer;font-family:'Hanken Grotesk';font-size:10px;letter-spacing:.06em;white-space:nowrap" style-hover="border-color:#1A1814">{{ voiceText }}</button>
         <button onClick="{{ toggle }}" aria-label="Close chat" style="width:32px;height:32px;border-radius:50%;border:1px solid #DBD6CC;background:transparent;cursor:pointer;font-size:16px;color:#1A1814;display:flex;align-items:center;justify-content:center" style-hover="background:#F1ECE3">×</button>
         </div>
       </div>
@@ -823,6 +862,8 @@ When appropriate, end with:
       toggleVoice: this.toggleVoice,
       toggleCall: this.toggleCall,
       hasAgent: !!Component.AGENT_ID,
+      callActive: !!this.state.call,
+      voiceActive: !!this.state.voice,
       callText: ({ connecting: 'CONNECTING…', listening: '● LISTENING · END', speaking: '● SPEAKING · END' })[this.state.call] || '◉ TALK',
       callBg: this.state.call ? '#C4361D' : 'transparent',
       callFg: this.state.call ? '#FFFFFF' : '#1A1814',
