@@ -1,0 +1,24 @@
+/* Focused GSAP hero concept — new review branch, original case studies preserved. */
+#top[data-r~="hero"]{display:none!important}
+.rm-focus-stage{position:relative;min-height:175svh;background:#F7F4EF;color:#1A1814;isolation:isolate;overflow:clip}
+.rm-focus-pin{height:100svh;min-height:650px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.rm-focus-inner{width:min(1180px,calc(100% - 80px));margin:auto;position:relative;z-index:2}
+.rm-focus-eyebrow{font:600 12px/1.5 'Hanken Grotesk',system-ui,sans-serif;letter-spacing:.15em;text-transform:uppercase;color:#6B665C;margin:0 0 24px}
+.rm-focus-title{font-family:'Libre Baskerville',Georgia,serif!important;font-size:clamp(43px,6.6vw,98px)!important;line-height:1.14!important;letter-spacing:-.055em!important;max-width:1100px;margin:0;font-weight:700;color:inherit}
+.rm-focus-title span{display:block}
+.rm-focus-title .rm-accent{color:#1F5FE0}
+.rm-focus-desc{font:400 clamp(16px,1.65vw,22px)/1.65 'Hanken Grotesk',system-ui,sans-serif;color:#46423A;max-width:700px;margin:27px 0 0}
+.rm-focus-actions{display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin-top:30px}
+.rm-focus-actions a{font:600 12px/1.2 'Hanken Grotesk',system-ui,sans-serif;letter-spacing:.08em;text-decoration:none;padding:15px 20px;border:1px solid #1A1814;color:#1A1814}
+.rm-focus-actions a:first-child{background:#1A1814;color:#F7F4EF}
+.rm-focus-actions a:focus-visible{outline:3px solid #1F5FE0;outline-offset:4px}
+.rm-focus-brands{border-top:1px solid #DBD6CC;margin-top:clamp(35px,5vw,70px);padding-top:20px}
+.rm-focus-brands p{font:600 10px/1.5 'Hanken Grotesk',system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#777168;margin:0 0 14px}
+.rm-focus-brandnames{display:flex;flex-wrap:wrap;column-gap:30px;row-gap:12px;font:600 clamp(13px,1.35vw,17px)/1.3 'Hanken Grotesk',system-ui,sans-serif;color:#312D28}
+.rm-focus-portal{pointer-events:none;position:absolute;inset:0;z-index:1;display:grid;place-items:center;opacity:.11;perspective:900px}
+.rm-focus-rings{position:relative;width:min(66vw,680px);aspect-ratio:1}
+.rm-focus-rings i{display:block;position:absolute;inset:var(--ring);border:1px solid #1F5FE0;transform:rotate(45deg);border-radius:2px}
+.rm-focus-next{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);z-index:3;font:600 11px 'Hanken Grotesk',sans-serif;letter-spacing:.14em;color:#777168;white-space:nowrap}
+html.rm-motion-active .rm-focus-stage{background:#F7F4EF}
+@media(max-width:750px){.rm-focus-stage{min-height:125svh}.rm-focus-pin{min-height:590px}.rm-focus-inner{width:calc(100% - 40px)}.rm-focus-title{font-size:clamp(39px,10vw,64px)!important}.rm-focus-brands{margin-top:35px}.rm-focus-brandnames{gap:10px 19px}.rm-focus-portal{opacity:.07}.rm-focus-next{bottom:14px}}
+@media(prefers-reduced-motion:reduce){.rm-focus-stage{min-height:100svh!important}.rm-focus-inner,.rm-focus-portal{transform:none!important;opacity:1!important}.rm-focus-portal{opacity:.07!important}html{scroll-behavior:auto!important}}
