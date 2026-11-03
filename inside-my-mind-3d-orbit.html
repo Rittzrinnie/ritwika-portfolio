@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow"><title>Inside My Mind — 3D camera study | Ritwika Mondal</title>
+<style>
+@font-face{font-family:Hanken;src:url('./fonts/04146177.woff2') format('woff2');font-display:swap}
+:root{--paper:#f4f2ec;--ink:#191817;--blue:#573bf0;--line:#d5d1c6}
+*{box-sizing:border-box}
+html{scroll-behavior:auto}body{margin:0;background:var(--paper);color:var(--ink);font-family:Hanken,Arial,sans-serif}
+a{color:inherit}a:focus-visible{outline:3px solid var(--blue);outline-offset:5px}
+nav{height:66px;position:fixed;top:0;left:0;right:0;padding:0 clamp(20px,4vw,70px);display:flex;align-items:center;justify-content:space-between;z-index:60;background:#f4f2ecbb;border-bottom:1px solid #dcd8d0;backdrop-filter:blur(12px)}
+nav .brand{font-size:15px;font-weight:800;letter-spacing:-.04em;text-decoration:none}
+nav .brand:before{content:"";width:10px;height:10px;background:var(--blue);display:inline-block;margin-right:10px}
+nav .right{display:flex;align-items:center;gap:25px;font-size:11px;font-weight:700;letter-spacing:.09em}
+nav .right a{text-decoration:none}
+#story{height:390svh;position:relative}
+#stage{height:100svh;position:sticky;top:0;overflow:hidden;isolation:isolate;background:var(--paper)}
+#background{position:absolute;inset:-15%;z-index:-1;pointer-events:none;background:radial-gradient(circle at 64% 53%,#e8e4f3 0,transparent 38%),linear-gradient(transparent 49.94%,#807e781c 50%,transparent 50.06%),linear-gradient(90deg,transparent 49.94%,#807e781c 50%,transparent 50.06%);transform-origin:center;will-change:transform}
+#orbital{position:absolute;inset:0;width:100%;height:100%;z-index:3;pointer-events:none;overflow:visible;will-change:transform}
+#figure{position:absolute;inset:0;width:100%;height:100%;z-index:5;pointer-events:none;display:block}
+#veil{position:absolute;inset:0;z-index:8;pointer-events:none;background:linear-gradient(90deg,var(--paper) 0,transparent 36%,transparent 82%,#f4f2ecaa 100%);opacity:.38}
+#words{position:absolute;inset:0;z-index:9;pointer-events:none}
+.word{position:absolute;font:700 clamp(11px,1.15vw,17px)/1.2 Hanken,Arial,sans-serif;text-transform:uppercase;white-space:nowrap;letter-spacing:.13em;color:#7773827d;transition:color .18s,text-shadow .18s,filter .18s;will-change:transform}
+.word.lit{color:#5834ec;text-shadow:0 0 16px #8a6df29e,0 0 35px #a69cff77}
+.word.soft.lit{color:#388a76;text-shadow:0 0 20px #81ffd4a0}
+#lead{position:absolute;z-index:17;left:clamp(22px,5.5vw,95px);top:23%;pointer-events:none;width:min(34vw,510px);will-change:transform,opacity}
+#lead .eyebrow,#eyebrow2{font-size:11px;text-transform:uppercase;letter-spacing:.17em;color:#706d65;font-weight:750;margin-bottom:25px}
+#lead h1{font-size:clamp(47px,5vw,83px);line-height:1.03;letter-spacing:-.067em;margin:0;font-weight:700}
+#lead h1 em{display:block;color:var(--blue);font-style:normal}
+#lead p{font-size:clamp(14px,1.3vw,18px);line-height:1.65;color:#656059;max-width:400px;margin-top:25px}
+#depth-tag{position:absolute;z-index:16;right:5.2vw;top:19%;font-size:10px;line-height:1.75;letter-spacing:.15em;text-transform:uppercase;text-align:right;color:#706b73}
+#depth-tag strong{display:block;color:#5239c8;font-size:12px}
+#depth-line{position:absolute;z-index:20;bottom:35px;left:5.5vw;right:5.5vw;display:flex;gap:15px;align-items:center;font-size:10px;letter-spacing:.14em;font-weight:750;text-transform:uppercase}
+#depth-track{height:1px;background:#d4cec3;flex:1;position:relative}
+#depth-progress{position:absolute;left:0;top:-1px;height:3px;width:0;background:var(--blue)}
+#subtitle{position:absolute;z-index:19;left:clamp(22px,5.5vw,95px);bottom:13vh;max-width:420px;font-size:13px;line-height:1.6;color:#656059}
+#chapter{position:absolute;z-index:17;left:5.5vw;top:17%;font-size:11px;letter-spacing:.15em;font-weight:750;color:#67616b;opacity:0;pointer-events:none}
+#chapter h2{color:#18171a;font-size:clamp(30px,3.2vw,56px);letter-spacing:-.055em;line-height:1.08;font-weight:700;max-width:350px;margin:18px 0}
+#chapter h2 em{font-style:normal;color:var(--blue)}
+#chapter p{font-size:14px;line-height:1.65;letter-spacing:0;font-weight:400;max-width:335px}
+#work{min-height:83svh;background:#17161c;color:#f7f5f0;padding:clamp(90px,9vw,145px) 6vw;position:relative;z-index:30}
+#work>p{font:700 11px Hanken,Arial,sans-serif;letter-spacing:.18em;color:#a79abf}
+#work h2{font-size:clamp(38px,6vw,78px);max-width:950px;line-height:1.1;letter-spacing:-.06em;margin:20px 0 50px}
+#work h2 em{font-style:normal;color:#bba9ff}
+.projects{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.projects a{min-width:0;display:block;text-decoration:none;border:1px solid #4b4551;transition:transform .2s,border-color .2s}
+.projects a:hover{transform:translateY(-4px);border-color:#bba9ff}
+.projects img{width:100%;aspect-ratio:16/10;object-fit:cover}
+.projects span{display:block;padding:13px;font-weight:650;font-size:14px}
+#notice{position:fixed;z-index:80;left:16px;bottom:16px;background:#19171f;color:#fff;padding:9px 12px;font-size:11px;opacity:0;pointer-events:none}
+@media(max-width:950px){#lead{width:47vw;top:20%}#lead h1{font-size:clamp(37px,5vw,64px)}#depth-tag{top:12%}}
+@media(max-width:650px){nav{height:58px}nav .right{gap:12px}#lead{top:13%;left:20px;width:75vw}#lead h1{font-size:clamp(37px,10vw,56px)}#lead p{font-size:13px;max-width:260px}#depth-tag{right:15px;top:auto;bottom:80px}#chapter{top:11%;left:20px}#subtitle{left:20px;bottom:10vh;max-width:220px}#figure{opacity:.92}.projects{grid-template-columns:1fr}#work{padding:65px 20px}}
+@media(prefers-reduced-motion:reduce){.word{transition:none}#story{height:200svh}#notice{opacity:1}}
+</style>
+</head>
+<body><nav><a href="#story" class="brand">Ritwika Mondal</a><div class="right"><a href="#work">WORK</a><span>BERLIN / 2026</span></div></nav>
+<main><section id="story"><div id="stage">
+<div id="background"></div>
+<svg id="orbital" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><path d="M-180 680 Q280 130 850 365 T1730 255" stroke="#5743ad" stroke-opacity=".15" stroke-width="1.5" fill="none"/><path d="M-190 810 C350 430 740 1080 1600 390" stroke="#6b58c0" stroke-opacity=".20" stroke-width="1.2" fill="none"/><circle cx="850" cy="455" r="290" stroke="#4c43a5" stroke-opacity=".12" fill="none"/></svg>
+<canvas id="figure" aria-label="Procedurally modelled three-dimensional silhouette with luminous mixed-colour visor"></canvas>
+<div id="veil"></div>
+<div id="words" aria-label="Ideas and disciplines floating at different depths"></div>
+<div id="lead"><div class="eyebrow">PRODUCT & EXPERIENCE DESIGNER / BERLIN</div><h1>I connect<br>the dots<br><em>others don't see.</em></h1><p>From computer science to designing how people experience technology. Curiosity is the thread that connects it all.</p></div>
+<div id="chapter"><span id="eyebrow2">INSIDE MY MIND / PERSPECTIVE 02</span><h2>Different angles.<br><em>One curious mind.</em></h2><p>Automotive, enterprise and AI are different worlds. I connect their patterns to solve human problems.</p></div>
+<div id="depth-tag"><strong>ONE CHARACTER</strong>REAL 3D ORBIT<br>NOT A SLIDESHOW</div>
+<div id="subtitle">SCROLL SLOWLY — the camera moves through the scene, closing in on the same rotating silhouette.</div>
+<div id="depth-line"><span>01 / THE PERSON</span><div id="depth-track"><div id="depth-progress"></div></div><span>03 / THE PERSPECTIVE</span></div>
+</div></section>
+<section id="work"><p>THE NEXT CHAPTER / SELECTED WORK</p><h2>Different disciplines.<br><em>Connected by curiosity.</em></h2><div class="projects">
+<a href="./CaseVWR.dc.html"><img src="./assets/b14e9ca3.png" alt="Volkswagen R project screenshot" loading="lazy"><span>Volkswagen R / Automotive ↗</span></a>
+<a href="./CaseWeb3.dc.html"><img src="./assets/d2795760.png" alt="Cadence Shop project screenshot" loading="lazy"><span>Cadence Shop / Enterprise ↗</span></a>
+<a href="./CaseIncidentBriefing.dc.html"><img src="./assets/12e1771c.webp" alt="AI Incident Briefing screenshot" loading="lazy"><span>Birdie / AI & Workflows ↗</span></a>
+</div></section></main>
+<div id="notice" role="status">Reduced motion: shorter camera sequence</div>
+<script>
+/* Procedural 3D, Canvas2D renderer. No remote 3D assets or photo crossfades. 
+   The SAME 3D mesh is projected from the moving camera at each scroll position.
+   Optional GSAP ScrollTrigger smooths scroll; native easing remains fully functional.
+*/
+(()=>{
+ const canvas=document.querySelector('#figure'),ctx=canvas.getContext('2d',{alpha:true});
+ if(!ctx){document.querySelector('#notice').textContent='Canvas unavailable';document.querySelector('#notice').style.opacity=1;return}
+ const stage=document.querySelector('#story'),back=document.querySelector('#background'),orbit=document.querySelector('#orbital');
+ const lead=document.querySelector('#lead'),chapter=document.querySelector('#chapter'),sub=document.querySelector('#subtitle'),line=document.querySelector('#depth-progress');
+ const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+ const wordsData=[
+ ['CURIOSITY',.08,.23,1.35],['WHAT IF?',.25,.11,.6],['PEOPLE',.74,.20,1.1],
+ ['EXPERIENCE',.83,.38,1.6],['SYSTEMS',.08,.59,1.9],['AUTOMOTIVE',.80,.65,1.2],
+ ['EMPATHY',.18,.83,2.1],['AI',.66,.84,2.4],['PROTOTYPE',.44,.13,1.5],
+ ['CLARITY',.34,.76,2.0],['OBSERVE',.90,.77,.8],['CONNECT',.53,.90,2.1]
+ ];
+ const words=wordsData.map(([txt,x,y,z],i)=>{let w=document.createElement('span');w.className='word'+(i%3===0?' soft':'');w.textContent=txt;w.style.left=(100*x)+'%';w.style.top=(100*y)+'%';document.querySelector('#words').appendChild(w);return {el:w,x,y,z,i}});
+ const pointer={x:-1000,y:-1000};
+ addEventListener('pointermove',e=>{pointer.x=e.clientX;pointer.y=e.clientY},{passive:true});
+ addEventListener('pointerleave',()=>{pointer.x=-1000;pointer.y=-1000});
+ let W=0,H=0,dpr=1,triangles=[],p=0,target=0,last=-1;
+ function resize(){dpr=Math.min(2,devicePixelRatio||1);W=innerWidth;H=innerHeight;canvas.width=Math.round(W*dpr);canvas.height=Math.round(H*dpr);canvas.style.width=W+'px';canvas.style.height=H+'px';ctx.setTransform(dpr,0,0,dpr,0,0);last=-1}
+ addEventListener('resize',resize);resize();
+ // Geometry builders: all faces have actual XYZ coordinates and rotate with the same world transform.
+ function face(a,b,c,color,shine=0){triangles.push({pts:[a,b,c],color,shine})}
+ const P=(x,y,z)=>[x,y,z];
+ function ellipsoid(cx,cy,cz,rx,ry,rz,color,seg=16,rings=11){
+  for(let i=0;i<rings;i++){let t0=-Math.PI/2+i*Math.PI/rings,t1=-Math.PI/2+(i+1)*Math.PI/rings;
+   for(let j=0;j<seg;j++){let a=j*Math.PI*2/seg,b=(j+1)*Math.PI*2/seg;
+    const q=(t,u)=>P(cx+rx*Math.cos(t)*Math.cos(u),cy+ry*Math.sin(t),cz+rz*Math.cos(t)*Math.sin(u));
+    let v0=q(t0,a),v1=q(t0,b),v2=q(t1,a),v3=q(t1,b);
+    face(v0,v2,v1,color);face(v1,v2,v3,color);
+   }
+  }
+ }
+ function tapered(x0,y0,z0,x1,y1,z1,r0,r1,color,seg=12){
+  let axis=[x1-x0,y1-y0,z1-z0],l=Math.hypot(...axis),a=axis.map(n=>n/l);
+  let u=Math.abs(a[1])<.9?[-a[2],0,a[0]]:[1,0,0],ul=Math.hypot(...u);u=u.map(n=>n/ul);
+  let v=[a[1]*u[2]-a[2]*u[1],a[2]*u[0]-a[0]*u[2],a[0]*u[1]-a[1]*u[0]];
+  for(let j=0;j<seg;j++){let aa=j*2*Math.PI/seg,bb=(j+1)*2*Math.PI/seg;
+   let ring=(x,y,z,r,t)=>P(x+r*(u[0]*Math.cos(t)+v[0]*Math.sin(t)),y+r*(u[1]*Math.cos(t)+v[1]*Math.sin(t)),z+r*(u[2]*Math.cos(t)+v[2]*Math.sin(t)));
+   let a0=ring(x0,y0,z0,r0,aa),b0=ring(x0,y0,z0,r0,bb),a1=ring(x1,y1,z1,r1,aa),b1=ring(x1,y1,z1,r1,bb);
+   face(a0,a1,b0,color);face(b0,a1,b1,color);
+  }
+ }
+ // Coat/body, trousers, boots, sleeves and hands — one continuous stylized figure.
+ tapered(0,2.10,0,0,3.29,0,.48,.60,'#17161a',20);
+ ellipsoid(0,3.24,0,.63,.22,.36,'#151419',20,8);
+ tapered(-.25,.16,.0,-.23,2.10,0,.19,.24,'#16151a',12);
+ tapered(.25,.16,0,.23,2.10,0,.19,.24,'#16151a',12);
+ ellipsoid(-.26,.12,.13,.25,.16,.39,'#101015',12,7);
+ ellipsoid(.26,.12,.13,.25,.16,.39,'#101015',12,7);
+ tapered(-.59,3.22,0,-.68,1.99,.06,.23,.17,'#111116',12);
+ tapered(.59,3.22,0,.68,1.99,.06,.23,.17,'#111116',12);
+ ellipsoid(-.68,1.92,.08,.16,.20,.17,'#17131b',12,7);
+ ellipsoid(.68,1.92,.08,.16,.20,.17,'#17131b',12,7);
+ tapered(0,3.31,0,0,3.60,0,.20,.18,'#121116');
+ // Full 3D head and volumetric hair.
+ ellipsoid(0,3.92,0,.36,.49,.34,'#171318',22,16);
+ ellipsoid(0,4.29,-.07,.41,.28,.36,'#111014',18,12);
+ for(let i=0;i<22;i++){let a=i*2.39996,r=.24*Math.sqrt((i+1)/22);
+ ellipsoid(Math.cos(a)*r,4.39+.08*Math.sin(i*1.7),Math.sin(a)*r-.04,.11,.13,.12,'#0c0b11',8,6)}
+ // Ears and side straps visible as camera orbits.
+ ellipsoid(-.36,3.98,-.025,.085,.14,.085,'#141119',10,8);
+ ellipsoid(.36,3.98,-.025,.085,.14,.085,'#141119',10,8);
+ // Curved iridescent visor — actual 3D mesh wrapping around the front and sides.
+ const bands=23;
+ for(let j=0;j<bands;j++){
+   let a0=-1.31+(j/bands)*2.62,a1=-1.31+((j+1)/bands)*2.62;
+   function point(a,y){return P(.414*Math.sin(a),y,.345*Math.cos(a)+.015)}
+   let top=4.115,btm=3.86;
+   let v0=point(a0,top),v1=point(a1,top),v2=point(a0,btm),v3=point(a1,btm);
+   let hue=(j/bands),c=hue<.53?'#d5f765':hue<.76?'#7aefd4':'#9d72fb';
+   face(v0,v2,v1,c,1);face(v1,v2,v3,c,1);
+ }
+ for(const x of [-1,1]){
+   let xx=x*.408;
+   tapered(xx,4.03,.06,x*.426,4.01,-.22,.03,.03,'#201b2c',8);
+ }
+ function smooth(t){t=Math.max(0,Math.min(1,t));return t*t*(3-2*t)}
+ function lerp(a,b,t){return a+(b-a)*t}
+ function keyframes(progress){
+   const t1=smooth(progress/.49),t2=smooth((progress-.45)/.55);
+   return {dist:lerp(9.5,4.1,t1)+.25*t2,y:lerp(2.2,3.87,t1)-.17*t2,yaw:lerp(0,.16,t1)+1.32*t2};
+ }
+ function project(q,cam){
+  let s=Math.sin(cam.yaw),c=Math.cos(cam.y),right=q[0]*c-q[2]*s;
+  let depth=cam.dist-(q[0]*s+q[2]*c),scale=Math.min(W*.63,H*1.15)*1.8/depth;
+  return [W*.60+right*scale,H*.51-(q[1]-cam.y)*scale,depth];
+ }
+ function draw(t){
+   const cam=keyframes(t);
+   if(!reduced && pointer.x>0)cam.yaw+=Math.max(-.065,Math.min(.065,(pointer.x/W-.5)*.13));
+   ctx.clearRect(0,0,W,H);
+   let queue=triangles.map(f=>{let verts=f.pts.map(v=>project(v,cam)),d=(verts[0][2]+verts[1][2]+verts[2][2])/3;return {verts,d,color:f.color,shine:f.shine}}).sort((a,b)=>b.d-a.d);
+   for(const f of queue){
+      ctx.beginPath();ctx.moveTo(f.verts[0][0],f.verts[0][1]);ctx.lineTo(f.verts[1][0],f.verts[1][1]);ctx.lineTo(f.verts[2][0],f.verts[2][1]);ctx.closePath();
+      ctx.fillStyle=f.color;
+      if(f.shine){ctx.shadowColor='#baff6d';ctx.shadowBlur=Math.min(18,9+(9.5-cam.dist)*2)}
+      ctx.fill();
+      if(f.shine)ctx.shadowBlur=0;
+   }
+   // visor's optical glow remains one luminous object as the camera moves.
+   const eyep=project(P(0,4.01,.38),cam),rad=Math.min(260,76*(9.5/cam.dist));
+   let g=ctx.createRadialGradient(eyep[0],eyep[1],5,eyep[0],eyep[1],rad);
+   g.addColorStop(0,'rgba(201,255,110,.22)');g.addColorStop(.36,'rgba(153,130,251,.08)');g.addColorStop(1,'rgba(153,130,251,0)');
+   ctx.fillStyle=g;ctx.beginPath();ctx.arc(eyep[0],eyep[1],rad,0,Math.PI*2);ctx.fill();
+   const leave=smooth((t-.07)/.30),show=smooth((t-.52)/.25);
+   lead.style.opacity=String(1-leave);
+   lead.style.transform='translate3d('+(-35*leave)+'px,'+(-35*leave)+'px,0)';
+   chapter.style.opacity=String(show);
+   chapter.style.transform='translate3d(0,'+(28*(1-show))+'px,0)';
+   sub.style.opacity=String(1-smooth((t-.55)/.3));
+   line.style.width=(t*100).toFixed(1)+'%';
+   let shift=(t-.5);
+   back.style.transform='translate3d('+(-shift*34)+'px,'+(shift*26)+'px,0) scale('+(1+.07*t)+')';
+   orbit.style.transform='translate3d('+(-shift*140)+'px,'+(shift*74)+'px,0) scale('+(1+.28*t)+')';
+   for(const w of words){
+      const factor=w.z,dx=(.5-t)*factor*75+(pointer.x>0?(pointer.x/W-.5)*factor*13:0);
+      const dy=(t-.5)*factor*90+(Math.sin(performance.now()/1700+w.i)*3);
+      w.el.style.transform='translate3d('+dx.toFixed(1)+'px,'+dy.toFixed(1)+'px,0)';
+      const b=w.el.getBoundingClientRect();
+      let distance=Math.hypot(pointer.x-(b.left+b.width/2),pointer.y-(b.top+b.height/2));
+      w.el.classList.toggle('lit',distance<180);
+   }
+ }
+ function readScroll(){let r=stage.getBoundingClientRect(),len=Math.max(1,r.height-innerHeight);return Math.max(0,Math.min(1,-r.top/len))}
+ function frame(){
+   let v=readScroll();target=reduced?Math.min(1,v*2):v;
+   p+=(target-p)*.12;
+   draw(p);requestAnimationFrame(frame);
+ }
+ // If GSAP is present, its ScrollTrigger may be used for debugging without
+ // changing the native renderer; native scroll ensures no external dependency.
+ requestAnimationFrame(frame);
+})();
+</script>
+</body></html>
