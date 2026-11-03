@@ -1,0 +1,68 @@
+/* EDITORIAL PORTFOLIO REVIEW — non-destructive visual system
+   Retains authentic project imagery, original functionality, themes and source copy.
+   Design principles: editorial scale, spacious storytelling, readable scannable metadata.
+*/
+:root{--ed-ink:#1A1814;--ed-paper:#F7F4EF;--ed-line:#DBD6CC;--ed-muted:#6B665C}
+html{scroll-padding-top:90px}
+body{font-synthesis:none;text-rendering:optimizeLegibility}
+a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:3px solid #1F5FE0!important;outline-offset:4px!important}
+img{max-width:100%}
+[data-r~="pad"]{box-sizing:border-box}
+h1,h2,h3{overflow-wrap:break-word}
+h1{letter-spacing:-.045em!important}
+h2{letter-spacing:-.035em!important}
+p{overflow-wrap:break-word}
+[data-reveal]{transition-duration:.5s!important}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}[data-reveal]{opacity:1!important;transform:none!important}}
+
+/* HOMEPAGE — turn project carousel into an intentional editorial image-led collection. */
+body:has(#work) [data-r~="hero"]{padding-top:clamp(72px,8vw,136px)!important;padding-bottom:clamp(72px,9vw,144px)!important}
+body:has(#work) [data-r~="hero"] h1{font-size:clamp(40px,5.4vw,80px)!important;line-height:1.04!important;max-width:1000px!important}
+body:has(#work) [data-r~="hero"] p{max-width:680px!important;line-height:1.65!important}
+body:has(#work) #work [data-work-sticky]{padding-top:clamp(80px,9vw,144px)!important}
+body:has(#work) #work [data-rail]{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;align-items:stretch!important;gap:clamp(22px,3vw,42px)!important;overflow:visible!important;scroll-snap-type:none!important;cursor:default!important;max-width:1320px!important;margin-inline:auto!important;padding:32px clamp(20px,4vw,52px) 100px!important}
+body:has(#work) #work [data-card]{width:auto!important;min-width:0!important;scroll-snap-align:none!important;transform:none!important;box-shadow:none!important;background:transparent!important;border:0!important}
+body:has(#work) #work [data-card]>div:first-child{border:1px solid var(--ed-line)!important;overflow:hidden!important;aspect-ratio:16/11!important;background:#ECE7DE}
+body:has(#work) #work [data-card]>div:first-child img{transition:transform .6s ease!important}
+body:has(#work) #work [data-card]:hover>div:first-child img{transform:scale(1.03)!important}
+body:has(#work) #work [data-card]>div:nth-child(2){padding:22px 0 10px!important;gap:12px!important}
+body:has(#work) #work [data-card] h3{font-size:clamp(23px,2.35vw,35px)!important;line-height:1.18!important;letter-spacing:-.03em!important}
+body:has(#work) #work [data-card] p{-webkit-line-clamp:unset!important;display:block!important;overflow:visible!important;font-size:15px!important;line-height:1.65!important;max-width:53ch}
+body:has(#work) #work [data-card] [style*="border-radius:100px"]{border-color:var(--ed-line)!important}
+body:has(#work) #work [data-rail-btn]{display:none!important}
+body:has(#work) #work [data-card="experiment"]{display:none!important}
+body:has(#work) #work [data-rail-filter="experiment"]{display:none!important}
+body:has(#work) #work [data-rail-filter="case"]{pointer-events:none}
+body:has(#work) #work [data-card] a:focus-visible{outline-offset:5px}
+body:has(#work) #experience{padding-top:clamp(70px,8vw,120px)!important}
+body:has(#work) #playground{padding-top:clamp(70px,8vw,120px)!important}
+
+/* CASE STUDIES — retain the detailed research but make the hierarchy editorial. */
+body:has([data-toc]) h1{font-size:clamp(44px,6.4vw,90px)!important;line-height:1.02!important;letter-spacing:-.045em!important;max-width:930px!important}
+body:has([data-toc]) h1+p{font-size:clamp(18px,1.75vw,23px)!important;line-height:1.55!important;max-width:720px!important}
+body:has([data-toc]) [data-toc]{font-size:11px!important;letter-spacing:.16em!important;text-transform:uppercase!important;font-weight:700!important;margin-bottom:20px!important}
+body:has([data-toc]) [data-toc]~p{line-height:1.72!important}
+body:has([data-toc]) [data-reveal]{scroll-margin-top:110px}
+body:has([data-toc]) [data-r~="stackmd"]{column-gap:clamp(35px,5vw,90px)!important}
+body:has([data-toc]) [data-r~="stackmd"] img{height:auto}
+body:has([data-toc]) [data-toc="Gallery"]~* img{border-radius:2px}
+body:has([data-toc]) [data-toc="Takeaway"]~p{font-size:clamp(19px,2vw,26px)!important;line-height:1.55!important}
+body:has([data-toc]) [data-r~="pad"]{max-width:1240px!important}
+body:has([data-toc]) [data-r~="navlinks"]{font-size:10px!important;gap:12px!important}
+body:has([data-toc]) [data-r~="navlinks"] a{letter-spacing:.025em}
+body:has([data-toc]) [data-toc="Decision Framework"],body:has([data-toc]) [data-toc="Trade-offs"]{margin-top:18px}
+
+/* Theme inheritance: do not replace existing project-specific dark-mode rules. */
+@media(max-width:960px){
+ body:has(#work) #work [data-rail]{gap:26px!important}
+ body:has([data-toc]) h1{font-size:clamp(42px,8vw,68px)!important}
+}
+@media(max-width:680px){
+ body:has(#work) #work [data-rail]{grid-template-columns:minmax(0,1fr)!important;padding:24px 20px 72px!important;gap:42px!important}
+ body:has(#work) [data-r~="hero"]{padding-top:64px!important;padding-bottom:70px!important}
+ body:has(#work) [data-r~="hero"] h1{font-size:clamp(36px,10vw,56px)!important}
+ body:has(#work) #work [data-card] h3{font-size:27px!important}
+ body:has([data-toc]) h1{font-size:clamp(38px,10vw,54px)!important}
+ body:has([data-toc]) h1+p{font-size:17px!important}
+ body:has([data-toc]) [data-r~="pad"]{padding-left:20px!important;padding-right:20px!important}
+}
