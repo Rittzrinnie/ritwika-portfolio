@@ -72,6 +72,8 @@ nav .right a{text-decoration:none}
 <a href="./CaseIncidentBriefing.dc.html"><img src="./assets/12e1771c.webp" alt="AI Incident Briefing screenshot" loading="lazy"><span>Birdie / AI & Workflows ↗</span></a>
 </div></section></main>
 <div id="notice" role="status">Reduced motion: shorter camera sequence</div>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 <script>
 /* Procedural 3D, Canvas2D renderer. No remote 3D assets or photo crossfades. 
    The SAME 3D mesh is projected from the moving camera at each scroll position.
@@ -93,7 +95,7 @@ nav .right a{text-decoration:none}
  const pointer={x:-1000,y:-1000};
  addEventListener('pointermove',e=>{pointer.x=e.clientX;pointer.y=e.clientY},{passive:true});
  addEventListener('pointerleave',()=>{pointer.x=-1000;pointer.y=-1000});
- let W=0,H=0,dpr=1,triangles=[],p=0,target=0,last=-1;
+ let W=0,H=0,dpr=1,triangles=[],p=0,target=0,last=-1,gsapScroll=false;
  function resize(){dpr=Math.min(2,devicePixelRatio||1);W=innerWidth;H=innerHeight;canvas.width=Math.round(W*dpr);canvas.height=Math.round(H*dpr);canvas.style.width=W+'px';canvas.style.height=H+'px';ctx.setTransform(dpr,0,0,dpr,0,0);last=-1}
  addEventListener('resize',resize);resize();
  // Geometry builders: all faces have actual XYZ coordinates and rotate with the same world transform.
@@ -201,12 +203,23 @@ nav .right a{text-decoration:none}
  }
  function readScroll(){let r=stage.getBoundingClientRect(),len=Math.max(1,r.height-innerHeight);return Math.max(0,Math.min(1,-r.top/len))}
  function frame(){
-   let v=readScroll();target=reduced?Math.min(1,v*2):v;
+   let v=gsapScroll?target:readScroll();target=reduced?Math.min(1,v*2):v;
    p+=(target-p)*.12;
    draw(p);requestAnimationFrame(frame);
  }
- // If GSAP is present, its ScrollTrigger may be used for debugging without
- // changing the native renderer; native scroll ensures no external dependency.
+ // GSAP ScrollTrigger drives camera orbit when loaded; native scroll is backup.
+ if(window.gsap && window.ScrollTrigger && !reduced){
+   try{
+     window.gsap.registerPlugin(window.ScrollTrigger);
+     window.ScrollTrigger.create({
+       trigger:stage,start:'top top',end:'bottom bottom',
+       onUpdate:self=>{target=self.progress;}
+     });
+     gsapScroll=true;
+     document.querySelector('#depth-tag').innerHTML='<strong>GSAP CAMERA ORBIT</strong>ONE 3D FIGURE<br>REAL DEPTH';
+     window.ScrollTrigger.refresh();
+   }catch(error){console.warn('GSAP unavailable, native scroll controls orbit.',error);}
+ }
  requestAnimationFrame(frame);
 })();
 </script>
