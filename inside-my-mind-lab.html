@@ -66,9 +66,21 @@ button,a{font:inherit}a{color:inherit}button:focus-visible,a:focus-visible{outli
 @media(max-width:900px){.mind-scroll{height:auto}.mind-sticky{position:relative;height:auto;overflow:visible}.mind-scene{position:relative;inset:auto}.mind-one{min-height:950px;overflow:hidden}.mind-headline{top:120px;left:22px;max-width:310px}.mind-headline h1{font-size:clamp(47px,9vw,72px)}.mind-person{top:61%;left:55%;width:min(70vw,420px);height:540px}.mind-glow{top:25%}.mind-symbol{top:87px;left:22px}.mind-story-tag{bottom:45px}.mind-scroll-indicator{display:none}.mind-two{opacity:1;visibility:visible;min-height:100svh}.mind-two-inner{width:calc(100% - 44px);padding:80px 0}.mind-words .mind-word{font-size:12px}.mind-paths{grid-template-columns:1fr 1fr}.mind-paths a:last-child{grid-column:span 2}.mind-menu .review{display:none}}
 @media(max-width:560px){.mind-nav{height:58px;padding:0 18px}.mind-menu{gap:13px;font-size:10px}.mind-one{min-height:930px}.mind-headline{top:145px}.mind-person{top:61%;left:54%;width:92vw;height:550px}.mind-word:nth-child(n+10){display:none}.mind-story-tag{font-size:11px;bottom:25px;max-width:280px}.mind-two h2{font-size:clamp(37px,11vw,64px)}.mind-paths{grid-template-columns:1fr}.mind-paths a:last-child{grid-column:auto}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.mind-scroll{height:auto!important}.mind-sticky{position:relative;height:auto}.mind-scene{position:relative;inset:auto}.mind-one{min-height:900px}.mind-two{opacity:1!important;visibility:visible!important;min-height:100vh}.mind-word{animation:none!important}.mind-words{pointer-events:none}.mind-paths{grid-template-columns:1fr 1fr}}
+
+/* Visual-test friendly: animation visible immediately, not only after scrolling. */
+.mind-glow{animation:visorPulse 3s ease-in-out infinite alternate;will-change:filter,box-shadow}
+@keyframes visorPulse{from{filter:hue-rotate(0deg) brightness(1);box-shadow:inset 5px 7px 8px #fff9,inset -9px -12px 22px #28126788,0 0 30px #c5fa51bb,0 0 65px #b2fb5570}to{filter:hue-rotate(28deg) brightness(1.24);box-shadow:inset 5px 7px 8px #fff9,inset -9px -12px 22px #28126788,0 0 72px #c5fa51ff,0 0 130px #8cf9ff99}}
+.mind-word{color:rgba(39,33,53,.33);cursor:default}
+.mind-word.lit{color:#6e2eff!important;text-shadow:0 0 14px #7340ff,0 0 35px #955cffaa!important;opacity:1!important}
+.mind-word.green.lit{color:#328343!important;text-shadow:0 0 17px #a1fa57!important}
+.mind-scene-one .mind-words{z-index:16}
+.mind-concept-label{font-size:10px;letter-spacing:.12em;font-weight:700;color:#5e39d9;border-left:2px solid #5e39d9;padding-left:11px}
+.mind-mouse-hint{position:absolute;z-index:19;right:5vw;top:14vh;font:700 10px/1.6 Hanken,Arial,sans-serif;letter-spacing:.14em;color:#4d3aa2;max-width:130px;text-align:right}
+@media(prefers-reduced-motion:reduce){.mind-glow{animation:none}}
+@media(max-width:900px){.mind-mouse-hint{display:none}}
 </style>
 </head><body>
-<nav class="mind-nav" aria-label="Portfolio concept navigation"><a class="mind-mark" href="#mind-top"><i></i>Ritwika Mondal</a><div class="mind-menu"><a href="#mind-work">Work</a><a href="#mind-story">My story</a><span class="review">PRIVATE BRANCH PREVIEW</span></div></nav>
+<nav class="mind-nav" aria-label="Portfolio concept navigation"><a class="mind-mark" href="#mind-top"><i></i>Ritwika Mondal</a><div class="mind-menu"><a href="#mind-work">Work</a><a href="#mind-story">My story</a><span class="mind-concept-label">CINEMATIC CONCEPT · 02</span></div></nav>
 <main>
 <section id="mind-top" class="mind-scroll" aria-label="Inside My Mind cinematic experience">
 <div class="mind-sticky">
@@ -111,33 +123,91 @@ button,a{font:inherit}a{color:inherit}button:focus-visible,a:focus-visible{outli
 <script>
 (function(){
  const stage=document.querySelector('.mind-scroll'),first=document.querySelector('.mind-one'),second=document.querySelector('.mind-two');
- const words=Array.from(document.querySelectorAll('.mind-word'));
+ const words=[...document.querySelectorAll('.mind-word')];
+ const portrait=document.querySelector('.mind-person'),headline=document.querySelector('.mind-headline');
+ const tag=document.querySelector('.mind-story-tag'),hint=document.querySelector('.mind-scroll-indicator');
+ const details=second.querySelector('.mind-two-inner');
  const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
  const narrow=matchMedia('(max-width:900px)').matches;
- // Cursor-proximity glow: each fragment responds independently, not on click.
- if(!reduced && matchMedia('(pointer:fine)').matches){
-   let px=-1000,py=-1000,raf=0;
-   const update=()=>{raf=0;for(const w of words){const b=w.getBoundingClientRect(),d=Math.hypot(px-(b.left+b.width/2),py-(b.top+b.height/2));w.classList.toggle('lit',d<150);w.style.opacity=String(Math.max(.42,1-d/950));}};
-   window.addEventListener('pointermove',e=>{px=e.clientX;py=e.clientY;if(!raf)raf=requestAnimationFrame(update)},{passive:true});
-   window.addEventListener('pointerleave',()=>{for(const w of words)w.classList.remove('lit')});
+ const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
+ const mix=(a,b,t)=>a+(b-a)*clamp(t,0,1);
+ // Cursor proximity works independently from GSAP, with strong visual glow.
+ if(!reduced&&matchMedia('(pointer:fine)').matches){
+   let point={x:-2000,y:-2000},frame=0;
+   function hover(){
+     frame=0;
+     words.forEach(word=>{
+       let r=word.getBoundingClientRect();
+       let distance=Math.hypot(point.x-(r.left+r.width/2),point.y-(r.top+r.height/2));
+       word.classList.toggle('lit',distance<190);
+     });
+   }
+   document.addEventListener('pointermove',e=>{
+     point.x=e.clientX;point.y=e.clientY;
+     if(!frame)frame=requestAnimationFrame(hover);
+   },{passive:true});
+   document.addEventListener('pointerleave',()=>words.forEach(w=>w.classList.remove('lit')));
  }
  if(reduced||narrow)return;
- if(!window.gsap||!window.ScrollTrigger){
-   document.querySelector('#mind-warning').style.display='block';
-   stage.style.height='auto';stage.querySelector('.mind-sticky').style.position='relative';stage.querySelector('.mind-sticky').style.height='auto';first.style.position='relative';second.style.position='relative';second.style.opacity=1;second.style.visibility='visible';return;
+ function nativeTransition(){
+   // Scrub the same visual narrative even when a CDN blocks GSAP.
+   stage.dataset.motion='native-scroll';
+   let frame=0;
+   function draw(){
+     frame=0;
+     const rect=stage.getBoundingClientRect();
+     const max=Math.max(1,rect.height-innerHeight);
+     const p=clamp(-rect.top/max,0,1);
+     const enter=clamp((p-.48)/.33,0,1);
+     const leave=clamp((p-.12)/.42,0,1);
+     portrait.style.transform='translate(-50%,-48%) scale('+mix(1,4.8,leave)+') rotate('+mix(0,4,leave)+'deg)';
+     portrait.style.opacity=String(1-clamp((p-.42)/.15,0,1));
+     headline.style.opacity=String(1-clamp((p-.21)/.26,0,1));
+     tag.style.opacity=String(1-clamp((p-.19)/.25,0,1));
+     hint.style.opacity=String(1-clamp(p/.16,0,1));
+     first.style.opacity=String(1-clamp((p-.48)/.14,0,1));
+     second.style.visibility=p>.48?'visible':'hidden';
+     second.style.opacity=String(enter);
+     second.style.pointerEvents=p>.7?'auto':'none';
+     details.style.transform='translateY('+mix(80,0,enter)+'px) scale('+mix(.94,1,enter)+')';
+     words.forEach((word,i)=>{
+       const x=((i%3)-1)*180*leave,y=(i%2?-140:135)*leave;
+       word.style.transform='translate3d('+x+'px,'+y+'px,0)';
+       word.style.opacity=String(1-leave);
+     });
+   }
+   function tick(){if(!frame)frame=requestAnimationFrame(draw);}
+   addEventListener('scroll',tick,{passive:true});
+   addEventListener('resize',tick);
+   draw();
  }
- gsap.registerPlugin(ScrollTrigger);
- const portrait=document.querySelector('.mind-person'),headline=document.querySelector('.mind-headline'),tag=document.querySelector('.mind-story-tag'),hint=document.querySelector('.mind-scroll-indicator');
- gsap.set(second,{autoAlpha:0,pointerEvents:'none'});
- gsap.set(second.querySelector('.mind-two-inner'),{y:110,scale:.94});
- const timeline=gsap.timeline({defaults:{ease:'none'},scrollTrigger:{trigger:stage,start:'top top',end:'bottom bottom',scrub:1.15,onUpdate:self=>{second.style.pointerEvents=self.progress>.65?'auto':'none';}});
- timeline.to(portrait,{scale:5,opacity:0,rotation:5,duration:.54},.08)
- .to(words,{x:(i)=>((i%3)-1)*170,y:(i)=>i%2?-135:145,opacity:0,stagger:.018,duration:.40},.08)
- .to([headline,tag,hint],{autoAlpha:0,y:-45,duration:.31},.22)
- .to(first,{autoAlpha:0,duration:.19},.52)
- .to(second,{autoAlpha:1,duration:.31},.55)
- .to(second.querySelector('.mind-two-inner'),{y:0,scale:1,duration:.41},.58);
- console.info('Inside My Mind interactive prototype: ScrollTrigger ready.');
+ if(!window.gsap||!window.ScrollTrigger){
+   console.warn('GSAP CDN unavailable. Native scroll animation is active instead.');
+   nativeTransition();
+   return;
+ }
+ try{
+   const gsap=window.gsap;
+   gsap.registerPlugin(window.ScrollTrigger);
+   gsap.set(second,{autoAlpha:0,pointerEvents:'none'});
+   gsap.set(details,{y:100,scale:.94});
+   const timeline=gsap.timeline({defaults:{ease:'none'},scrollTrigger:{
+     trigger:stage,start:'top top',end:'bottom bottom',scrub:.9,
+     onUpdate:self=>{second.style.pointerEvents=self.progress>.69?'auto':'none';}
+   }});
+   timeline.to(portrait,{scale:4.8,rotation:4,opacity:0,duration:.5},.06)
+     .to(words,{x:i=>((i%3)-1)*180,y:i=>i%2?-140:135,opacity:0,stagger:.008,duration:.42},.10)
+     .to([headline,tag,hint],{autoAlpha:0,duration:.35},.2)
+     .to(first,{autoAlpha:0,duration:.16},.48)
+     .to(second,{autoAlpha:1,duration:.27},.55)
+     .to(details,{y:0,scale:1,duration:.35},.57);
+   stage.dataset.motion='gsap-scrolltrigger';
+   window.ScrollTrigger.refresh();
+   console.info('Inside My Mind — GSAP ScrollTrigger active.');
+ }catch(error){
+   console.error('GSAP failed; enabling native transition.',error);
+   nativeTransition();
+ }
 })();
 </script>
 </body></html>
