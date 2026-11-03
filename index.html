@@ -23,6 +23,7 @@ button[sc-camel-on-click*="toggleEngine"],
 button[aria-label="STOP motion"],
 button[aria-label="START motion"]{display:none!important}
 </style>
+<link rel="stylesheet" href="./inside-my-mind.css">
 </head>
 <body>
 
@@ -334,7 +335,47 @@ html.reduce-motion *{animation:none!important}
     <div style="width:min(100%,calc((100vh - 90px) * 16 / 9));aspect-ratio:16/9;background:#121110;box-shadow:0 40px 90px rgba(0,0,0,.5)"><iframe data-deck-frame="" title="Presentation" style="width:100%;height:100%;border:0;display:block"></iframe></div>
   </div>
 
-  <section id="top" data-r="pad hero" data-screen-label="Hero" data-trail-zone="" style="scroll-margin-top:80px;max-width:1240px;margin:0 auto;padding:88px 40px 64px;position:relative">
+  <!-- INSIDE MY MIND | TWO SCENES | REAL PORTFOLIO ASSETS | REVIEW ONLY -->
+<section class="imm-story" aria-label="Ritwika's introduction and design journey">
+  <div class="imm-pin">
+    <div class="imm-scene imm-scene-one">
+      <div class="imm-container imm-first">
+        <div class="imm-copy">
+          <p class="imm-eyebrow">Ritwika Mondal / Product &amp; Experience Designer / Berlin</p>
+          <h1 class="imm-title">I connect the dots <em>others don't see.</em></h1>
+          <p class="imm-description">I started by exploring how technology works. Today, I connect human needs, business goals and emerging technology to solve complex problems across products and experiences.</p>
+          <div class="imm-actions"><a href="#work">EXPLORE MY WORK &darr;</a><a href="#about">MORE ABOUT ME &#8599;</a></div>
+        </div>
+        <div class="imm-photo-world" aria-label="Portrait with fragments of the design journey">
+          <div class="imm-background-grid" aria-hidden="true"></div>
+          <svg class="imm-scribble" viewBox="0 0 520 580" aria-hidden="true"><g fill="none" stroke="#1F5FE0" stroke-width="1.8" stroke-dasharray="4 7" opacity=".72"><path d="M45 80 Q160 5 260 110 T466 152"/><path d="M55 465 Q180 520 260 430 T475 385"/><path d="M88 160 Q10 280 122 400"/></g><g fill="#1F5FE0"><circle cx="45" cy="80" r="5"/><circle cx="466" cy="152" r="5"/><circle cx="475" cy="385" r="5"/><circle cx="88" cy="160" r="4"/></g></svg>
+          <figure class="imm-portrait-frame"><img src="assets/eaa8b8b0.jpg" alt="Portrait of Ritwika Mondal" loading="eager" decoding="async"></figure>
+          <div class="imm-note imm-note-one"><small>01 / FOUNDATION</small><span class="imm-blue-dot"></span>COMPUTER SCIENCE</div>
+          <div class="imm-note imm-note-two"><small>02 / EXPLORATION</small><span class="imm-blue-dot"></span>HUMAN EXPERIENCE</div>
+          <div class="imm-note imm-note-three"><small>03 / NEXT CHAPTER</small><span class="imm-blue-dot"></span>AI &amp; SYSTEMS</div>
+          <div class="imm-stamp">Curious by nature. <span aria-hidden="true">↗</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="imm-scene imm-scene-two">
+      <div class="imm-container imm-second">
+        <p class="imm-eyebrow">From curiosity to real-world work</p>
+        <h2 class="imm-statement">Different industries.<br>One way of thinking:<br><strong>make the complex feel human.</strong></h2>
+        <p class="imm-context">My path has taken me from computer science into digital products, automotive experiences and AI workflows. These are different worlds, connected by the same instinct to question, simplify and make things better.</p>
+        <div class="imm-threads">
+          <a class="imm-thread" href="CaseVWR.dc.html"><img src="assets/b14e9ca3.png" alt="Volkswagen R Virtual Studio project visual" loading="lazy"><span class="imm-thread-copy"><small>Automotive / Experience</small><b>Making vehicle exploration intuitive &#8599;</b></span></a>
+          <a class="imm-thread" href="CaseWeb3.dc.html"><img src="assets/d2795760.png" alt="Cadence Shop digital product project visual" loading="lazy"><span class="imm-thread-copy"><small>Enterprise / Products</small><b>Making complex software easier to buy &#8599;</b></span></a>
+          <a class="imm-thread" href="CaseIncidentBriefing.dc.html"><img src="assets/12e1771c.webp" alt="AI Incident Briefing Automation project visual" loading="lazy"><span class="imm-thread-copy"><small>AI / Workflows</small><b>Making information useful and reviewable &#8599;</b></span></a>
+        </div>
+        <a class="imm-end-link" href="#work">EXPLORE ALL PROJECTS &#8595;</a>
+        <div class="imm-brandline">Professional experience: <b>Volkswagen R</b> &middot; <b>Cadence Design Systems</b>. Additional collaborations can be included after the scope is verified.</div>
+      </div>
+    </div>
+    <span class="imm-scroll-hint" aria-hidden="true">SCROLL TO ENTER MY WORK ↓</span>
+  </div>
+</section>
+
+<section id="top" data-r="pad hero" data-screen-label="Hero" data-trail-zone="" style="scroll-margin-top:80px;max-width:1240px;margin:0 auto;padding:88px 40px 64px;position:relative">
     <svg data-trail-svg="" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:2;overflow:visible"><polyline data-trail-line="" fill="none" stroke="var(--accent,#1F5FE0)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" opacity="0"></polyline></svg>
     <div data-r="herogrid" style="display:grid;grid-template-columns:1.15fr .85fr;gap:54px;align-items:center;position:relative;z-index:1">
       <div data-reveal="">
@@ -1388,4 +1429,7 @@ class Component extends DCLogic {
 </script>
 
 
+<script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script defer src="./inside-my-mind.js"></script>
 </body></html>
