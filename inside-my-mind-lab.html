@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>Inside My Mind — Ritwika Mondal | Visual Concept</title>
+<meta name="robots" content="noindex,nofollow">
+<style>
+@font-face{font-family:Hanken;src:url("./fonts/04146177.woff2") format("woff2");font-display:swap}
+:root{--paper:#f6f4ed;--ink:#181815;--electric:#5f37ff;--acid:#d5fc4e;--soft:#858278}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Hanken,Arial,sans-serif}
+button,a{font:inherit}a{color:inherit}button:focus-visible,a:focus-visible{outline:3px solid var(--electric);outline-offset:4px}
+.mind-nav{position:fixed;z-index:100;top:0;left:0;right:0;height:66px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(20px,4.5vw,70px);background:rgba(246,244,237,.78);border-bottom:1px solid rgba(30,29,25,.12);backdrop-filter:blur(15px)}
+.mind-mark{font-size:15px;font-weight:750;letter-spacing:-.04em;text-decoration:none}
+.mind-mark i{display:inline-block;width:10px;height:10px;background:var(--electric);border-radius:50%;margin-right:10px}
+.mind-menu{display:flex;align-items:center;gap:clamp(13px,2.4vw,36px);font-size:12px;font-weight:650;letter-spacing:.09em;text-transform:uppercase}
+.mind-menu a{text-decoration:none}
+.mind-menu a:hover{color:var(--electric)}
+.mind-menu .review{border:1px solid #bebbb0;padding:9px 11px;color:#77746c;font-size:10px;pointer-events:none}
+.mind-scroll{height:270svh;position:relative}
+.mind-sticky{height:100svh;position:sticky;top:0;overflow:hidden;isolation:isolate}
+.mind-scene{position:absolute;inset:0;overflow:hidden}
+.mind-one{background:var(--paper)}
+.mind-grid{pointer-events:none;position:absolute;inset:0;background:linear-gradient(90deg,transparent 49.96%,rgba(0,0,0,.1) 50%,transparent 50.04%),linear-gradient(transparent 49.95%,rgba(0,0,0,.08) 50%,transparent 50.05%);opacity:.36}
+.mind-symbol{position:absolute;left:5vw;top:15vh;font-size:10px;letter-spacing:.25em;font-weight:650;color:#77756d;text-transform:uppercase;z-index:8}
+.mind-headline{position:absolute;top:25%;left:clamp(20px,5vw,80px);max-width:440px;z-index:12;pointer-events:none}
+.mind-headline h1{font-size:clamp(47px,5.5vw,91px);font-weight:690;letter-spacing:-.077em;line-height:.98;margin:0}
+.mind-headline h1 em{display:block;font-style:normal;color:var(--electric)}
+.mind-headline p{max-width:360px;font-size:clamp(14px,1.3vw,18px);line-height:1.55;color:#56534d;margin:26px 0 0}
+.mind-person{position:absolute;left:50%;top:52%;width:clamp(310px,37vw,650px);height:min(90vh,800px);transform:translate(-50%,-48%);z-index:6;transform-origin:50% 48%;pointer-events:none}
+.mind-person img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 26%;filter:grayscale(1) brightness(.17) contrast(2.1);mask-image:radial-gradient(ellipse 64% 66% at 50% 47%,black 45%,rgba(0,0,0,.96) 59%,transparent 95%);-webkit-mask-image:radial-gradient(ellipse 64% 66% at 50% 47%,black 45%,rgba(0,0,0,.96) 59%,transparent 95%);mix-blend-mode:multiply}
+.mind-glow{position:absolute;top:25%;left:50%;height:clamp(75px,9vw,145px);width:clamp(220px,25vw,410px);transform:translateX(-50%) rotate(-3deg);border-radius:42% 36% 41% 38% / 46% 43% 46% 45%;background:linear-gradient(155deg,#f0ffab 0%,#c0ff38 28%,#63e5a5 60%,#572bff 100%);box-shadow:inset 5px 7px 8px #fff9,inset -9px -12px 22px #28126788,0 0 30px #c5fa51bb,0 0 95px #b2fb5570;border:5px solid #1c1a20;overflow:hidden}
+.mind-glow:before{content:"";position:absolute;inset:4px 19px 43% 20px;border-radius:50%;border-top:3px solid rgba(255,255,255,.83);transform:rotate(-4deg)}
+.mind-glow:after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 25%,#fff8 35%,transparent 46%,transparent 75%,#fff4 83%,transparent 95%);transform:skewX(-15deg);opacity:.7}
+.mind-visor-label{position:absolute;top:calc(25% + clamp(84px,10vw,160px));left:50%;transform:translateX(-50%);white-space:nowrap;color:#766e5d;font-size:10px;letter-spacing:.18em}
+.mind-words{position:absolute;inset:0;pointer-events:none;z-index:10}
+.mind-word{position:absolute;display:block;white-space:nowrap;font-size:clamp(12px,1.25vw,20px);font-weight:650;letter-spacing:.08em;text-transform:uppercase;color:rgba(40,38,34,.18);opacity:.85;filter:blur(.1px);transition:color .18s,opacity .18s,text-shadow .18s,filter .18s;animation:mindFloat var(--speed,8s) ease-in-out infinite alternate;transform:translate3d(0,0,0)}
+.mind-word.lit{color:var(--electric);opacity:1;text-shadow:0 0 12px #9f83ff75,0 0 30px #a18cff44;filter:none}
+.mind-word.green.lit{color:#428f42;text-shadow:0 0 19px #a1ec77}
+@keyframes mindFloat{to{translate:var(--dx,10px) var(--dy,-12px)}}
+.mind-story-tag{position:absolute;bottom:9vh;left:clamp(20px,5vw,80px);z-index:12;max-width:390px;border-top:1px solid #b8b5aa;padding-top:13px;font-size:12px;line-height:1.5;color:#6a675e}
+.mind-story-tag strong{display:block;font-size:13px;color:var(--ink);margin-bottom:5px}
+.mind-scroll-indicator{position:absolute;right:clamp(20px,4vw,60px);bottom:7vh;font-size:11px;letter-spacing:.15em;font-weight:700;z-index:12}
+.mind-scroll-indicator:after{content:" ↓";color:var(--electric);font-size:17px}
+.mind-two{z-index:30;opacity:0;visibility:hidden;background:#16151c;color:#f6f4ed;display:flex;align-items:center}
+.mind-two:before{content:"";position:absolute;inset:-30%;background:radial-gradient(ellipse at 65% 45%,rgba(101,67,250,.30),transparent 40%);pointer-events:none}
+.mind-two-inner{position:relative;width:min(1120px,calc(100% - 12vw));margin:auto;padding:100px 0 60px}
+.mind-two .eyebrow{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#b5abf6;font-weight:750}
+.mind-two h2{max-width:950px;font-size:clamp(43px,6vw,95px);line-height:1.04;letter-spacing:-.064em;font-weight:680;margin:24px 0}
+.mind-two h2 span{color:#c7ff61}
+.mind-two .bio{font-size:clamp(16px,1.6vw,22px);max-width:760px;line-height:1.55;color:#cbc7d8}
+.mind-paths{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:40px}
+.mind-paths a{position:relative;display:block;border:1px solid #464052;text-decoration:none;min-width:0;overflow:hidden;transition:border-color .2s,transform .2s}
+.mind-paths a:hover{border-color:#c7ff61;transform:translateY(-5px)}
+.mind-paths img{width:100%;display:block;aspect-ratio:16/8;object-fit:cover}
+.mind-paths span{display:block;padding:12px;font-weight:650;font-size:13px}
+.mind-paths small{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#b7adcf;display:block;margin-bottom:5px}
+.mind-project-link{display:inline-block;margin-top:25px;color:#c7ff61;text-underline-offset:5px;font-size:13px}
+.mind-epilogue{min-height:55svh;padding:100px 6vw;display:grid;place-items:center;text-align:center}
+.mind-epilogue h2{font-size:clamp(32px,4.5vw,66px);letter-spacing:-.05em;max-width:750px;line-height:1.15;margin:0}
+.mind-epilogue p{font-size:16px;color:#656159}
+.mind-epilogue a{display:inline-block;margin-top:22px;background:#181815;color:white;padding:14px 22px;text-decoration:none;font-size:13px}
+.mind-fallback-warning{display:none;position:fixed;z-index:200;bottom:12px;right:12px;background:#16151c;color:#fff;padding:10px 14px;font-size:12px}
+@media(max-width:900px){.mind-scroll{height:auto}.mind-sticky{position:relative;height:auto;overflow:visible}.mind-scene{position:relative;inset:auto}.mind-one{min-height:950px;overflow:hidden}.mind-headline{top:120px;left:22px;max-width:310px}.mind-headline h1{font-size:clamp(47px,9vw,72px)}.mind-person{top:61%;left:55%;width:min(70vw,420px);height:540px}.mind-glow{top:25%}.mind-symbol{top:87px;left:22px}.mind-story-tag{bottom:45px}.mind-scroll-indicator{display:none}.mind-two{opacity:1;visibility:visible;min-height:100svh}.mind-two-inner{width:calc(100% - 44px);padding:80px 0}.mind-words .mind-word{font-size:12px}.mind-paths{grid-template-columns:1fr 1fr}.mind-paths a:last-child{grid-column:span 2}.mind-menu .review{display:none}}
+@media(max-width:560px){.mind-nav{height:58px;padding:0 18px}.mind-menu{gap:13px;font-size:10px}.mind-one{min-height:930px}.mind-headline{top:145px}.mind-person{top:61%;left:54%;width:92vw;height:550px}.mind-word:nth-child(n+10){display:none}.mind-story-tag{font-size:11px;bottom:25px;max-width:280px}.mind-two h2{font-size:clamp(37px,11vw,64px)}.mind-paths{grid-template-columns:1fr}.mind-paths a:last-child{grid-column:auto}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.mind-scroll{height:auto!important}.mind-sticky{position:relative;height:auto}.mind-scene{position:relative;inset:auto}.mind-one{min-height:900px}.mind-two{opacity:1!important;visibility:visible!important;min-height:100vh}.mind-word{animation:none!important}.mind-words{pointer-events:none}.mind-paths{grid-template-columns:1fr 1fr}}
+</style>
+</head><body>
+<nav class="mind-nav" aria-label="Portfolio concept navigation"><a class="mind-mark" href="#mind-top"><i></i>Ritwika Mondal</a><div class="mind-menu"><a href="#mind-work">Work</a><a href="#mind-story">My story</a><span class="review">PRIVATE BRANCH PREVIEW</span></div></nav>
+<main>
+<section id="mind-top" class="mind-scroll" aria-label="Inside My Mind cinematic experience">
+<div class="mind-sticky">
+<section class="mind-scene mind-one" aria-label="Introduction">
+<div class="mind-grid"></div>
+<div class="mind-symbol">Berlin · product &amp; experience designer</div>
+<div class="mind-headline"><h1>I connect<br>the dots<br><em>others don't see.</em></h1><p>Curiosity took me from computer science to designing how people interact with technology. The best ideas happen when different worlds connect.</p></div>
+<div class="mind-person" aria-label="Ritwika's portrait treated as a silhouette, with an electric mixed-colour visor"><img src="./assets/eaa8b8b0.jpg" alt="Portrait of Ritwika Mondal, shown as a shadow silhouette" loading="eager"><div class="mind-glow" aria-hidden="true"></div><span class="mind-visor-label">CURIOSITY / ON</span></div>
+<div class="mind-words" aria-label="Ideas that connect across Ritwika's story">
+<span class="mind-word" style="left:4%;top:19%;--dx:16px;--dy:-12px;--speed:10s">Curiosity</span>
+<span class="mind-word green" style="left:26%;top:13%;--dx:-12px;--dy:9px;--speed:8s">What if?</span>
+<span class="mind-word" style="left:76%;top:20%;--dx:12px;--dy:18px;--speed:9s">Automotive</span>
+<span class="mind-word" style="left:85%;top:34%;--dx:-17px;--dy:12px;--speed:11s">Empathy</span>
+<span class="mind-word green" style="left:7%;top:60%;--dx:14px;--dy:-16px;--speed:7s">Systems</span>
+<span class="mind-word" style="left:77%;top:65%;--dx:8px;--dy:-15px;--speed:11s">Ideas</span>
+<span class="mind-word" style="left:24%;top:86%;--dx:-13px;--dy:-9px;--speed:9s">Experience</span>
+<span class="mind-word green" style="left:86%;top:82%;--dx:-18px;--dy:8px;--speed:8s">AI</span>
+<span class="mind-word" style="left:56%;top:13%;--dx:13px;--dy:-9px;--speed:13s">People</span>
+<span class="mind-word" style="left:64%;top:88%;--dx:18px;--dy:-7px;--speed:8s">Make it simpler</span>
+<span class="mind-word green" style="left:45%;top:78%;--dx:7px;--dy:-12px;--speed:9s">Prototype</span>
+<span class="mind-word" style="left:13%;top:41%;--dx:-11px;--dy:9px;--speed:12s">Observe</span>
+</div>
+<div class="mind-story-tag"><strong>Not a straight line. A connected one.</strong>Technology → human experience → digital products → intelligent systems.</div>
+<div class="mind-scroll-indicator">SCROLL TO ENTER MY MIND</div>
+</section>
+<section class="mind-scene mind-two" id="mind-story" aria-label="Connecting the journey to real projects">
+<div class="mind-two-inner"><div class="eyebrow">01 / HOW I THINK</div><h2>Different worlds.<br><span>One curious mind.</span></h2><p class="bio">I began with code, became fascinated by people, and found my space at the intersection of both. From Volkswagen R to enterprise software and AI workflows, I look for the connections that turn complexity into clarity.</p>
+<div class="mind-paths">
+<a href="./CaseVWR.dc.html"><img src="./assets/b14e9ca3.png" alt="Volkswagen R case study visual" loading="lazy"><span><small>Human × Machine</small>Automotive experiences ↗</span></a>
+<a href="./CaseWeb3.dc.html"><img src="./assets/d2795760.png" alt="Cadence Shop case study visual" loading="lazy"><span><small>Business × Product</small>Enterprise products ↗</span></a>
+<a href="./CaseIncidentBriefing.dc.html"><img src="./assets/12e1771c.webp" alt="AI incident briefing project visual" loading="lazy"><span><small>Intelligence × Workflow</small>AI-enabled systems ↗</span></a>
+</div><a href="#mind-work" class="mind-project-link">CONTINUE TO THE NEXT CHAPTER ↓</a>
+</div>
+</section></div>
+</section>
+<section id="mind-work" class="mind-epilogue"><div><p>INSIDE MY MIND / END OF CONCEPT</p><h2>Connecting different disciplines is how I make things make sense.</h2><p>Standalone prototype. Your main portfolio and case studies are unchanged.</p><a href="./index.html#work">See my existing portfolio work ↗</a></div></section>
+</main>
+<div class="mind-fallback-warning" id="mind-warning" role="status">GSAP unavailable: showing a static experience.</div>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script><script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script>
+(function(){
+ const stage=document.querySelector('.mind-scroll'),first=document.querySelector('.mind-one'),second=document.querySelector('.mind-two');
+ const words=Array.from(document.querySelectorAll('.mind-word'));
+ const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+ const narrow=matchMedia('(max-width:900px)').matches;
+ // Cursor-proximity glow: each fragment responds independently, not on click.
+ if(!reduced && matchMedia('(pointer:fine)').matches){
+   let px=-1000,py=-1000,raf=0;
+   const update=()=>{raf=0;for(const w of words){const b=w.getBoundingClientRect(),d=Math.hypot(px-(b.left+b.width/2),py-(b.top+b.height/2));w.classList.toggle('lit',d<150);w.style.opacity=String(Math.max(.42,1-d/950));}};
+   window.addEventListener('pointermove',e=>{px=e.clientX;py=e.clientY;if(!raf)raf=requestAnimationFrame(update)},{passive:true});
+   window.addEventListener('pointerleave',()=>{for(const w of words)w.classList.remove('lit')});
+ }
+ if(reduced||narrow)return;
+ if(!window.gsap||!window.ScrollTrigger){
+   document.querySelector('#mind-warning').style.display='block';
+   stage.style.height='auto';stage.querySelector('.mind-sticky').style.position='relative';stage.querySelector('.mind-sticky').style.height='auto';first.style.position='relative';second.style.position='relative';second.style.opacity=1;second.style.visibility='visible';return;
+ }
+ gsap.registerPlugin(ScrollTrigger);
+ const portrait=document.querySelector('.mind-person'),headline=document.querySelector('.mind-headline'),tag=document.querySelector('.mind-story-tag'),hint=document.querySelector('.mind-scroll-indicator');
+ gsap.set(second,{autoAlpha:0,pointerEvents:'none'});
+ gsap.set(second.querySelector('.mind-two-inner'),{y:110,scale:.94});
+ const timeline=gsap.timeline({defaults:{ease:'none'},scrollTrigger:{trigger:stage,start:'top top',end:'bottom bottom',scrub:1.15,onUpdate:self=>{second.style.pointerEvents=self.progress>.65?'auto':'none';}});
+ timeline.to(portrait,{scale:5,opacity:0,rotation:5,duration:.54},.08)
+ .to(words,{x:(i)=>((i%3)-1)*170,y:(i)=>i%2?-135:145,opacity:0,stagger:.018,duration:.40},.08)
+ .to([headline,tag,hint],{autoAlpha:0,y:-45,duration:.31},.22)
+ .to(first,{autoAlpha:0,duration:.19},.52)
+ .to(second,{autoAlpha:1,duration:.31},.55)
+ .to(second.querySelector('.mind-two-inner'),{y:0,scale:1,duration:.41},.58);
+ console.info('Inside My Mind interactive prototype: ScrollTrigger ready.');
+})();
+</script>
+</body></html>
