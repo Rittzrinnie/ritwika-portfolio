@@ -30,9 +30,6 @@ body:has(#work) #work [data-card] h3{font-size:clamp(23px,2.35vw,35px)!important
 body:has(#work) #work [data-card] p{-webkit-line-clamp:unset!important;display:block!important;overflow:visible!important;font-size:15px!important;line-height:1.65!important;max-width:53ch}
 body:has(#work) #work [data-card] [style*="border-radius:100px"]{border-color:var(--ed-line)!important}
 body:has(#work) #work [data-rail-btn]{display:none!important}
-body:has(#work) #work [data-card="experiment"]{display:none!important}
-body:has(#work) #work [data-rail-filter="experiment"]{display:none!important}
-body:has(#work) #work [data-rail-filter="case"]{pointer-events:none}
 body:has(#work) #work [data-card] a:focus-visible{outline-offset:5px}
 body:has(#work) #experience{padding-top:clamp(70px,8vw,120px)!important}
 body:has(#work) #playground{padding-top:clamp(70px,8vw,120px)!important}
