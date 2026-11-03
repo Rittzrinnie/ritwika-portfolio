@@ -69,3 +69,5 @@
  .imm-story:not(.imm-animated) .imm-scene-one,.imm-story:not(.imm-animated) .imm-scene-two{min-height:0}
 }
 @media(max-width:580px){.imm-title{font-size:clamp(37px,9.2vw,52px)!important}.imm-photo-world{min-height:370px}}
+
+#rmt-nudge{display:none!important}
