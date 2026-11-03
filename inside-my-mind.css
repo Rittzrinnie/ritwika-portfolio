@@ -71,3 +71,44 @@
 @media(max-width:580px){.imm-title{font-size:clamp(37px,9.2vw,52px)!important}.imm-photo-world{min-height:370px}}
 
 #rmt-nudge{display:none!important}
+
+/* v2: scroll-driven sticky composition, GSAP controls motion only. */
+@media(min-width:901px) and (prefers-reduced-motion:no-preference){
+  .imm-story.imm-animated{height:260svh!important;min-height:0!important;overflow:clip}
+  .imm-story.imm-animated>.imm-pin{
+    position:sticky!important;top:0!important;height:100svh!important;
+    min-height:0!important;width:100%!important;display:block!important;overflow:hidden!important
+  }
+  .imm-story.imm-animated .imm-scene-one,
+  .imm-story.imm-animated .imm-scene-two{
+    position:absolute!important;top:0!important;left:0!important;right:0!important;bottom:0!important;
+    height:100svh!important;width:100%!important;min-height:0!important;overflow:hidden!important;
+  }
+  .imm-story.imm-animated .imm-scene-one{z-index:2!important;visibility:visible!important}
+  .imm-story.imm-animated .imm-scene-two{z-index:3!important;visibility:visible!important;opacity:0;pointer-events:none}
+  .imm-story.imm-animated .imm-scene-two .imm-container{transform-origin:50% 50%}
+  .imm-story.imm-animated .imm-first{height:100svh!important;min-height:0!important}
+  .imm-story.imm-animated .imm-second{
+    height:100svh!important;max-height:100svh!important;
+    padding-top:clamp(74px,8vh,120px)!important;
+    padding-bottom:48px!important;
+    overflow-y:auto!important;scrollbar-width:thin
+  }
+  .imm-story.imm-animated .imm-portrait-frame{
+    transform-origin:50% 45%;will-change:transform,opacity;
+  }
+  .imm-story.imm-animated .imm-note,.imm-story.imm-animated .imm-copy{
+    will-change:transform,opacity;
+  }
+}
+.imm-story .imm-first{max-width:1400px}
+.imm-story .imm-title{font-size:clamp(42px,4.9vw,77px)!important;max-width:650px}
+.imm-story .imm-copy{width:100%;max-width:675px}
+.imm-story .imm-statement{font-size:clamp(34px,4vw,61px)!important}
+@media(min-width:901px) and (max-height:760px){
+ .imm-story .imm-photo-world{min-height:440px}
+ .imm-story .imm-first{padding-top:22px;padding-bottom:22px}
+ .imm-story .imm-threads{margin-top:20px;gap:12px}
+ .imm-story .imm-thread img{aspect-ratio:16/6}
+ .imm-story .imm-second{padding-top:70px!important}
+}
