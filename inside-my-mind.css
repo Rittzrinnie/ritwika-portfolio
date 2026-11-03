@@ -49,3 +49,23 @@
 @media(max-width:900px){.imm-first{grid-template-columns:1fr;min-height:0;padding-top:65px}.imm-photo-world{min-height:500px;max-width:630px;width:100%;margin:0 auto}.imm-scene-two{min-height:0}.imm-threads{grid-template-columns:1fr 1fr}.imm-thread:last-child{grid-column:span 2}.imm-thread:last-child img{aspect-ratio:16/6}.imm-scroll-hint{display:none}}
 @media(max-width:580px){.imm-container{padding:46px 20px}.imm-title{font-size:clamp(38px,10vw,53px)!important}.imm-photo-world{min-height:380px}.imm-portrait-frame{width:65%;min-width:220px}.imm-note{font-size:10px;padding:10px;max-width:125px}.imm-note-one{top:5%;left:0}.imm-note-two{top:10%;right:0}.imm-note-three{bottom:4%;left:0}.imm-stamp{right:1%;bottom:7%;font-size:8px}.imm-threads{grid-template-columns:1fr}.imm-thread:last-child{grid-column:auto}.imm-thread:last-child img{aspect-ratio:16/10}.imm-statement{font-size:clamp(30px,8vw,45px)!important}}
 @media(prefers-reduced-motion:reduce){.imm-story,.imm-scene,.imm-portrait-frame,.imm-note,.imm-thread{animation:none!important;transition:none!important;transform:none!important}html{scroll-behavior:auto!important}}
+
+/* Review correction: two scenes MUST stack in document flow, never sit side-by-side. */
+.imm-pin{display:block!important;min-height:0}
+.imm-scene{display:block;flex:none;min-width:0}
+.imm-first{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(26px,4.5vw,65px)}
+.imm-title{font-family:'Hanken Grotesk',system-ui,sans-serif!important;font-size:clamp(42px,4.4vw,66px)!important;font-weight:650!important;line-height:1.08!important;letter-spacing:-.045em!important;overflow-wrap:normal;word-break:normal}
+.imm-copy{min-width:0;position:relative;z-index:3}
+.imm-photo-world{min-width:0}
+.imm-statement{font-family:'Hanken Grotesk',system-ui,sans-serif!important;font-size:clamp(38px,4.6vw,68px)!important;line-height:1.13!important;font-weight:600!important}
+.imm-story.imm-animated .imm-pin{height:100svh;min-height:0;position:relative;display:block!important}
+.imm-story.imm-animated .imm-scene-one{position:absolute;inset:0;width:100%;z-index:1;overflow:hidden}
+.imm-story.imm-animated .imm-scene-two{position:absolute;inset:0;width:100%;height:100%;z-index:2;visibility:hidden;opacity:0;pointer-events:none;overflow-y:auto}
+.imm-story:not(.imm-animated) .imm-scene-one,.imm-story:not(.imm-animated) .imm-scene-two{position:relative;width:100%;opacity:1;visibility:visible;pointer-events:auto}
+@media(max-width:900px){
+ .imm-first{grid-template-columns:1fr}
+ .imm-title{font-size:clamp(42px,8vw,65px)!important}
+ .imm-photo-world{min-height:500px}
+ .imm-story:not(.imm-animated) .imm-scene-one,.imm-story:not(.imm-animated) .imm-scene-two{min-height:0}
+}
+@media(max-width:580px){.imm-title{font-size:clamp(37px,9.2vw,52px)!important}.imm-photo-world{min-height:370px}}
