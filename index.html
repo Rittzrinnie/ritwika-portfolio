@@ -23,6 +23,37 @@ button[sc-camel-on-click*="toggleEngine"],
 button[aria-label="STOP motion"],
 button[aria-label="START motion"]{display:none!important}
 </style>
+<style id="rm-editorial-focus-v1">
+/* Curated case-study-first reading route. Legacy carousel remains in DOM for safe rollback. */
+#work-archive{display:none!important}
+.rm-featured{background:#F7F4EF;color:#1A1814;padding:100px 0 110px;scroll-margin-top:85px}
+.rm-featured-wrap{max-width:1280px;margin:0 auto;padding:0 40px}
+.rm-work-intro{display:grid;grid-template-columns:minmax(180px,1fr) minmax(0,2.55fr);column-gap:50px;align-items:start;margin-bottom:56px}
+.rm-eyebrow{font:700 12px/1.5 'Hanken Grotesk',system-ui,sans-serif;color:#1F5FE0;letter-spacing:.09em}
+.rm-work-intro h2{font:600 clamp(42px,5.8vw,80px)/1.05 'Hanken Grotesk',sans-serif;letter-spacing:-.06em;margin:0 0 24px}
+.rm-work-intro h2 em{font-style:normal;color:#77726A}
+.rm-work-intro p{font:400 19px/1.52 'Hanken Grotesk',sans-serif;color:#56524A;max-width:620px;margin:0}
+.rm-featured-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:55px 22px}
+.rm-project{display:flex;flex-direction:column;text-decoration:none;color:inherit;min-width:0}
+.rm-project figure{position:relative;aspect-ratio:1.48;margin:0;background:#EBE7E0;overflow:hidden}
+.rm-project img{width:100%;height:100%;object-fit:cover;transition:transform .55s cubic-bezier(.2,.7,.2,1)}
+.rm-project:hover img{transform:scale(1.045)}
+.rm-project figcaption{position:absolute;left:0;bottom:0;right:0;padding:12px 18px;background:linear-gradient(transparent,rgba(15,15,15,.56));color:#FFF;font:600 11px/1.4 'Hanken Grotesk',sans-serif;letter-spacing:.08em}
+.rm-project-foot{display:flex;justify-content:space-between;gap:22px;border-top:1px solid #1A1814;margin-top:16px;padding-top:19px}
+.rm-project-foot h3{font:600 clamp(27px,3vw,43px)/1.1 'Hanken Grotesk',sans-serif;letter-spacing:-.045em;margin:0}
+.rm-project-foot p{color:#6B665C;font:400 15px/1.5 'Hanken Grotesk',sans-serif;max-width:340px;margin:10px 0 0}
+.rm-project-foot>span{font-size:28px;color:#1F5FE0}
+.rm-project:not(.rm-project-large) figure{aspect-ratio:1.8}
+.rm-project:not(.rm-project-large) h3{font-size:clamp(26px,2.7vw,34px)}
+.rm-work-bottom{display:flex;gap:30px;justify-content:space-between;align-items:center;border-top:1px solid #D8D2C9;margin-top:80px;padding-top:25px}
+.rm-work-bottom p{margin:0;font:400 15px/1.55 'Hanken Grotesk',sans-serif;color:#625C54}.rm-work-bottom p a{color:#1A1814;text-underline-offset:4px}
+.rm-work-bottom>a{font:600 12px/1.4 'Hanken Grotesk',sans-serif;letter-spacing:.05em;text-decoration:none;white-space:nowrap}
+.rm-work-bottom>a span{color:#1F5FE0}
+:where(.rm-project,.rm-work-bottom a):focus-visible{outline:3px solid #1F5FE0;outline-offset:5px}
+@media(max-width:780px){.rm-featured{padding:60px 0 72px}.rm-featured-wrap{padding:0 20px}.rm-work-intro{grid-template-columns:1fr;gap:16px}.rm-featured-grid{gap:40px 14px}.rm-project-foot{padding-top:12px}.rm-project-foot p{font-size:13px}.rm-work-bottom{flex-direction:column;align-items:flex-start}}
+@media(max-width:580px){.rm-featured-grid{grid-template-columns:1fr}.rm-project figure,.rm-project:not(.rm-project-large) figure{aspect-ratio:1.55}.rm-work-intro h2{font-size:clamp(43px,12vw,65px)}}
+@media(prefers-reduced-motion:reduce){.rm-project img{transition:none}}
+</style>
 </head>
 <body>
 
@@ -343,7 +374,7 @@ html.reduce-motion *{animation:none!important}
           BERLIN, DE <span data-hud="" style="color:#9A958A">· 52.520°N 13.405°E</span>
         </div>
         <h1 style="font-family:'Hanken Grotesk';font-weight:600;font-size:clamp(32px,4vw,52px);line-height:1.05;letter-spacing:-.02em;max-width:900px"><span data-fly-i="" style="display:inline-block;opacity:0;transform:translate(-36px,-26px) rotate(-18deg)">P</span><span data-type-normal=""></span><br><em style="font-style:normal;color:var(--accent,#1F5FE0)"><span data-type-accent=""></span></em><span data-type-cursor="" style="display:inline-block;width:3px;height:.78em;background:var(--accent,#1F5FE0);margin-left:2px;vertical-align:-.08em;opacity:0"></span></h1>
-        <p style="margin-top:26px;font-size:18px;line-height:1.55;color:#46423A;max-width:520px;text-wrap:pretty">I translate complex workflows and user needs into scalable digital products, process improvements and AI-enabled solutions.</p>
+        <p style="margin-top:26px;font-size:18px;line-height:1.55;color:#46423A;max-width:520px;text-wrap:pretty">I design clearer product experiences for automotive, enterprise software and complex workflows.</p>
         <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:28px;font-family:'Hanken Grotesk';font-size:11px;color:#6B665C">
           <span style="border:1px solid #DBD6CC;padding:7px 11px;border-radius:100px">DESIGN SYSTEMS</span>
           <span style="border:1px solid #DBD6CC;padding:7px 11px;border-radius:100px">AI ADOPTION</span>
@@ -354,7 +385,7 @@ html.reduce-motion *{animation:none!important}
           <a href="#work" style="display:inline-flex;align-items:center;gap:10px;text-decoration:none;background:#1A1814;color:#F7F4EF;font-family:'Hanken Grotesk';font-size:13px;letter-spacing:.03em;padding:14px 22px;transition:transform .25s,background .25s" style-hover="transform:translateY(-2px);background:var(--accent,#1F5FE0)">VIEW SELECTED WORK <span>↓</span></a>
           <a href="https://www.linkedin.com/in/ritwika-mondal/" target="_blank" style="display:inline-flex;align-items:center;gap:10px;text-decoration:none;color:#1A1814;font-family:'Hanken Grotesk';font-size:13px;letter-spacing:.03em;padding:14px 22px;border:1px solid #1A1814;transition:transform .25s" style-hover="transform:translateY(-2px)">LINKEDIN ↗</a>
         </div>
-        <div style="margin-top:30px;display:flex;flex-direction:column;gap:10px;max-width:560px">
+        <div style="display:none" aria-hidden="true">
           <div style="font-family:'Hanken Grotesk';font-size:11px;letter-spacing:.08em;color:#9A958A">PICK A TRACK</div>
           <div data-r="stack" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px">
           <button data-deck-open="coord" style="display:grid;grid-template-columns:96px minmax(0,1fr);gap:14px;align-items:center;text-align:left;padding:10px 14px 10px 10px;border:1px solid #DBD6CC;background:#FBF9F5;cursor:pointer;transition:transform .25s,border-color .25s,box-shadow .25s" style-hover="transform:translateY(-2px);border-color:#1A1814;box-shadow:0 12px 24px -14px rgba(26,24,20,.35)">
@@ -421,7 +452,18 @@ html.reduce-motion *{animation:none!important}
     </div>
   </div>
 
-  <section id="work" data-screen-label="Work" style="overflow:clip">
+  <section id="work" class="rm-featured" aria-labelledby="rm-work-heading">
+<div class="rm-featured-wrap">
+ <div class="rm-work-intro"><span class="rm-eyebrow">01 / SELECTED WORK</span><div><h2 id="rm-work-heading">Selected projects.<br><em>Clear decisions.</em></h2><p>Product experiences for automotive, enterprise software and complex workflows. A few projects, shown with the thinking that made them work.</p></div></div>
+ <div class="rm-featured-grid">
+  <a href="CaseVWR.dc.html" class="rm-project rm-project-large"><figure><img loading="lazy" src="assets/b14e9ca3.png" alt="Volkswagen R Virtual Studio interface"><figcaption>01 / AUTOMOTIVE EXPERIENCE</figcaption></figure><div class="rm-project-foot"><div><h3>Volkswagen R<br>Virtual Studio</h3><p>Making a premium 3D vehicle experience intuitive to explore.</p></div><span aria-hidden="true">↗</span></div></a>
+  <a href="CaseWeb3.dc.html" class="rm-project rm-project-large"><figure><img loading="lazy" src="assets/d2795760.png" alt="Cadence Shop ecommerce interface"><figcaption>02 / B2B COMMERCE</figcaption></figure><div class="rm-project-foot"><div><h3>Cadence<br>Shop</h3><p>Turning complex software buying into a clearer self-service journey.</p></div><span aria-hidden="true">↗</span></div></a>
+  <a href="CaseCadence.dc.html" class="rm-project"><figure><img loading="lazy" src="assets/c484275d.png" alt="Cadence interface and component system"><figcaption>03 / DESIGN SYSTEMS</figcaption></figure><div class="rm-project-foot"><div><h3>Cuboids Design System</h3><p>Accessible, repeatable components for enterprise interfaces.</p></div><span aria-hidden="true">↗</span></div></a>
+  <a href="CasePosterStudio.dc.html" class="rm-project"><figure><img loading="lazy" src="assets/dae4b837.jpg" alt="Volkswagen R Poster Studio experience"><figcaption>04 / BRAND INTERACTION</figcaption></figure><div class="rm-project-foot"><div><h3>Volkswagen R Poster Studio</h3><p>Guiding fans from inspiration to personalized artwork.</p></div><span aria-hidden="true">↗</span></div></a>
+ </div>
+ <div class="rm-work-bottom"><p>Also exploring <a href="CaseIncidentBriefing.dc.html">AI-assisted workflows ↗</a> and <a href="CaseEvoDrive.dc.html">adaptive EV interfaces ↗</a>.</p><a href="#experience">EXPERIENCE & BACKGROUND <span aria-hidden="true">↓</span></a></div>
+</div></section>
+<section id="work-archive" data-screen-label="Work" style="overflow:clip">
     <div data-work-scene="" style="position:relative">
     <div data-work-sticky="" style="position:relative;padding:72px 0 20px;box-sizing:border-box">
     <div data-r="pad" style="max-width:1240px;margin:0 auto;padding:0 40px">
