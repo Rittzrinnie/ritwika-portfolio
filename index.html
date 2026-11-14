@@ -909,21 +909,49 @@ html.reduce-motion *{animation:none!important}
 </div>
 </x-dc>
   <script>
+  /* Delegated events survive the asynchronous x-dc custom component render. */
   (function(){
-    function init(){
-      var section=document.getElementById('solve');
-      if(!section||section.dataset.bound)return;
-      section.dataset.bound='true';
-      var cards=Array.prototype.slice.call(section.querySelectorAll('[data-solve-card]'));
-      function activate(card){
-        cards.forEach(function(item){var active=item===card;item.classList.toggle('is-active',active);item.setAttribute('aria-expanded',String(active));});
-      }
-      cards.forEach(function(card){
-        card.addEventListener('click',function(e){if(e.target.closest('a'))return;activate(card);});
-        card.addEventListener('keydown',function(e){if(e.target!==card)return;if(e.key==='Enter'||e.key===' '){e.preventDefault();activate(card);}if(e.key==='ArrowRight'||e.key==='ArrowDown'){e.preventDefault();var i=cards.indexOf(card);cards[(i+1)%cards.length].focus();activate(cards[(i+1)%cards.length]);}if(e.key==='ArrowLeft'||e.key==='ArrowUp'){e.preventDefault();var i=cards.indexOf(card);cards[(i+cards.length-1)%cards.length].focus();activate(cards[(i+cards.length-1)%cards.length]);}});
+    if(window.__rmSolveDelegateInstalled)return;
+    window.__rmSolveDelegateInstalled=true;
+    function cardsFor(card){
+      var section=card&&card.closest('#solve');
+      return section?Array.prototype.slice.call(section.querySelectorAll('[data-solve-card]')):[];
+    }
+    function activate(card){
+      cardsFor(card).forEach(function(item){
+        var active=item===card;
+        item.classList.toggle('is-active',active);
+        item.setAttribute('aria-expanded',String(active));
       });
     }
-    if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+    document.addEventListener('click',function(event){
+      var target=event.target;
+      if(!(target instanceof Element))return;
+      var card=target.closest('#solve [data-solve-card]');
+      if(!card)return;
+      if(target.closest('a'))return;
+      activate(card);
+    },true);
+    document.addEventListener('keydown',function(event){
+      var target=event.target;
+      if(!(target instanceof Element))return;
+      var card=target.closest('#solve [data-solve-card]');
+      if(!card||target!==card)return;
+      if(event.key==='Enter'||event.key===' '){event.preventDefault();activate(card);return;}
+      if(['ArrowRight','ArrowDown','ArrowLeft','ArrowUp'].indexOf(event.key)<0)return;
+      event.preventDefault();
+      var cards=cardsFor(card),index=cards.indexOf(card);
+      var next=cards[(index+((event.key==='ArrowRight'||event.key==='ArrowDown')?1:-1)+cards.length)%cards.length];
+      if(next){activate(next);next.focus();}
+    },true);
+    /* Pointer hover previews on desktop, while click/tap remains the primary control. */
+    document.addEventListener('pointerover',function(event){
+      if(event.pointerType==='touch')return;
+      var target=event.target;
+      if(!(target instanceof Element))return;
+      var card=target.closest('#solve [data-solve-card]');
+      if(card)activate(card);
+    },true);
   })();
   </script>
 
