@@ -23,42 +23,7 @@ button[sc-camel-on-click*="toggleEngine"],
 button[aria-label="STOP motion"],
 button[aria-label="START motion"]{display:none!important}
 </style>
-  <style>
-  #solve{max-width:1240px;margin:0 auto;padding:84px 40px 88px;scroll-margin-top:88px}
-  #solve .solve-top{display:flex;align-items:end;justify-content:space-between;gap:36px;margin-bottom:30px}
-  #solve .solve-kicker{font-size:11px;letter-spacing:.12em;color:var(--accent,#1F5FE0);margin-bottom:15px;font-weight:600}
-  #solve h2{font-size:clamp(31px,4.2vw,55px);line-height:1.12;max-width:740px;color:#1A1814}
-  #solve h2 em{font-style:italic;color:var(--accent,#1F5FE0)}
-  #solve .solve-intro{max-width:340px;color:#56524A;font-size:15px;line-height:1.6}
-  #solve .solve-panels{display:flex;gap:10px;min-height:410px}
-  #solve .solve-card{position:relative;flex:0 0 12%;min-width:0;min-height:410px;overflow:hidden;border:1px solid #DBD6CC;border-radius:26px;background:#FBF9F5;transition:flex .48s cubic-bezier(.2,.8,.2,1),background .3s,border-color .3s;cursor:pointer;color:#1A1814;text-align:left;font:inherit;padding:0;isolation:isolate}
-  #solve .solve-card.is-active{flex:1 1 43%;background:#EAE7E0;border-color:#C8C2B8;cursor:default}
-  #solve .solve-card:not(.is-active):hover{border-color:var(--accent,#1F5FE0);background:#F0EDE7}
-  #solve .solve-icon{position:absolute;left:50%;top:23px;transform:translateX(-50%);display:grid;place-items:center;width:46px;height:46px;border-radius:50%;background:#EAE6DE;color:#1A1814;font-size:21px;z-index:3;transition:all .35s}
-  #solve .solve-card.is-active .solve-icon{left:25px;transform:none;background:#F7F4EF}
-  #solve .solve-vertical{position:absolute;top:105px;bottom:55px;left:50%;writing-mode:vertical-rl;transform:translateX(-50%) rotate(180deg);font-family:'Libre Baskerville',Georgia,serif;font-size:17px;font-weight:700;line-height:1.3;display:flex;align-items:center;justify-content:center;white-space:nowrap;transition:opacity .2s}
-  #solve .solve-card.is-active .solve-vertical{opacity:0;pointer-events:none}
-  #solve .solve-num{position:absolute;bottom:19px;left:0;width:100%;text-align:center;font-size:12px;color:#6B665C;z-index:3}
-  #solve .solve-card.is-active .solve-num{width:auto;left:27px;color:#F7F4EF}
-  #solve .solve-detail{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity .25s,visibility .25s;display:flex;align-items:flex-end;padding:30px;pointer-events:none}
-  #solve .solve-card.is-active .solve-detail{opacity:1;visibility:visible;pointer-events:auto;transition-delay:.12s}
-  #solve .solve-detail img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:.82;transition:transform .7s;filter:saturate(.82)}
-  #solve .solve-card.is-active:hover .solve-detail img{transform:scale(1.035)}
-  #solve .solve-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(24,23,22,.24) 0%,rgba(24,23,22,.70) 36%,rgba(16,15,14,.98) 100%)}
-  #solve .solve-content{position:relative;z-index:2;color:#F7F4EF;max-width:480px;padding-bottom:20px;padding-right:12px}
-  #solve .solve-tag{display:inline-block;background:var(--accent,#1F5FE0);padding:7px 11px;border-radius:100px;font-size:10px;letter-spacing:.08em;font-weight:600;margin-bottom:15px;color:#fff}
-  #solve .solve-content h3{font-size:clamp(21px,2.25vw,31px);line-height:1.18;color:#F7F4EF;margin-bottom:12px;letter-spacing:-.02em;max-width:440px;text-wrap:balance;text-shadow:0 1px 5px rgba(0,0,0,.35)}
-  #solve .solve-content p{color:#ECE8E1;font-size:13px;line-height:1.6;max-width:430px;margin-bottom:15px}
-  #solve .solve-proof{font-size:11px;letter-spacing:.03em;color:#DBD6CC;margin-bottom:16px}
-  #solve .solve-link{display:inline-flex;gap:12px;align-items:center;text-decoration:none;color:#F7F4EF;border-bottom:1px solid #F7F4EF;padding-bottom:5px;font-size:12px;font-weight:600;letter-spacing:.04em}
-  #solve .solve-link:hover{color:#fff;border-color:var(--accent,#1F5FE0)}
-  #solve .solve-open{position:absolute;right:23px;bottom:23px;width:42px;height:42px;border-radius:50%;background:#F7F4EF;z-index:4;display:grid;place-items:center;text-decoration:none;font-size:20px;color:#1A1814;transition:background .2s}
-  #solve .solve-open:hover{background:#DDE5FF}
-  #solve .solve-card:focus-visible{outline:3px solid var(--accent,#1F5FE0);outline-offset:3px}
-  @media(max-width:960px){#solve{padding:65px 28px}#solve .solve-top{align-items:start;flex-direction:column;gap:12px}#solve .solve-intro{max-width:580px}#solve .solve-panels{gap:7px}#solve .solve-card{flex-basis:12%;min-height:390px}#solve .solve-icon{width:36px;height:36px;font-size:17px}#solve .solve-vertical{font-size:13px}#solve .solve-detail{padding:22px}}
-  @media(max-width:680px){#solve{padding:54px 20px 64px}#solve .solve-panels{display:flex;flex-direction:column;min-height:0;gap:9px}#solve .solve-card,#solve .solve-card.is-active{flex:none;width:100%;min-height:64px;border-radius:18px;transition:min-height .35s ease}#solve .solve-card.is-active{min-height:365px}#solve .solve-icon,#solve .solve-card.is-active .solve-icon{left:16px;top:13px;transform:none;width:36px;height:36px}#solve .solve-vertical{writing-mode:horizontal-tb;transform:none;top:20px;bottom:auto;left:66px;justify-content:start;font-size:14px}#solve .solve-num{bottom:auto;top:22px;right:17px;left:auto;width:auto;font-size:11px}#solve .solve-card.is-active .solve-num{top:22px;left:auto;right:18px;color:#F7F4EF}#solve .solve-detail{padding:21px}#solve .solve-content{padding-bottom:8px}#solve .solve-content h3{font-size:25px}#solve .solve-open{bottom:16px;right:16px}}
-  @media(prefers-reduced-motion:reduce){#solve *{transition:none!important}}
-  </style>
+
 <style id="rm-homepage-ux">
 /* Keep problem-led navigation and the work evidence visually connected. */
 #solve{padding-bottom:56px}
@@ -68,6 +33,54 @@ button[aria-label="START motion"]{display:none!important}
 #work [data-rail]{overflow-x:auto!important;scroll-snap-type:x mandatory!important;scrollbar-width:thin}
 #solve .solve-link:focus-visible,#solve .solve-open:focus-visible{outline:3px solid #8AA8FF;outline-offset:3px}
 @media(max-width:680px){#solve{padding-bottom:34px}#work [data-work-sticky]{padding-top:28px!important}}
+</style>
+<style id="rm-journey-styles">
+/* Purposeful scroll narrative, no forced scroll hijacking. */
+#solve.journey{--j-blue:var(--accent,#1F5FE0);max-width:1240px;margin:0 auto;padding:88px 40px 36px;scroll-margin-top:78px;color:#1A1814}
+#solve .journey-overline,#solve .journey-label{display:block;letter-spacing:.12em;font-size:11px;font-weight:600;color:var(--j-blue)}
+#solve .journey-intro{padding-bottom:45px;border-bottom:1px solid #DBD6CC}
+#solve .journey-intro-row{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(240px,.55fr);gap:35px;align-items:end;margin-top:16px}
+#solve .journey-intro h2{font-size:clamp(36px,5vw,68px);line-height:1.12;letter-spacing:-.035em}
+#solve .journey-intro em{color:var(--j-blue);font-style:italic}
+#solve .journey-intro-row p{font-size:15px;line-height:1.65;color:#56524A;margin-bottom:10px}
+#solve .journey-start{display:inline-flex;gap:22px;align-items:center;margin-top:17px;font-size:11px;font-weight:700;letter-spacing:.07em;color:#1A1814;text-decoration:none;border-bottom:1px solid #1A1814;padding-bottom:8px}
+#solve .journey-progress{position:sticky;top:58px;z-index:5;background:rgba(247,244,239,.95);backdrop-filter:blur(14px);border-bottom:1px solid #DBD6CC;display:flex;gap:0;overflow-x:auto;scrollbar-width:none}
+#solve .journey-progress::-webkit-scrollbar{display:none}
+#solve .journey-progress a{color:#6B665C;display:flex;align-items:center;justify-content:center;gap:8px;flex:1;min-width:95px;padding:17px 10px;text-decoration:none;font-size:11px;white-space:nowrap;transition:color .2s,box-shadow .2s}
+#solve .journey-progress a.is-current{color:var(--j-blue);box-shadow:inset 0 -3px var(--j-blue);font-weight:700}
+#solve .journey-progress a:hover{color:var(--j-blue)}
+#solve .journey-progress-name{font-size:10px}
+#solve .journey-chapters{position:relative}
+#solve .journey-chapter{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(28px,5vw,70px);align-items:center;min-height:min(830px,94svh);padding:62px 0;border-bottom:1px solid #DBD6CC;scroll-margin-top:110px}
+#solve .journey-chapter:nth-child(even) .journey-copy{order:2}
+#solve .journey-chapter:nth-child(even) .journey-visual{order:1}
+#solve .journey-copy{min-width:0;min-height:460px;display:flex;flex-direction:column;justify-content:space-between}
+#solve .journey-eyebrow,#solve .journey-footer{display:flex;align-items:center;justify-content:space-between;gap:14px;font-size:10px;letter-spacing:.09em;color:#6B665C;text-transform:uppercase}
+#solve .journey-eyebrow span:first-child{color:var(--j-blue);font-weight:700}
+#solve .journey-copy-main{padding:36px 0}
+#solve .journey-copy h3{font-family:'Libre Baskerville',Georgia,serif;font-size:clamp(29px,3vw,43px);line-height:1.22;letter-spacing:-.028em;max-width:570px;margin:17px 0 38px;text-wrap:balance}
+#solve .journey-label-solution{margin-bottom:14px}
+#solve .journey-solution{font-size:clamp(16px,1.5vw,19px);line-height:1.58;max-width:520px;color:#46423A}
+#solve .journey-tags{font-size:11px;color:#6B665C;line-height:1.6;margin-top:20px}
+#solve .journey-cta{display:flex;align-items:center;justify-content:space-between;gap:20px;max-width:345px;margin-top:32px;text-decoration:none;color:#1A1814;border-top:1px solid #1A1814;border-bottom:1px solid #1A1814;padding:16px 0;font-weight:700;font-size:12px;letter-spacing:.04em;transition:color .2s,padding .2s}
+#solve .journey-cta:hover{color:var(--j-blue);padding-left:7px}
+#solve .journey-visual{display:block;position:relative;min-width:0;aspect-ratio:4/5;max-height:650px;overflow:hidden;background:#E9E4DA;border:1px solid #DBD6CC;border-radius:3px;text-decoration:none;color:#fff}
+#solve .journey-visual img{width:100%;height:100%;display:block;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+#solve .journey-visual:hover img{transform:scale(1.055)}
+#solve .journey-visual-shade{position:absolute;inset:45% 0 0;background:linear-gradient(transparent,rgba(0,0,0,.78))}
+#solve .journey-visual-caption{position:absolute;bottom:29px;left:27px;right:70px;display:flex;flex-direction:column;gap:9px;text-shadow:0 1px 5px rgba(0,0,0,.4)}
+#solve .journey-visual-caption span{font-size:10px;letter-spacing:.13em}
+#solve .journey-visual-caption strong{font-family:'Libre Baskerville',Georgia,serif;font-size:clamp(21px,2.4vw,31px);line-height:1.2}
+#solve .journey-visual-arrow{position:absolute;right:24px;bottom:25px;width:43px;height:43px;border-radius:50%;display:grid;place-items:center;background:#F7F4EF;color:#1A1814;font-size:21px}
+#solve .journey-outro{display:flex;align-items:center;justify-content:space-between;gap:35px;padding:60px 0 20px}
+#solve .journey-outro>span{font-size:10px;letter-spacing:.1em;color:var(--j-blue);flex:0 0 150px}
+#solve .journey-outro p{font-family:'Libre Baskerville',Georgia,serif;font-size:clamp(18px,2vw,26px);line-height:1.4;max-width:620px}
+#solve .journey-outro a{font-size:11px;color:#1A1814;text-decoration:none;border-bottom:1px solid;padding-bottom:7px;white-space:nowrap}
+#solve a:focus-visible{outline:3px solid var(--j-blue);outline-offset:4px}
+@media(min-width:1100px){#solve .journey-visual{position:sticky;top:126px;align-self:start}}
+@media(max-width:900px){#solve.journey{padding:62px 28px 28px}#solve .journey-intro-row{grid-template-columns:1fr}#solve .journey-chapter{gap:26px;min-height:0;padding:50px 0}#solve .journey-copy h3{font-size:clamp(25px,3.5vw,34px)}#solve .journey-copy{min-height:0}#solve .journey-progress-name{display:none}#solve .journey-outro{flex-wrap:wrap}}
+@media(max-width:640px){#solve.journey{padding:52px 20px 20px}#solve .journey-intro h2{font-size:clamp(33px,9vw,48px)}#solve .journey-intro{padding-bottom:29px}#solve .journey-progress{top:56px}#solve .journey-chapter{grid-template-columns:1fr;padding:35px 0 46px;gap:23px}#solve .journey-chapter:nth-child(even) .journey-copy,#solve .journey-chapter:nth-child(even) .journey-visual{order:initial}#solve .journey-copy-main{padding:22px 0}#solve .journey-copy h3{font-size:clamp(27px,7vw,35px);margin:13px 0 27px}#solve .journey-solution{font-size:16px}#solve .journey-footer{display:none}#solve .journey-visual{aspect-ratio:5/4;max-height:none}#solve .journey-visual-caption{bottom:17px;left:18px;right:68px}#solve .journey-visual-caption strong{font-size:22px}#solve .journey-visual-arrow{bottom:15px;right:15px}#solve .journey-outro{padding:38px 0 20px;gap:16px}#solve .journey-outro>span{flex-basis:100%}}
+@media(prefers-reduced-motion:reduce){#solve *{scroll-behavior:auto!important;transition:none!important}}
 </style>
 </head>
 <body>
@@ -451,35 +464,127 @@ html.reduce-motion *{animation:none!important}
   </section>
 
 
-  <!-- Problem-led navigation markup; styles and script loaded outside x-dc -->
-  <section id="solve" aria-labelledby="solve-title" data-screen-label="Find your challenge">
-    <div class="solve-top">
-      <div><div class="solve-kicker">EXPLORE BY CHALLENGE / 01</div><h2 id="solve-title">What are you trying to <em>solve?</em></h2></div>
-      <p class="solve-intro">Choose the outcome your team needs. Each path shows my approach and links to the work behind it. Select a card to explore.</p>
-    </div>
-    <div class="solve-panels" aria-label="Explore work by problem">
-      <div class="solve-card" role="button" tabindex="0" aria-expanded="false" data-solve-card="0">
-        <span class="solve-icon" aria-hidden="true">↗</span><span class="solve-vertical">Launch a product</span><span class="solve-num">01</span>
-        <div class="solve-detail"><img src="assets/c484275d.png" alt="" loading="lazy"><span class="solve-shade"></span><div class="solve-content"><span class="solve-tag">PRODUCT STRATEGY</span><h3>From unclear requirements to a confident launch.</h3><p>I connect research, decision-making and user journeys to shape a usable experience from the ground up.</p><div class="solve-proof">CADENCE SHOP · 0–1 PRODUCT EXPERIENCE</div><a class="solve-link" href="CaseCadence.dc.html">SEE THE EVIDENCE <span aria-hidden="true">↗</span></a></div><a class="solve-open" href="CaseCadence.dc.html" aria-label="Read Cadence Shop case study">↗</a></div>
-      </div>
-      <div class="solve-card is-active" role="button" tabindex="0" aria-expanded="true" data-solve-card="1">
-        <span class="solve-icon" aria-hidden="true">⇄</span><span class="solve-vertical">Improve a workflow</span><span class="solve-num">02</span>
-        <div class="solve-detail"><img src="assets/dae4b837.jpg" alt="" loading="lazy"><span class="solve-shade"></span><div class="solve-content"><span class="solve-tag">WORKFLOW DESIGN</span><h3>Remove friction from complicated workflows.</h3><p>I map the steps, identify bottlenecks and simplify the moments where users get stuck.</p><div class="solve-proof">VOLKSWAGEN R · POSTER GALLERY</div><a class="solve-link" href="CasePosterStudio.dc.html">SEE THE EVIDENCE <span aria-hidden="true">↗</span></a></div><a class="solve-open" href="CasePosterStudio.dc.html" aria-label="Read Volkswagen R Poster Gallery case study">↗</a></div>
-      </div>
-      <div class="solve-card" role="button" tabindex="0" aria-expanded="false" data-solve-card="2">
-        <span class="solve-icon" aria-hidden="true">▤</span><span class="solve-vertical">Scale a design system</span><span class="solve-num">03</span>
-        <div class="solve-detail"><img src="assets/c484275d.png" alt="" loading="lazy"><span class="solve-shade"></span><div class="solve-content"><span class="solve-tag">DESIGN OPERATIONS</span><h3>Help teams design consistently at scale.</h3><p>I turn repeating interface decisions into reusable patterns, clearer handoffs and accessible components.</p><div class="solve-proof">CADENCE · CUBOIDS DESIGN SYSTEM</div><a class="solve-link" href="CaseCadence.dc.html">SEE THE EVIDENCE <span aria-hidden="true">↗</span></a></div><a class="solve-open" href="CaseCadence.dc.html" aria-label="Read Cadence design system case study">↗</a></div>
-      </div>
-      <div class="solve-card" role="button" tabindex="0" aria-expanded="false" data-solve-card="3">
-        <span class="solve-icon" aria-hidden="true">✳</span><span class="solve-vertical">Design for AI</span><span class="solve-num">04</span>
-        <div class="solve-detail"><img src="assets/12e1771c.webp" alt="" loading="lazy"><span class="solve-shade"></span><div class="solve-content"><span class="solve-tag">AI-ENABLED WORKFLOWS</span><h3>Reduce manual effort without losing human control.</h3><p>I structure AI-assisted workflows around understandable outputs, review points and reliable handoffs.</p><div class="solve-proof">AI INCIDENT BRIEFING · AUTOMATION PROJECT</div><a class="solve-link" href="CaseIncidentBriefing.dc.html">SEE THE EVIDENCE <span aria-hidden="true">↗</span></a></div><a class="solve-open" href="CaseIncidentBriefing.dc.html" aria-label="Read AI Incident Briefing case study">↗</a></div>
-      </div>
-      <div class="solve-card" role="button" tabindex="0" aria-expanded="false" data-solve-card="4">
-        <span class="solve-icon" aria-hidden="true">✧</span><span class="solve-vertical">Modernize an experience</span><span class="solve-num">05</span>
-        <div class="solve-detail"><img src="assets/c1649f6f.png" alt="" loading="lazy"><span class="solve-shade"></span><div class="solve-content"><span class="solve-tag">EXPERIENCE INNOVATION</span><h3>Modernize experiences for changing needs.</h3><p>I explore emerging interactions, test experience concepts and refine the paths users take.</p><div class="solve-proof">EVODRIVE · EXPERIENCE DESIGN THESIS</div><a class="solve-link" href="CaseEvoDrive.dc.html">SEE THE EVIDENCE <span aria-hidden="true">↗</span></a></div><a class="solve-open" href="CaseEvoDrive.dc.html" aria-label="Read EvoDrive case study">↗</a></div>
+  <!-- Editorial project journey: real cases, one challenge at a time -->
+  <section id="solve" class="journey" aria-labelledby="journey-heading" data-screen-label="Problem-led case studies">
+    <div class="journey-intro">
+      <span class="journey-overline">01 / A CLOSER LOOK</span>
+      <div class="journey-intro-row">
+        <h2 id="journey-heading">Every project starts<br>with a <em>problem.</em></h2>
+        <div><p>Not just screens. The decisions behind them.</p><p>Scroll through five challenges, what I helped solve, and the work that followed.</p><a href="#journey-1" class="journey-start">START EXPLORING <span aria-hidden="true">↓</span></a></div>
       </div>
     </div>
+    <div class="journey-progress" aria-label="Case study chapter navigation">
+      <a href="#journey-1" data-journey-jump="1" aria-label="Go to chapter 1: Cadence Shop"><span>01</span><span class="journey-progress-name">Cadence Shop</span></a>
+      <a href="#journey-2" data-journey-jump="2" aria-label="Go to chapter 2: Volkswagen R Poster Studio"><span>02</span><span class="journey-progress-name">Volkswagen R Poster Studio</span></a>
+      <a href="#journey-3" data-journey-jump="3" aria-label="Go to chapter 3: Cadence Cuboids"><span>03</span><span class="journey-progress-name">Cadence Cuboids</span></a>
+      <a href="#journey-4" data-journey-jump="4" aria-label="Go to chapter 4: AI Incident Briefing"><span>04</span><span class="journey-progress-name">AI Incident Briefing</span></a>
+      <a href="#journey-5" data-journey-jump="5" aria-label="Go to chapter 5: Evo Drive"><span>05</span><span class="journey-progress-name">Evo Drive</span></a>
+    </div>
+    <div class="journey-chapters">
+      <article class="journey-chapter" id="journey-1" data-journey-chapter aria-labelledby="journey-title-1">
+        <div class="journey-copy">
+          <div class="journey-eyebrow"><span>01 / 05</span><span>ECOMMERCE · PRODUCT STRATEGY</span></div>
+          <div class="journey-copy-main">
+            <span class="journey-label">THE CHALLENGE</span>
+            <h3 id="journey-title-1">How do you make complex software subscriptions easier to explore and choose?</h3>
+            <span class="journey-label journey-label-solution">WHAT I HELPED SOLVE</span>
+            <p class="journey-solution">I simplified the journey from product discovery to trial and purchase, bringing business requirements and user needs into a clearer experience.</p>
+            <div class="journey-tags">Product journeys · UX research · Conversion</div>
+            <a class="journey-cta" href="CaseCadence.dc.html" aria-label="Explore Cadence Shop full case study"><span>Explore Cadence Shop</span><span aria-hidden="true">↗</span></a>
+          </div>
+          <div class="journey-footer"><span>Cadence Shop</span><span>SCROLL TO CONTINUE ↓</span></div>
+        </div>
+        <a class="journey-visual" href="CaseCadence.dc.html" aria-label="View Cadence Shop case study">
+          <img src="assets/c484275d.png" alt="Cadence Shop project preview" loading="eager" decoding="async">
+          <span class="journey-visual-shade"></span>
+          <span class="journey-visual-caption"><span>SELECTED PROJECT / 01</span><strong>Cadence Shop</strong></span>
+          <span class="journey-visual-arrow" aria-hidden="true">↗</span>
+        </a>
+      </article>
+      <article class="journey-chapter" id="journey-2" data-journey-chapter aria-labelledby="journey-title-2">
+        <div class="journey-copy">
+          <div class="journey-eyebrow"><span>02 / 05</span><span>AUTOMOTIVE · EXPERIENCE DESIGN</span></div>
+          <div class="journey-copy-main">
+            <span class="journey-label">THE CHALLENGE</span>
+            <h3 id="journey-title-2">How can an experience turn creative inspiration into an effortless action?</h3>
+            <span class="journey-label journey-label-solution">WHAT I HELPED SOLVE</span>
+            <p class="journey-solution">I shaped an intuitive path from discovery to configuration, making the next step clear while preserving the emotional appeal of the R brand.</p>
+            <div class="journey-tags">Journey mapping · Interaction design · Prototyping</div>
+            <a class="journey-cta" href="CasePosterStudio.dc.html" aria-label="Explore Poster Studio full case study"><span>Explore Poster Studio</span><span aria-hidden="true">↗</span></a>
+          </div>
+          <div class="journey-footer"><span>Volkswagen R Poster Studio</span><span>SCROLL TO CONTINUE ↓</span></div>
+        </div>
+        <a class="journey-visual" href="CasePosterStudio.dc.html" aria-label="View Volkswagen R Poster Studio case study">
+          <img src="assets/dae4b837.jpg" alt="Volkswagen R Poster Studio project preview" loading="lazy" decoding="async">
+          <span class="journey-visual-shade"></span>
+          <span class="journey-visual-caption"><span>SELECTED PROJECT / 02</span><strong>Volkswagen R Poster Studio</strong></span>
+          <span class="journey-visual-arrow" aria-hidden="true">↗</span>
+        </a>
+      </article>
+      <article class="journey-chapter" id="journey-3" data-journey-chapter aria-labelledby="journey-title-3">
+        <div class="journey-copy">
+          <div class="journey-eyebrow"><span>03 / 05</span><span>ENTERPRISE · DESIGN SYSTEMS</span></div>
+          <div class="journey-copy-main">
+            <span class="journey-label">THE CHALLENGE</span>
+            <h3 id="journey-title-3">How do you keep a growing digital product consistent across teams?</h3>
+            <span class="journey-label journey-label-solution">WHAT I HELPED SOLVE</span>
+            <p class="journey-solution">I worked on reusable UI patterns, accessibility and component guidance to reduce friction between design decisions and delivery.</p>
+            <div class="journey-tags">Systems thinking · Accessibility · Documentation</div>
+            <a class="journey-cta" href="CaseCadence.dc.html" aria-label="Explore Cuboids full case study"><span>Explore Cuboids</span><span aria-hidden="true">↗</span></a>
+          </div>
+          <div class="journey-footer"><span>Cadence Cuboids</span><span>SCROLL TO CONTINUE ↓</span></div>
+        </div>
+        <a class="journey-visual" href="CaseCadence.dc.html" aria-label="View Cadence Cuboids case study">
+          <img src="assets/6f757304.png" alt="Cadence Cuboids project preview" loading="lazy" decoding="async">
+          <span class="journey-visual-shade"></span>
+          <span class="journey-visual-caption"><span>SELECTED PROJECT / 03</span><strong>Cadence Cuboids</strong></span>
+          <span class="journey-visual-arrow" aria-hidden="true">↗</span>
+        </a>
+      </article>
+      <article class="journey-chapter" id="journey-4" data-journey-chapter aria-labelledby="journey-title-4">
+        <div class="journey-copy">
+          <div class="journey-eyebrow"><span>04 / 05</span><span>AI · OPERATIONAL WORKFLOWS</span></div>
+          <div class="journey-copy-main">
+            <span class="journey-label">THE CHALLENGE</span>
+            <h3 id="journey-title-4">How can AI reduce manual effort without taking control away from people?</h3>
+            <span class="journey-label journey-label-solution">WHAT I HELPED SOLVE</span>
+            <p class="journey-solution">I explored a structured automation workflow that turns incident information into clearer, reviewable briefings and handoffs.</p>
+            <div class="journey-tags">Workflow mapping · Automation prototype · Human review</div>
+            <a class="journey-cta" href="CaseIncidentBriefing.dc.html" aria-label="Explore AI workflow full case study"><span>Explore AI workflow</span><span aria-hidden="true">↗</span></a>
+          </div>
+          <div class="journey-footer"><span>AI Incident Briefing</span><span>SCROLL TO CONTINUE ↓</span></div>
+        </div>
+        <a class="journey-visual" href="CaseIncidentBriefing.dc.html" aria-label="View AI Incident Briefing case study">
+          <img src="assets/12e1771c.webp" alt="AI Incident Briefing project preview" loading="lazy" decoding="async">
+          <span class="journey-visual-shade"></span>
+          <span class="journey-visual-caption"><span>SELECTED PROJECT / 04</span><strong>AI Incident Briefing</strong></span>
+          <span class="journey-visual-arrow" aria-hidden="true">↗</span>
+        </a>
+      </article>
+      <article class="journey-chapter" id="journey-5" data-journey-chapter aria-labelledby="journey-title-5">
+        <div class="journey-copy">
+          <div class="journey-eyebrow"><span>05 / 05</span><span>AUTOMOTIVE HMI · FUTURE EXPERIENCE</span></div>
+          <div class="journey-copy-main">
+            <span class="journey-label">THE CHALLENGE</span>
+            <h3 id="journey-title-5">What if vehicle interfaces could adapt to different driving needs?</h3>
+            <span class="journey-label journey-label-solution">WHAT I HELPED SOLVE</span>
+            <p class="journey-solution">In my master's thesis, I explored personalized EV feedback and adaptive interfaces to support a more understandable driving experience.</p>
+            <div class="journey-tags">HMI · Behavioral UX · Prototyping</div>
+            <a class="journey-cta" href="CaseEvoDrive.dc.html" aria-label="Explore Evo Drive full case study"><span>Explore Evo Drive</span><span aria-hidden="true">↗</span></a>
+          </div>
+          <div class="journey-footer"><span>Evo Drive</span><span>SCROLL TO CONTINUE ↓</span></div>
+        </div>
+        <a class="journey-visual" href="CaseEvoDrive.dc.html" aria-label="View Evo Drive case study">
+          <img src="assets/c1649f6f.png" alt="Evo Drive project preview" loading="lazy" decoding="async">
+          <span class="journey-visual-shade"></span>
+          <span class="journey-visual-caption"><span>SELECTED PROJECT / 05</span><strong>Evo Drive</strong></span>
+          <span class="journey-visual-arrow" aria-hidden="true">↗</span>
+        </a>
+      </article>
+    </div>
+    <div class="journey-outro"><span>THE BIGGER PICTURE</span><p>Different industries. One approach: understand the problem, simplify the system, and design for the people using it.</p><a href="#work">BROWSE ALL PROJECTS <span aria-hidden="true">↘</span></a></div>
   </section>
+
 
   <div style="border-top:1px solid #DBD6CC;border-bottom:1px solid #DBD6CC;overflow:hidden;background:#FBF9F5">
     <div style="display:flex;align-items:center;width:max-content;animation:marqueeX 28s linear infinite">
@@ -504,8 +609,8 @@ html.reduce-motion *{animation:none!important}
     <div data-r="pad" style="max-width:1240px;margin:0 auto;padding:0 40px">
       <div data-reveal="" style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:28px">
         <div>
-          <div style="font-family:'Hanken Grotesk';font-size:11px;letter-spacing:.06em;color:var(--accent,#1F5FE0);margin-bottom:14px">02 / SELECTED WORK</div>
-          <h2 style="font-family:'Hanken Grotesk';font-weight:600;font-size:clamp(30px,4vw,48px);letter-spacing:-.025em;line-height:1.05">Selected work</h2>
+          <div style="font-family:'Hanken Grotesk';font-size:11px;letter-spacing:.06em;color:var(--accent,#1F5FE0);margin-bottom:14px">02 / ALL PROJECTS</div>
+          <h2 style="font-family:'Hanken Grotesk';font-weight:600;font-size:clamp(30px,4vw,48px);letter-spacing:-.025em;line-height:1.05">Project index</h2>
         </div>
         <div style="display:flex;align-items:center;gap:10px"><button data-rail-btn="-1" aria-label="Previous projects" style="width:42px;height:42px;display:flex;align-items:center;justify-content:center;border:1px solid #1A1814;background:transparent;color:#1A1814;font-size:16px;cursor:pointer;transition:background .2s,color .2s,opacity .2s" style-hover="background:#1A1814;color:#F7F4EF">←</button><button data-rail-btn="1" aria-label="Next projects" style="width:42px;height:42px;display:flex;align-items:center;justify-content:center;border:1px solid #1A1814;background:transparent;color:#1A1814;font-size:16px;cursor:pointer;transition:background .2s,color .2s,opacity .2s" style-hover="background:#1A1814;color:#F7F4EF">→</button></div>
       </div>
@@ -918,52 +1023,30 @@ html.reduce-motion *{animation:none!important}
   <dc-import name="Birdie" hint-size="0px,0px"></dc-import>
 </div>
 </x-dc>
-  <script>
-  /* Delegated events survive the asynchronous x-dc custom component render. */
+  <script id="rm-journey-script">
   (function(){
-    if(window.__rmSolveDelegateInstalled)return;
-    window.__rmSolveDelegateInstalled=true;
-    function cardsFor(card){
-      var section=card&&card.closest('#solve');
-      return section?Array.prototype.slice.call(section.querySelectorAll('[data-solve-card]')):[];
+    if(window.__rmJourneyObserver)return;window.__rmJourneyObserver=true;
+    function init(){
+      var root=document.getElementById('solve');if(!root||root.dataset.journeyReady)return;
+      var chapters=Array.prototype.slice.call(root.querySelectorAll('[data-journey-chapter]'));
+      var links=Array.prototype.slice.call(root.querySelectorAll('[data-journey-jump]'));
+      if(!chapters.length)return;
+      root.dataset.journeyReady='true';
+      function setActive(id){links.forEach(function(a){var current=a.getAttribute('href')==='#'+id;a.classList.toggle('is-current',current);if(current)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current');});}
+      if('IntersectionObserver' in window){
+        var obs=new IntersectionObserver(function(entries){var seen=entries.filter(function(e){return e.isIntersecting;}).sort(function(a,b){return b.intersectionRatio-a.intersectionRatio;});if(seen.length)setActive(seen[0].target.id);},{rootMargin:'-22% 0px -40% 0px',threshold:[0,.15,.3,.6]});
+        chapters.forEach(function(el){obs.observe(el);});
+      }else setActive(chapters[0].id);
+      links.forEach(function(a){a.addEventListener('click',function(){setActive(a.getAttribute('href').slice(1));});});
     }
-    function activate(card){
-      cardsFor(card).forEach(function(item){
-        var active=item===card;
-        item.classList.toggle('is-active',active);
-        item.setAttribute('aria-expanded',String(active));
-      });
-    }
-    document.addEventListener('click',function(event){
-      var target=event.target;
-      if(!(target instanceof Element))return;
-      var card=target.closest('#solve [data-solve-card]');
-      if(!card)return;
-      if(target.closest('a'))return;
-      activate(card);
-    },true);
-    document.addEventListener('keydown',function(event){
-      var target=event.target;
-      if(!(target instanceof Element))return;
-      var card=target.closest('#solve [data-solve-card]');
-      if(!card||target!==card)return;
-      if(event.key==='Enter'||event.key===' '){event.preventDefault();activate(card);return;}
-      if(['ArrowRight','ArrowDown','ArrowLeft','ArrowUp'].indexOf(event.key)<0)return;
-      event.preventDefault();
-      var cards=cardsFor(card),index=cards.indexOf(card);
-      var next=cards[(index+((event.key==='ArrowRight'||event.key==='ArrowDown')?1:-1)+cards.length)%cards.length];
-      if(next){activate(next);next.focus();}
-    },true);
-    /* Pointer hover previews on desktop, while click/tap remains the primary control. */
-    document.addEventListener('pointerover',function(event){
-      if(event.pointerType==='touch')return;
-      var target=event.target;
-      if(!(target instanceof Element))return;
-      var card=target.closest('#solve [data-solve-card]');
-      if(card)activate(card);
-    },true);
+    if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);
+    else init();
+    // The custom page renderer can mount after DOMContentLoaded.
+    var observer=new MutationObserver(function(){if(document.getElementById('solve')){init();observer.disconnect();}});
+    observer.observe(document.documentElement,{childList:true,subtree:true});
   })();
   </script>
+
 
 <script type="text/x-dc" data-dc-script="" data-props="{&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#1F5FE0&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#1F5FE0&quot;,&quot;#0E0E0E&quot;,&quot;#C2410C&quot;,&quot;#3F7A34&quot;]},&quot;reduceMotion&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;},&quot;showCoordinates&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;},&quot;carModel&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;vwr&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;mclaren&quot;,&quot;vwr&quot;,&quot;porsche&quot;,&quot;tesla&quot;]}}">
 class Component extends DCLogic {
